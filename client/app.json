@@ -1,8 +1,6 @@
 {
   "pages": [
-    "pages/test/test",
-    "pages/index/index",
-    "pages/addCgi/addCgi",
+    "pages/home/home",
     "pages/breakfastMerc/breakfastMerc"
   ],
   "window": {
@@ -11,24 +9,5 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "Wafer Quick Start",
     "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "color": "#a9b7b7",
-    "selectedColor": "#11cd6e",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/test/test",
-        "text": "下单"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "接单"
-      },
-      {
-        "pagePath": "pages/addCgi/addCgi",
-        "text": "个人中心"
-      }
-    ]
   }
 }
