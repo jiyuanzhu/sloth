@@ -1,0 +1,32 @@
+.swiper{
+  height: 300rpx;
+  width: 750rpx;
+}
+
+swiper{
+  height: 100%;
+}
+
+swiper image{
+  height: 100%;
+  width: 100%;
+}
+
+.modules{
+  text-align: center;
+  /* margin-top: 38rpx; */
+}
+
+.modulesBottom{
+  border: 1px solid black;
+  height: 380rpx;
+  width: 246rpx;
+  display: inline-block;
+}
+
+.modulesBottom image{
+  height: 100rpx;
+  width: 100rpx;
+  margin-top: 120rpx;
+  margin-bottom: 15rpx;
+}

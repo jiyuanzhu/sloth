@@ -1,0 +1,23 @@
+<!-- test.wxml -->
+
+<view class="container">
+    <!-- 懒人帮home页面 -->
+    <view class="swiper">
+        <!-- 轮转广告 -->
+        <swiper autoplay='true' indicator-dots='true' circular='true'>
+            <block wx:for="{{swiperItems}}">
+                <swiper-item>
+                    <image src="{{item.src}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="modules">
+        <navigator class="modulesBottom" url='../breakfastMerc/breakfastMerc' wx:for="{{modules}}">
+            <view>
+              <image src='{{item.src}}'></image>
+            </view>
+            {{item.name}}
+        </navigator>
+    </view>
+</view>
