@@ -3,7 +3,6 @@
 <view class="container">
     <!-- 懒人帮home页面 -->
     <view class="swiper">
-        <!-- 轮转广告 -->
         <swiper autoplay='true' indicator-dots='true' circular='true'>
             <block wx:for="{{swiperItems}}">
                 <swiper-item>
