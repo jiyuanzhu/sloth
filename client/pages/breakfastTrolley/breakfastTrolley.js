@@ -1,4 +1,4 @@
-// client/pages/breakfastMerc/breakfastMerc.js
+// pages/breakfastTrolley/breakfastTrolley.js
 Page({
 
   /**

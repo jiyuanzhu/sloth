@@ -1,0 +1,11 @@
+<template name="trolley">
+    <block wx:for="{{list}}">
+        <view class="shop_list">
+            <view class="shop_address">{{item.shop.addr}}</view>
+            <view class="fee_deliver">配送￥：{{item.shop.deli}}</view>
+            <block wx:for="{{item.food_list}}" wx:for-item="food_list">
+                <view class=""></view>
+            </block>
+        </view>
+    </block>
+</template>

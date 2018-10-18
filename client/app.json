@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/home/home",
-    "pages/breakfastMerc/breakfastMerc"
+    "pages/breakfastMenu/breakfastMemu",
+    "pages/breakfastTrolley/breakfastTrolley",
+    "pages/home/home"
   ],
   "window": {
     "backgroundColor": "#FD6460",
