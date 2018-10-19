@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/breakfastMenu/breakfastMemu",
     "pages/breakfastTrolley/breakfastTrolley",
+    "pages/breakfastMenu/breakfastMemu",
     "pages/home/home"
   ],
   "window": {

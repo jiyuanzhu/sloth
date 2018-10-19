@@ -8,7 +8,6 @@ Page({
     shop:[],
     menu:[],
     selected:0,
-    howMuch:12,//没明白这个参数
     cost:0,
     pullBar:false
   },
@@ -21,6 +20,29 @@ Page({
     this.setData({
       cost: parseFloat((this.data.cost+this.data.menu[this.data.selected].menuContent[e.currentTarget.dataset.index].price).toFixed(2)),
       menu: info,
+    })
+    // 添加缓存，给购物车的信息,这里是简化的逻辑
+    var that = this;
+    var list_item = {};
+    list_item["shop"] = that.data.shop;
+    list_item["food_list"] = [info[that.data.selected].menuContent[e.currentTarget.dataset.index]];
+    // 获得缓存中已添加的购物车商品信息
+    var list = wx.getStorageSync("list")||[];
+    list.push(list_item);
+    wx.setStorage({
+      key:"list",
+      data:list,
+      success:function(res){
+        console.log("list setStorage success");
+      }
+    });
+    // 设置cost
+    wx.setStorage({
+      key:"cost",
+      data: that.data.cost,
+      success:function(res){
+        console.log("cost setStorage success");
+      }
     })
   },
   // 减少商品数量
@@ -59,7 +81,7 @@ Page({
           menu:res.data.menu,
           shop:res.data.shop
         });
-        console.log(res.data)
+        // console.log(res.data)
       }
     })
   },

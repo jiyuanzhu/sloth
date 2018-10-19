@@ -5,14 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list:[],
+    cost:0,
+    sel_all:false
   },
+
+  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    // 载入缓存
+    wx.getStorage({
+      key:"list",
+      success:function(res){
+        that.setData({
+          list:res.data
+        })
+      }
+    });
+    wx.getStorage({
+      key:"cost",
+      success:function(res){
+        that.setData({
+          cost:res.data
+        })
+      }
+    });
   },
 
   /**

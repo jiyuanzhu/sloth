@@ -1,2 +1,5 @@
 <!--pages/breakfastTrolley/breakfastTrolley.wxml-->
-<text>pages/breakfastTrolley/breakfastTrolley.wxml</text>
+<import src="../template/trolley.wxml"/>
+<view class="container" disable-scroll="true">
+    <template is="trolley" data="{{list,cost}}"></template>
+</view>
