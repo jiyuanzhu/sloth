@@ -25,7 +25,12 @@ Page({
     var that = this;
     var list_item = {};
     list_item["shop"] = that.data.shop;
-    list_item["food_list"] = [info[that.data.selected].menuContent[e.currentTarget.dataset.index]];
+    var temlist = [info[that.data.selected].menuContent[e.currentTarget.dataset.index]];
+    for(var i=0;i<temlist.length;i++)
+    {
+      temlist[i].checked=true;
+    }
+    list_item["food_list"] = temlist;
     // 获得缓存中已添加的购物车商品信息
     var list = wx.getStorageSync("list")||[];
     list.push(list_item);

@@ -32,11 +32,11 @@
     <!-- 结算 -->
     <view class="settlement">
         <label class="select_all">
-            <checkbox checked="{{sel_all}}" bind:tap="{{sel_all=!sel_all}}" />全选
+            <checkbox checked="{{sel_all}}" bind:tap="{{sel_all}}" />全选
         </label>
         <view class="cost">合计：￥{{cost}}</view>
         <text class="deli">(含配送费)</text>
-        <button class="settle_btn" disabled="{{cost==0}}" bindtap="settleAll">
+        <button class="settle_btn" disabled="{{cost==0}}" bindtap="settleOrder">
             去结算
         </button>
     </view> 

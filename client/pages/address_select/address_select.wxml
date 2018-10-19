@@ -1,0 +1,15 @@
+<view class="container">
+    <radio-group bindchange="radioChange" class="radio-group" >
+        <label  wx:for="{{cartArr}}">
+            <view class="label">
+            <view class="view">
+            <radio class="radio" value="{{index}}"></radio>
+            <view class="name">{{item.name }}</view>
+            <view class="phone">{{item.phone}}</view>
+            </view>
+            <view class="decom">{{item.decom}}</view>   
+            </view>
+        </label>
+    </radio-group>
+    <navigator url='../address_add/address_add?userId={{userId}}' class="button">新增地址</navigator>
+</view>

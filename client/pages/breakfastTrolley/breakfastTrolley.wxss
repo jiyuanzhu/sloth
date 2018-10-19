@@ -11,11 +11,9 @@ pages/breakfastTrolley/breakfastTrolley.wxss
   box-shadow: 0px 1px 3px #888888;
 }
 
-.shop_address, .fee_deliver{
-  font-weight: bold;
-}
 
 .fee_deliver{
+  font-weight: bold;
   font-size: 80%;
   color: #888888;
 }

@@ -37,11 +37,11 @@
             </view>
         </block>
     </scroll-view>
-    <view class="trolley {{cost!=0?'active':''}}">
+    <navigator url="../breakfastTrolley/breakfastTrolley" class="trolley {{cost!=0?'active':''}}">
         <view class="img" >
             <image src="../../images/breakfastMenu/trolley.png"></image>
         </view>
         <view class="cost" hidden="{{cost==0}}">合计：￥{{cost}}</view>
         <view class="deliver_pay">不含配送费</view>
-    </view>
+    </navigator>
 </template>

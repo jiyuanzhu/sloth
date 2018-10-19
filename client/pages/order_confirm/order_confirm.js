@@ -1,45 +1,53 @@
-// pages/breakfastTrolley/breakfastTrolley.js
+// pages/order_confirm/order_confirm.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[],
-    cost:0,
-    sel_all:true
+    customer:{},
+    selected:0,
+    orders:[],
+    cost:0
   },
-
-  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    // 载入缓存
-    wx.getStorage({
-      key:"list",
-      success:function(res){
-        that.setData({
-          list:res.data
-        })
-      }
-    });
-    wx.getStorage({
-      key:"cost",
-      success:function(res){
-        that.setData({
-          cost:res.data
-        })
-      }
-    });
+// 试着用easy-mock测试
+  var that=this;
+  wx.request({
+    url: "https://www.easy-mock.com/mock/5bbeefa27b8b103aa6c7dd32/example/orders",
+    method: "POST",
+    header:{
+      "content-type":"application/x-www-form-urlencoded"
+    },
+    success: function(res){
+      that.setData({
+        customer:res.data.customer
+      });
+    }
+  });
+  // 从缓存中得到订单信息
+  wx.getStorage({
+    key: 'list',
+    success: function(res) {
+      that.setData({
+        orders:res.data
+      })
+    },
+  });
+  wx.getStorage({
+    key: 'cost',
+    success: function(res) {
+      that.setData({
+        cost:res.data
+      })
+    },
+  });
   },
-  settleOrder:function(e){
-    wx.navigateTo({
-      url: '../order_confirm/order_confirm',
-    });
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

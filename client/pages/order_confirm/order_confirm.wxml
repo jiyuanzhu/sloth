@@ -1,0 +1,52 @@
+<view class="container">
+    <navigator url='../address_select/address_select?userId={{customer.cust_id}}' class="customer">
+        <view class="text1">
+            订单配送至
+        </view>
+        <view class="cust_addr">
+            {{customer.cust_addr[selected]}}
+        </view>
+        <view class="cust_name">
+            {{customer.cust_name}}
+        </view>
+        <view class="cust_phone">
+            {{customer.cust_phone}}
+        </view>
+        <view class="text4">
+            <text>送达时间 早上7:30~8:00（默认）</text>
+        </view>
+    </navigator>
+    <scroll-view bind:scrolltolower="lower" scroll-y="{{true}}">
+        <block wx:for="{{orders}}">
+            <view class="order_info">
+                <view class="shop_name">
+                    {{item.shop.addr}}
+                </view>
+                <view class="foods_info">
+                    <block wx:for="{{item.food_list}}" wx:for-index="food_index" wx:for-item="food_item">
+                        <view class="shop_items">
+                            <image src="{{food_item.src}}"></image>
+                            <!-- <view class="item_info"> -->
+                                <view class="item_name">{{food_item.name}}</view>
+                                <!-- <view class="item_intro">{{food_item.intr}}</view> -->
+                                <view class="item.num">{{food_item.numb}}</view>
+                                <view class="item_price">{{food_item.price}}元</view>
+                            <!-- </view> -->
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </block>
+        <view class="sum_up">
+            <view class="discount">优惠劵<text>无优惠券</text></view>
+            <view class="total_cost">小计：{{cost}}</view>
+        </view>
+        <navigator  url="../order_remark/order_remark" class="remark">订单备注</navigator>
+    </scroll-view>
+    <view class="settlement">
+        <button class="settle_btn">提交订单</button>
+        <view class="all_money">
+            合计：{{cost}}元
+        </view>
+    </view>
+</view>

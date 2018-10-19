@@ -1,0 +1,53 @@
+.container{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #f3f3f3;
+}
+
+.customer{
+  background: white;
+  width: 100%;  
+  background: white;
+  margin-bottom: 20rpx;
+  box-shadow: 0px 1px 3px #888888;
+}
+
+.text1{
+  font-size: 80%;
+  color: #888888;
+}
+
+.cust_addr{
+  font-weight: bold;
+}
+
+.cust_phone,.cust_name{
+  display: inline;
+}
+
+.text4 {
+  margin-top: 5%;
+  font-size: 90%;
+}
+
+.order_info, .sum_up{
+  background: white;
+}
+.foods_info image{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.shop_name{
+  font-weight: bold;
+}
+
+.shop_items{
+  display: flex;
+  justify-content:space-between;
+}
+
+/* .item_info{
+  display: flex;
+} */
