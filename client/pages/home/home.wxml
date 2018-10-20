@@ -12,7 +12,7 @@
         </swiper>
     </view>
     <view class="modules">
-        <navigator class="modulesBottom" url='../breakfastMerc/breakfastMerc' wx:for="{{modules}}">
+        <navigator class="modulesBottom" url='../canteen_select/canteen_select' wx:for="{{modules}}">
             <view>
               <image src='{{item.src}}'></image>
             </view>

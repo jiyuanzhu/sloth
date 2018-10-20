@@ -44,7 +44,7 @@
         <navigator  url="../order_remark/order_remark" class="remark">订单备注</navigator>
     </scroll-view>
     <view class="settlement">
-        <button class="settle_btn">提交订单</button>
+        <button class="settle_btn" bindtap='settleOrder'>提交订单</button>
         <view class="all_money">
             合计：{{cost}}元
         </view>

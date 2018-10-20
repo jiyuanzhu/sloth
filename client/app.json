@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/breakfastMenu/breakfastMemu",
     "pages/order_confirm/order_confirm",
     "pages/address_select/address_select",
@@ -7,7 +8,7 @@
     "pages/order_remark/order_remark",
     "pages/order_list/order_list",
     "pages/breakfastTrolley/breakfastTrolley",
-    "pages/home/home"
+    "pages/canteen_select/canteen_select"
   ],
   "window": {
     "backgroundColor": "#FD6460",
@@ -15,5 +16,24 @@
     "navigationBarBackgroundColor": "#FD6460",
     "navigationBarTitleText": "Wafer Quick Start",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#FD6460",
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "下单",
+      "iconPath": "./images/tabBar/set.png",
+      "selectedIconPath": "./images/tabBar/set_selected.png"
+    },{
+      "pagePath": "pages/home/home",
+      "text": "接单",
+      "iconPath": "./images/tabBar/get.png",
+      "selectedIconPath": "./images/tabBar/set_selected.png"
+    },{
+      "pagePath": "pages/home/home",
+      "text": "我的",
+      "iconPath": "./images/tabBar/profile.png",
+      "selectedIconPath": "./images/tabBar/profile_selected.png"
+    }]
   }
 }

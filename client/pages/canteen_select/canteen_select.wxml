@@ -1,0 +1,18 @@
+<view class="container">
+  <navigator class="module" hover-class="navigator-hover" wx:for="{{modules}}" url="/pages/breakfastMenu/breakfastMemu?canId={{item.id}}">
+    <image class="image" src ='{{item.src}}'></image>
+    <view class="text">
+      <view class="name"> {{item.name}} </view>
+      <view class="cost"> {{item.cost}} </view>
+      <view class="address"> {{item.address}} </view>
+    </view>
+  </navigator>
+  <view class="bottom">
+    <view class="canteen">
+      <image class="image1" src ='5.png'></image>
+    </view>
+    <navigator class="order" hover-class="navigator-hover" url="/pages/order_list/order_list">
+      <image class="image2" src ='6.png'></image>
+    </navigator>
+  </view>
+</view>

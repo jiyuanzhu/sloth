@@ -1,7 +1,7 @@
 <view class="container">
     <form bindsubmit="formSubmit" class="form">
     <view class="remark">  
-        <textarea  bindblur="bindTextAreaBlur" placeholder="请输入备注，最多50字哦~" maxlength="100" class="input" value="{{ceshi}}"/> 
+        <textarea name="remark_info" bindblur="bindTextAreaBlur" placeholder="请输入备注，最多50字哦~" maxlength="100" class="input" value="{{ceshi}}"/> 
         <view class="example">    
             <view>
                 <button class="text" size="mini">

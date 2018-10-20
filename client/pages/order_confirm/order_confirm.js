@@ -48,6 +48,26 @@ Page({
   });
   },
 
+  settleOrder:function(e){
+    console.log("提交订单，向服务器上传订单")
+    var that = this;
+    wx.request({
+      url: '服务器地址',
+      method:"POST",
+      header:{
+        "content-type":"application/x-www-form-urlencoded"
+      },
+      data:{
+        customer: that.data.customer,
+        orders: that.data.orders,
+        cost: that.data.cost
+      }
+    })
+    // wx.navigateTo({
+    //   url: '../order_list/order_list'
+    // })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

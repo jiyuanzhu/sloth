@@ -1,0 +1,71 @@
+.container{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #f3f3f3;
+}
+
+.module{
+  margin-top:5%;
+  height:15%;
+  width: 96%;
+  background-color: white;
+  border: 1px solid #f3f3f3;
+  display:flex;
+}
+
+.image{
+  height: 80%;
+  width: 25%;
+  margin-top: 3%;
+  margin-left: 2%;
+}
+
+.text{
+  margin-left:4%;
+}
+
+.name{
+  margin-top:7%;
+}
+
+.cost{
+  font-size: 70%;
+  margin-top:2%;
+}
+
+.address{
+  margin-top:7%;
+  font-size:80%;
+}
+
+.bottom{
+  width:100%;
+  bottom:0px;
+  height:10%;
+  background-color: white;
+  position: absolute;
+  display:flex;
+}
+
+.image1{
+  width:35%;
+  height:90%;
+  margin-left:30%;
+}
+
+.image2{
+  width:37%;
+  height:90%;
+  margin-left:30%
+}
+
+.canteen{
+  height:100%;
+  width:50%;
+}
+
+.order{
+  height:100%;
+  width:50%;
+}
