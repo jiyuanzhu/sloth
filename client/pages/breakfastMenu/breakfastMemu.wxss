@@ -1,0 +1,176 @@
+/* pages/breakfastMenu/breakfastMemu.wxss */
+
+.container {
+  background: rgb(249, 249, 249);
+  position: absolute;
+  width: 100%;
+}
+
+.header {
+  padding-top: 3%;
+  background: white;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0px 1px 3px #888;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.header image {
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 25rpx;
+  margin-bottom: 12rpx;
+  margin-right: 30rpx;
+  border-radius: 2px;
+}
+
+.each_item {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1.9%;
+}
+
+.text {
+  display: flex;
+}
+
+.fee_deliver {
+  font-size: 70%;
+  padding-top: 3rpx;
+  margin-top: 5rpx;
+}
+
+.shop_address {
+  font-size: 60%;
+  margin-top: 12rpx;
+  color: #707070;
+}
+
+.shop_notice {
+  font-size: 60%;
+  color: #707070;
+}
+
+.shop_sale {
+  font-size: 60%;
+  color: #707070;
+}
+
+.menu_content {
+  /* 写好侧边栏和内容栏后调 */
+  box-shadow: 3px #888;
+  display: flex;
+  margin-top: 15rpx;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.menu_sideBar {
+  text-align: center;
+}
+
+.menu_sideBar .menu {
+  padding-top: 20%;
+  padding-bottom: 20%;
+  font-size: 70%;
+}
+
+.menu_sideBar .selected {
+  background: white;
+}
+
+.item_list {
+  background: white;
+  width: 340%;
+}
+
+.item_list image {
+  width: 160rpx;
+  height: 160rpx;
+  margin-left: 20rpx;
+}
+
+.item_info {
+  display: inline-block;
+  margin-left: 20rpx;
+}
+
+.item_name {
+  font-size: 67%;
+  font-weight:800;
+}
+.item_intr{
+  font-size: 54%;
+  margin: 5rpx;
+  color: #808080;
+}
+.item_gsale{
+  font-size: 54%;  
+  margin: 5rpx;
+  color: #808080;
+}
+.item_info .item_price {
+  color: red;
+  font-size: 70%;
+  font-weight: 600;
+}
+
+.item_numb {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -15%;
+  margin-right: 10%;
+  font-size: 64rpx;
+}
+
+.item_numb .add {
+  color: #fd6460;
+}
+
+.item_numb .remove {
+  color: #b5b5b5;
+}
+
+.item_numb .items_num {
+  font-size: 28rpx;
+  margin-left: 5%;
+  margin-right: 5%;
+  line-height: 96rpx;
+}
+
+.trolley {
+  position: fixed;
+  background: white;
+  left: 18%;
+  bottom: 5%;
+  border: 1rpx solid white;
+  border-top-left-radius: 10%;
+  width: 36%;
+  height: 11%;
+  display: flex;
+}
+
+.trolley image {
+  width: 138rpx;
+  height: 138rpx;
+}
+
+.trolley .img {
+  position: relative;
+  left: -30%;
+}
+
+.trolley .cost {
+  position: relative;
+  font-size: 80%;
+}
+
+.trolley .deliver_pay {
+  position: relative;
+  bottom: -71rpx;
+  left: -75rpx;
+  font-size: 46%;
+}
+

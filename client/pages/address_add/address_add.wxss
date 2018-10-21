@@ -1,0 +1,53 @@
+.container{
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   background-color: #f3f3f3;
+}
+
+.container form{
+  /* height: 100%; */
+  width: 100%;
+}
+
+.body{
+    /* height:10%; */
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+}
+
+.text{
+    padding-top:2%;
+    width: 32%;
+    margin-left:5%;
+}
+
+.nameinput{
+    font-size:80%;
+    padding-left:5%;
+    padding-top:3%;
+    height: 100rpx;
+}
+
+.phoneinput{
+    font-size:80%;
+    padding-left:4%;
+    padding-top:3%;
+    height: 100rpx;
+}
+
+.addrinput{
+    font-size:80%;
+    padding-left:4%;
+    padding-top:3%;
+    height: 100rpx;
+}
+
+button{
+    background-color:#FD6460;
+    font-size:80%;
+    display: inline-block;
+    position: relative;
+    left: 35%;
+}

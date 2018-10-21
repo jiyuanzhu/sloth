@@ -1,0 +1,48 @@
+.container{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #f3f3f3;
+  background-image: url("");
+  background-size: 400px;
+  background-position-x: 5px;
+  background-position-y: -60px;
+}
+
+.swiper{
+  height: 35%;
+  width: 100%;
+}
+
+swiper{
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+swiper image{
+  height: 100%;
+  width: 100%;
+}
+
+.modules{
+  text-align: center;
+
+  height: 66%;
+  background-color: white;
+}
+
+.modulesBottom{
+  border: 1px solid #f3f3f3;
+  border-radius: 4%;
+  height: 50%;
+  width: 32.6%;
+  display: inline-block;
+  color: #888888;
+}
+
+.modulesBottom image{
+  height: 100rpx;
+  width: 100rpx;
+  margin-top: 100rpx;
+  margin-bottom: 15rpx;
+}

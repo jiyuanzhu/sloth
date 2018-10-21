@@ -1,0 +1,18 @@
+<!--pages/breakfastMenu/breakfastMemu.wxml-->
+<import src="../template/orderPage.wxml" />
+<view class="container" disable-scroll="true">
+  <view class="header">
+    <view class='each_item' style="flex-direction:row;">
+      <image src="{{shop.src}}"></image>
+      <view class='text' style="flex-direction:column;">
+        <view class="fee_deliver">起送￥{{shop.deli}} | 配送费￥{{shop.delifee}}</view>
+        <view class="shop_address">{{shop.addr}}</view>
+        <view class="shop_notice">公告：{{shop.notice}}</view>
+        <view class="shop_sale">月销量：{{shop.sale}}单</view>
+      </view>
+    </view>
+  </view>
+  <view class="menu_content">
+    <template is="orderPage" data="{{menu,selected,howMuch,cost,pullBar}}" />
+  </view>
+</view>
