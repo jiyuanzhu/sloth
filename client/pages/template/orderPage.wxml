@@ -1,5 +1,5 @@
 <template name="orderPage">
-  <scroll-view class="menu_sideBar" bind:scrolltolower="lower" scroll-y="true">
+  <scroll-view class="menu_sideBar" bind:scrolltolower="lower" scroll-y="true" >
     <block wx:for="{{menu}}" wx:key="">
       <view class="menu {{index==selected?'selected':''}}" data-index="{{index}}" catchtap="turnMenu">{{item.typeName}}
       </view>
@@ -7,7 +7,7 @@
   </scroll-view>
 
   <!-- 食物列表 -->
-  <scroll-view class="item_list" scroll-y="true" style="height:50%;">
+  <scroll-view class="item_list" scroll-y="true" style="height:100%;">
     <block wx:for="{{menu[selected].menuContent}}" wx:key="">
       <view class="item">
         <image class="img" src="{{item.src}}"></image>
@@ -26,11 +26,5 @@
       </view>
     </block>
   </scroll-view>
-  <navigator url="../breakfastTrolley/breakfastTrolley" class="trolley {{cost!=0?'active':''}}">
-    <view class="img">
-      <image src="../../images/breakfastMenu/trolley.png"></image>
-    </view>
-    <view class="cost" hidden="{{cost==0}}">合计：￥{{cost}}</view>
-    <view class="deliver_pay">不含配送费</view>
-  </navigator>
+
 </template>

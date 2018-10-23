@@ -16,31 +16,32 @@
 }
 
 .image{
-  height: 92%;
-  width: 24%;
+  height: 100%;
+  width: 25%;
   margin-top: 2%;
-  margin-left: 6%;
+  margin-left: 8%;
   border-radius: 2px;
 }
 
 .text{
- margin-left: 6%;
+ margin-left: 7%;
+ margin-top: 2.5%;
 }
 
 .name{
-  margin-top:6%;
-  font-size: 100%;
+  margin-top:10%;
+  font-size: 110%;
 }
 
 .cost{
   color: rgb(72,72,72);
-  font-size: 65%;
-  margin-top:4%;
+  font-size: 70%;
+  margin-top:5%;
 }
 
 .address{
-  margin-top:4%;
-  font-size:70.5%;
+  margin-top:5%;
+  font-size:75.5%;
   font-weight: 90%;
   color: rgb(72,72,72);
 }
@@ -69,5 +70,6 @@
 .eachitem{
   width:100%;
   display: flex;
-  margin-bottom: 1.9%;
+  margin-bottom: 4.9%;
+
 }

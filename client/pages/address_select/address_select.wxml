@@ -1,15 +1,23 @@
 <view class="container">
-    <radio-group bindchange="radioChange" class="radio-group" >
-        <label  wx:for="{{cartArr}}">
-            <view class="label">
-            <view class="view">
-            <radio class="radio" value="{{index}}"></radio>
-            <view class="name">{{item.name }}</view>
-            <view class="phone">{{item.phone}}</view>
-            </view>
-            <view class="decom">{{item.decom}}</view>   
-            </view>
-        </label>
-    </radio-group>
-    <navigator url='../address_add/address_add?userId={{userId}}' class="button">新增地址</navigator>
+  <radio-group bindchange="radioChange" class="radio-group">
+    <label wx:for="{{cartArr}}">
+      <view class='each_row' style="flex-direction:row;">
+        <view class="label" style="flex-direction:column;">
+          <view class="decom">{{item.decom}}</view>
+          <view class="personal_info" style="flex-direction:row;">
+            <view class="name">{{item.name }} </view>
+            <view class="phone"> {{item.phone}}</view>
+          </view>
+        </view>
+        <view>
+          <image class='icon_change' src='./writing.png'></image>
+        </view>
+      </view>
+
+    </label>
+  </radio-group>
+  <view class="button_new_address">
+    <navigator url='../address_add/address_add?userId={{userId}}'>新增地址</navigator>
+  </view>
+
 </view>

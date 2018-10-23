@@ -37,15 +37,15 @@ Page({
                 "src":"../../images/modules/3.jpg"
             },
             {
-                "name":"替身",
+                "name":"代课",
                 "src": "../../images/modules/4.jpg"
             },
             {
-                "name":"传单兼职",
+                "name":"兼职",
                 "src":"../../images/modules/5.jpg"
             },
             {
-                "name":"校园大使",
+                "name":"其他下单",
                 "src":"../../images/modules/6.jpg"
             }
         ]

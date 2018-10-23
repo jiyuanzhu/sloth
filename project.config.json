@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"appid": "wxd35157119a2c1668",
-	"projectname": "sloth111",
+	"projectname": "fgcs",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -66,6 +66,11 @@
 					"name": "店铺选择",
 					"pathName": "pages/canteen_select/canteen_select",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择地址",
+					"pathName": "pages/address_select/address_select"
 				}
 			]
 		}

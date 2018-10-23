@@ -15,4 +15,50 @@
   <view class="menu_content">
     <template is="orderPage" data="{{menu,selected,howMuch,cost,pullBar}}" />
   </view>
+
+
+  <!--旧版购物车-->
+  <!--  
+    <view class='tab_bar' style="flex-direction:row;">
+    <view>
+      <image bindtap='chooseSezi' class='trol' src='1.png'></image>
+    </view>
+
+    <view class='text' style="flex-direction:column;">
+      <view class='food_total_price'>￥{{cost}}</view>
+      <view class='deliver_fee'>另需支付配送费￥1</view>
+    </view>
+    <navigator url="../order_confirm/order_confirm">
+      <view class='commit_btn'>去结算</view>
+    </navigator>
+  </view>
+-->
+
+  <!--购物车详情-->
+  <view class="cart-detail" hidden="{{!showCartDetail||!cart.count}}">
+    <view class="mask" bindtap="hideCartDetail"></view>
+    <view class="list">
+      <view class="item" wx:for="{{cart.list}}" wx:for-index="id" wx:for-item="num" wx:key="id">
+        <view class="name ellipsis">{{goods[id].name}}</view>
+        <view class="total">￥{{goods[id].price*cart.list[id]}}</view>
+        <view class="reduce" data-id="{{id}}" bindtap="tapReduceCart">-</view>
+        <view class="num">{{num}}</view>
+        <view class="add" data-id="{{id}}" bindtap="tapAddCart">+</view>
+      </view>
+    </view>
+  </view>
+  <!--底栏-->
+  <view class="cart">
+    <view class="data" bindtap="showCartDetail">
+      <view class="icon">
+        <image src="1.png"></image>
+        <view class="count">{{cart.count}}</view>
+      </view>
+      <view class="total">￥{{cost}}</view>
+    </view>
+    <navigator url="../order_confirm/order_confirm">
+      <view class='commit_btn'>去结算</view>
+    </navigator>
+  </view>
+
 </view>

@@ -8,7 +8,7 @@ Page({
     var that = this;
     that.userId = options.userId;
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5bbeefa27b8b103aa6c7dd32/example/address',
+      url: 'https://www.easy-mock.com/mock/5bcacf2773057966af1d630b/address',
       header:{
         "content-type": "application/x-www-form-urlencoded"
       },

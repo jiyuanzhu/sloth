@@ -10,44 +10,51 @@
   width: 100%;
 }
 
-.body{
+.text_each_row{
     /* height:10%; */
     width:100%;
     display:flex;
-    justify-content: space-between;
 }
 
 .text{
-    padding-top:2%;
+    padding-top:3%;
     width: 32%;
-    margin-left:5%;
+    margin-left:7%;
 }
 
 .nameinput{
     font-size:80%;
-    padding-left:5%;
-    padding-top:3%;
+    padding-left:4%;
+    padding-top:4%;
     height: 100rpx;
 }
 
 .phoneinput{
     font-size:80%;
     padding-left:4%;
-    padding-top:3%;
+    padding-top:4%;
     height: 100rpx;
 }
 
 .addrinput{
     font-size:80%;
     padding-left:4%;
-    padding-top:3%;
+    padding-top:4%;
     height: 100rpx;
 }
 
 button{
     background-color:#FD6460;
     font-size:80%;
-    display: inline-block;
-    position: relative;
-    left: 35%;
+    text-align: center;
+    border: 0;
+    height: 8%;
+
+}
+
+.new_btn{
+  background-color:#FD6460;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
