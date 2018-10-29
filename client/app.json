@@ -8,8 +8,8 @@
     "pages/order_remark/order_remark",
     "pages/order_list/order_list",
     "pages/breakfastTrolley/breakfastTrolley",
-    "pages/canteen_select/canteen_select"
-    
+    "pages/canteen_select/canteen_select",
+    "pages/address_modify/address_modify"
   ],
   "window": {
     "backgroundColor": "#FD6460",

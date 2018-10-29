@@ -8,7 +8,7 @@
 
   <!-- 食物列表 -->
   <scroll-view class="item_list" scroll-y="true" style="height:100%;">
-    <block wx:for="{{menu[selected].menuContent}}" wx:key="">
+    <block wx:for="{{menu[selected].menuContent}}">
       <view class="item">
         <image class="img" src="{{item.src}}"></image>
         <view class="item_info">

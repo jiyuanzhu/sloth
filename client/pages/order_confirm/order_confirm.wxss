@@ -5,7 +5,13 @@
   background-color: #f3f3f3;
 }
 
+.scroll{
+  width: 100%;
+  height: 66%;
+}
+
 .customer {
+  height:22%;
   background: white;
   background: white;
   margin-top: 2%;
@@ -100,6 +106,57 @@
   height: 100rpx;
 }
 
+.shop{
+  padding-top: 3%;
+  background: white;
+  height: 23%;
+  width: 97%;
+  box-shadow: 0px 1px 3px #888;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+}
+
+.shop image {
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 25rpx;
+  margin-bottom: 12rpx;
+  margin-right: 30rpx;
+  border-radius: 2px;
+}
+
+.each_item {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1.9%;
+}
+
+.text {
+  display: flex;
+}
+
+.fee_deliver {
+  font-size: 70%;
+  padding-top: 3rpx;
+  margin-top: 5rpx;
+}
+
+.shop_address {
+  font-size: 60%;
+  margin-top: 12rpx;
+  color: #707070;
+}
+
+.shop_notice {
+  font-size: 60%;
+  color: #707070;
+}
+
+.shop_sale {
+  font-size: 60%;
+  color: #707070;
+}
+
 .shop_name {
   font-weight: bold;
 }
@@ -134,10 +191,12 @@
   display: flex;
   border-bottom: 1px solid #f3f3f3;
   padding-bottom: 25rpx;
+  height:65%;
 }
 
 .contact_info {
   display: flex;
+  width:80%;
   margin-top: 35rpx;
   margin-left: 15rpx;
 }
@@ -145,6 +204,13 @@
 .cust_addr {
   font-size: 34rpx;
   font-weight: 550;
+  height:70%;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
 }
 
 .cust_name_tel {
@@ -180,6 +246,7 @@
   color: #404040;
   border-radius: 0;
   font-weight: 550;
+  height:8%;
 }
 .remark{
   background-color: white;
@@ -211,6 +278,90 @@
   margin-left: 10rpx;
   margin-top: 5rpx;
 }
+
+.addr{
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+.mask{
+  height:40%;
+  width:100%;
+  background: rgba(0,0,0,0.7);
+}
+
+.addr_list{
+  height:60%;
+  width:100%;
+  background: white;
+}
+
+.addr_head{
+  text-align: center;
+  font-size: 70%;
+  color: #707070;
+  padding-top:2%;
+  padding-bottom: 2%;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.addr_scroll{
+  height:80%;
+}
+
+.label {
+  width: 90%;
+  padding-top: 3%;
+  padding-bottom: 2%;
+  border-bottom: 1px solid #f3f3f3;
+  display: flex;
+}
+
+.personal_info {
+  display: flex;
+  height: 50%;
+}
+
+.radio-group {
+  width: 96%;
+  height: 100%;
+  padding-left: 2%;
+  padding-right:2%;
+}
+.name {
+  font-size: 35rpx;
+}
+
+.phone {
+  margin-left: 15rpx;
+  font-size: 33rpx;
+}
+
+.decom {
+  font-size: 36rpx;
+}
+
+.button_new_address {
+  width: 100%;
+  background-color: #fd6460;
+  height: 8%;
+  text-align: center;
+  line-height: 2.5;
+  margin-top: 3rpx;
+  position: fixed;
+  bottom: 0;
+}
+
+.each_row{
+  display: flex;
+}
+.icon_change{
+  margin-top: 38rpx;
+  height: 40rpx;
+  width: 40rpx;
+}
+
 /* .item_info{
   display: flex;
 } */

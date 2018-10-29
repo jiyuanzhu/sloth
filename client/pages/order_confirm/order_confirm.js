@@ -5,10 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    customer:{},
+    customer:[],
+    shop:{},
     selected:0,
     orders:[],
-    cost:0
+    cost:0,
+    cartArr:[],
+    userId:0,
+    ShowAddrList:false
   },
 
   /**
@@ -18,7 +22,7 @@ Page({
 // 试着用easy-mock测试
   var that=this;
   wx.request({
-    url: "https://www.easy-mock.com/mock/5bbeefa27b8b103aa6c7dd32/example/orders",
+    url: "https://www.easy-mock.com/mock/5bd41561d55d2a78f7e22ddf/example/upload_address",
     method: "POST",
     header:{
       "content-type":"application/x-www-form-urlencoded"
@@ -30,6 +34,14 @@ Page({
     }
   });
   // 从缓存中得到订单信息
+  wx.getStorage({
+    key: 'shop',
+    success: function(res) {
+      that.setData({
+        shop:res.data
+      })
+    },
+  });
   wx.getStorage({
     key: 'list',
     success: function(res) {
@@ -45,7 +57,7 @@ Page({
         cost:res.data
       })
     },
-  });
+  }); 
   },
 
   settleOrder:function(e){
@@ -63,11 +75,47 @@ Page({
         cost: that.data.cost
       }
     })
-    // wx.navigateTo({
-    //   url: '../order_list/order_list'
-    // })
+    wx.showToast({  
+      title: '成功',  
+      icon: 'success',  
+      duration: 2000  
+    })  
+    setTimeout(function (e) {
+      wx.navigateTo({
+        url: '../order_list/order_list'
+     })
+     }, 2000)
+  },
+  ShowAddrList: function (e) {
+    this.setData({
+      ShowAddrList: !this.data.ShowAddrList
+    });
+  },
+  
+  HideAddrList: function (e) {
+    this.setData({
+      ShowAddrList: false
+    });
   },
 
+  radioChange: function(e){
+    this.setData({
+      ShowAddrList: false
+    });
+  },
+
+  addrchange: function(e){
+    this.setData({
+      ShowAddrList: false,
+      selected:e.currentTarget.dataset.id
+    });
+  },
+
+  addrModify: function(e){
+    wx.navigateTo({
+      url: '../address_modify/address_modify'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
