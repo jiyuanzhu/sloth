@@ -9,7 +9,8 @@
     "pages/order_list/order_list",
     "pages/breakfastTrolley/breakfastTrolley",
     "pages/canteen_select/canteen_select",
-    "pages/address_modify/address_modify"
+    "pages/address_modify/address_modify",
+    "pages/address_alter/address_alter"
   ],
   "window": {
     "backgroundColor": "#FD6460",

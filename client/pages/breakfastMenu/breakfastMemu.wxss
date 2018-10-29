@@ -243,11 +243,18 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
-.cart_detail .delete_all {
+
+.delete_all{
+  width: 100%;
+  background-color: rgb(240, 240, 240);
   position: relative;
-  top: 57%;
+  top: 51%;
   z-index: 2;
-  left: 74%;
+  margin-bottom: 15rpx;
+  padding: 15rpx 0;
+  padding-left: 70%;
+  font-size: 33rpx;
+  color: rgb(108, 108, 108);
 }
 
 .cart_detail .list {
@@ -255,10 +262,11 @@
   left: 0;
   bottom: 100rpx;
   width: 100%;
-  height: 30%;
+  height: 36%;
   /* max-height: 30%; */
   background: #f7f7f7;
-  padding: 30rpx 0;
+  padding: 15rpx 0 0 0;
+  margin-top: 10rpx;
 }
 
 .cart_detail .list .cart_item {
@@ -266,7 +274,7 @@
   color: #333;
   font-size: 36rpx;
   line-height: 50rpx;
-  padding: 20rpx 40rpx;
+  padding: 28rpx 40rpx;
   border-bottom: 1px #dbdbdb solid;
 }
 
@@ -274,8 +282,9 @@
   -webkit-flex: 1;
 }
 
+
 .cart_detail .list .cart_item .cart_item_total {
-  width: 120rpx;
+  width: 180rpx;
 }
 
 .cart_detail .list .cart_item .reduce, .cart_detail .list .cart_item .add {
@@ -285,12 +294,17 @@
   height: 50rpx;
   text-align: center;
   border-radius: 50%;
+  margin-bottom: 2rpx;
 }
 
 .cart_detail .list .item .num {
   width: 50rpx;
   text-align: center;
   margin: 0 5rpx;
+  background-color: rgb(254, 254, 254);
+}
+.num{
+  margin: 0 15rpx;
 }
 
 .cart {
@@ -365,4 +379,10 @@
   width: 100%;
   background-color: #aaa9a9;
   margin-bottom: 15rpx;
+}
+
+.del_icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 8rpx;
 }

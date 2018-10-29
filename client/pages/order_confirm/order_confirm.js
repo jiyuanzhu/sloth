@@ -37,7 +37,8 @@ Page({
   wx.getStorage({
     key: 'shop',
     success: function(res) {
-      that.setData({
+      console.log(res);
+      this.setData({
         shop:res.data
       })
     },
@@ -45,7 +46,8 @@ Page({
   wx.getStorage({
     key: 'list',
     success: function(res) {
-      that.setData({
+      console.log(res);
+      this.setData({
         orders:res.data
       })
     },
@@ -53,11 +55,12 @@ Page({
   wx.getStorage({
     key: 'cost',
     success: function(res) {
-      that.setData({
+      this.setData({
         cost:res.data
       })
     },
   }); 
+  console.log(this.data.orders);
   },
 
   settleOrder:function(e){
@@ -113,7 +116,7 @@ Page({
 
   addrModify: function(e){
     wx.navigateTo({
-      url: '../address_modify/address_modify'
+      url: '../address_alter/address_alter'
     })
   },
   /**

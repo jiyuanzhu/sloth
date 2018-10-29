@@ -171,7 +171,7 @@ Page({
       key: "list",
       data: cart,
       success: function (res) {
-        console.log("list setStorage success");
+        // console.log("list setStorage success");
       }
     });
     // 设置cost,其实不传也可以的，看基基怎么要数据
@@ -179,14 +179,14 @@ Page({
       key: "cost",
       data: that.data.cost,
       success: function (res) {
-        console.log("cost setStorage success");
+        // console.log("cost setStorage success");
       }
     });
     wx.setStorage({
       key: "shop",
       data: shop,
       success: function (res) {
-        console.log("shop setStorage success");
+        // console.log("shop setStorage success");
       }
     });
   },

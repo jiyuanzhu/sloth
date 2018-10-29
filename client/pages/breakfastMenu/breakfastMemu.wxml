@@ -19,7 +19,7 @@
   <!--购物车详情-->
   <view class="cart_detail" hidden="{{!tapCart||cost==0}}">
     <view class="mask" bindtap="hideCartDetail"></view>
-    <view class='delete_all' bindtap='deleteAllFromCart'>清空购物车</view>
+    <view class='delete_all' bindtap='deleteAllFromCart'><image src='./delete.png' class='del_icon'></image> 清空购物车</view>
     <scroll-view class="list" scroll-y="{{true}}">
       <view wx:for="{{menu}}" wx:for-item="one" wx:for-index="typeIndex">
         <block wx:for="{{one.menuContent}}" data-id="{{item.foodId}}">

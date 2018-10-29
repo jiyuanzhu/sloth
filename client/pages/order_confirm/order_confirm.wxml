@@ -26,14 +26,14 @@
             <view class="shop_name"><!--{{shop.name}}-->二饭一楼</view>
             <view class="fee_deliver">起送￥<!--{{shop.deli}}-->10 | 配送费￥<!--{{shop.delifee}}-->5</view>
             <view class="shop_address"><!--{{shop.addr}}--></view>
-            <view class="shop_notice">公告：<!--{{shop.notice}}-->张柯帆最帅</view>
-            <view class="shop_sale">月销量：<!--{{shop.sale}}-->500单</view>
+            <view class="shop_notice">公告：<!--{{shop.notice}}--></view>
+            <view class="shop_sale">月销量：<!--{{shop.sale}}--></view>
         </view>
       </view>
     </view>
-    <block wx:for="{{orders}}">
+    <!-- <block wx:for="{{orders}}"> -->
       <view class="foods_info">
-        <block wx:for="{{item.food_list}}" wx:for-index="food_index" wx:for-item="food_item">
+        <block wx:for="{{orders}}" wx:for-index="foodID" wx:for-item="food_item">
           <view class="order_info">
             <view class="shop_items" style="flex-direction:row;">
               <image class='item_img' src="{{food_item.src}}"></image>
@@ -49,7 +49,7 @@
           </view>
         </block>
       </view>
-    </block>
+    <!-- </block> -->
     <view class="sum_up" style="flex-direction:column;">
       <view class="row_text" style="flex-direction:row;">
         <view class='text_left'>包装费</view>

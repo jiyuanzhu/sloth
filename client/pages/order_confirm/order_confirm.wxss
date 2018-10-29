@@ -190,8 +190,7 @@
 .default_address {
   display: flex;
   border-bottom: 1px solid #f3f3f3;
-  padding-bottom: 25rpx;
-  height:65%;
+  height:60%;
 }
 
 .contact_info {
@@ -204,7 +203,6 @@
 .cust_addr {
   font-size: 34rpx;
   font-weight: 550;
-  height:70%;
   display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
