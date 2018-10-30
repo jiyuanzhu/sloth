@@ -54,7 +54,7 @@ Page({
       })
 
       wx.redirectTo({
-        url: '../address_select/address_select?userId=' + that.userId
+        url: '../order_confirm/order_confirm'
       })
     }
 

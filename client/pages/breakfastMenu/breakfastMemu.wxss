@@ -51,27 +51,30 @@
 }
 
 .shop_address {
-  font-size: 60%;
-  margin-top: 12rpx;
+  font-size: 62%;
+  margin-top: 10rpx;
   color: #707070;
   /* 控制变成省略号 */
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  line-height: 32rpx;
 }
 
 .shop_notice {
-  font-size: 60%;
+  font-size: 62%;
   color: #707070;
   /* 控制变成省略号 */
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  line-height: 32rpx;
 }
 
 .shop_sale {
-  font-size: 60%;
+  font-size: 62%;
   color: #707070;
+  line-height: 32rpx;
 }
 
 .menu_content {
@@ -80,7 +83,7 @@
   display: flex;
   margin-top: 15rpx;
   width: 100%;
-  height: 74%;
+  height: 74.5%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -116,25 +119,25 @@
 }
 
 .item_name {
-  font-size: 67%;
+  font-size: 80%;
   font-weight: 800;
 }
 
 .item_intr {
-  font-size: 54%;
+  font-size: 65%;
   margin: 5rpx;
   color: #808080;
 }
 
 .item_gsale {
-  font-size: 54%;
+  font-size: 65%;
   margin: 5rpx;
   color: #808080;
 }
 
 .item_info .item_price {
   color: red;
-  font-size: 70%;
+  font-size: 80%;
   font-weight: 600;
 }
 
@@ -143,7 +146,7 @@
   justify-content: flex-end;
   margin-top: -15%;
   margin-right: 10%;
-  font-size: 64rpx;
+  font-size: 68rpx;
 }
 
 .item_numb .add {
