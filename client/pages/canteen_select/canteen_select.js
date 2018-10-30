@@ -1,3 +1,7 @@
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
+
 Page({
   data: {
     modules: []
@@ -5,14 +9,14 @@ Page({
   onLoad: function (options) {
     var that=this;
     wx.request({
-      url: "https://www.easy-mock.com/mock/5bcacf2773057966af1d630b/shopMenu",
+      url: config.service.canteen_selectUrl,
       method: "GET",
-      header:{
-        "content-type":"application/json"
+      header: {
+        "content-type": "application/json"
       },
       success: function(res){
         that.setData({
-          modules:res.data.modules
+          modules:res.data.data
         });
         console.log(res.data)
       }

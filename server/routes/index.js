@@ -2,7 +2,7 @@
  * ajax 服务路由集合
  */
 const router = require('koa-router')({
-    prefix: '/weapp'
+  prefix: '/weapp'
 })
 const controllers = require('../controllers')
 
@@ -31,5 +31,16 @@ router.post('/tunnel', controllers.tunnel.post)
 router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
+
+// 测试接口
+router.get('/hello', controllers.hello)
+
+// 测试接口
+router.get('/canteen_select', controllers.canteen_select)
+router.get('/breakfastMemu', controllers.breakfastMemu)
+router.get('/mysql', controllers.mysql)
+router.get('/addAddress', controllers.addAddress)
+router.get('/address_select', controllers.address_select)
+router.get('/settleOrder', controllers.settleOrder)
 
 module.exports = router

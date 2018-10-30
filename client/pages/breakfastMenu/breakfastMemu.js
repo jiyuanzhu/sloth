@@ -1,3 +1,7 @@
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
+
 // pages/breakfastMenu/breakfastMemu.js
 Page({
 
@@ -10,7 +14,9 @@ Page({
     selected: 0,
     cost: 0,
     total_item_numb: 0,
-    tapCart: false
+    tapCart: false,
+    id: 0,
+    shop_id: 0
   }, 
 
   // 自定义的函数
@@ -171,7 +177,7 @@ Page({
       key: "list",
       data: cart,
       success: function (res) {
-        // console.log("list setStorage success");
+        console.log("list setStorage success");
       }
     });
     // 设置cost,其实不传也可以的，看基基怎么要数据
@@ -179,14 +185,21 @@ Page({
       key: "cost",
       data: that.data.cost,
       success: function (res) {
-        // console.log("cost setStorage success");
+        console.log("cost setStorage success");
       }
     });
     wx.setStorage({
       key: "shop",
       data: shop,
       success: function (res) {
-        // console.log("shop setStorage success");
+        console.log("shop setStorage success");
+      }
+    });
+    wx.setStorage({
+      key: "id",
+      data: that.data.shop_id,
+      success: function (res) {
+        console.log("id setStorage success");
       }
     });
   },
@@ -198,19 +211,17 @@ Page({
     var that = this;
     // 用店铺id去get数据
     wx.request({
-      url: "https://easy-mock.com/mock/5bbeefa27b8b103aa6c7dd32/example/breakfast",
+      url: config.service.breakfastMemuUrl + "?id=" + options.canId,
       method: "GET",
       header: {
         "content-type": "application/json"
       },
-      data:{
-        shopId:options.canId
-      },
       success: function (res) {
         console.log(res)
         that.setData({
-          menu: res.data.menu,
-          shop: res.data.shop
+          menu: res.data.data.menu,
+          shop: res.data.data.shop,
+          shop_id: options.canId
         });
         // console.log(res.data)
       }
