@@ -10,8 +10,7 @@
     "pages/breakfastTrolley/breakfastTrolley",
     "pages/canteen_select/canteen_select",
     "pages/address_modify/address_modify",
-    "pages/address_alter/address_alter",
-    "pages/My/My"
+    "pages/address_alter/address_alter"
   ],
   "window": {
     "backgroundColor": "#FD6460",
@@ -33,7 +32,7 @@
       "iconPath": "./images/tabBar/get.png",
       "selectedIconPath": "./images/tabBar/set_selected.png"
     },{
-      "pagePath": "pages/My/My",
+      "pagePath": "pages/home/home",
       "text": "我的",
       "iconPath": "./images/tabBar/profile.png",
       "selectedIconPath": "./images/tabBar/profile_selected.png"
