@@ -50,7 +50,8 @@
       <view class="total">￥{{cost}}</view>
     </view>
     <navigator url="../order_confirm/order_confirm" bind:tap="submit">
-      <view class='commit_btn'>去结算</view>
+      <view class='commit_btn' wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" >去结算</view>
+      <view class='commit_btn' wx:else>去结算</view>
     </navigator>
   </view>
 
