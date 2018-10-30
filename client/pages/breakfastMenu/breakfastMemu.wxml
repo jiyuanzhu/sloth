@@ -49,8 +49,10 @@
       </view>
       <view class="total">￥{{cost}}</view>
     </view>
+     <!--这里想实现：如果没有登录的话，在“去结算”这个入口会提示登录...但是还没写出来55-->
     <navigator url="../order_confirm/order_confirm" bind:tap="submit">
-      <view class='commit_btn'>去结算</view>
+      <view class='commit_btn' wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" >去结算</view>
+      <view class='commit_btn' wx:else>去结算</view>
     </navigator>
   </view>
 
