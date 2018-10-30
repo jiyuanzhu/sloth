@@ -1,18 +1,20 @@
 <view class="container">
-  <navigator class="module" hover-class="navigator-hover" wx:for="{{modules}}" url="/pages/breakfastMenu/breakfastMemu?canId={{item.id}}">
-    <image class="image" src ='{{item.src}}'></image>
-    <view class="text">
-      <view class="name"> {{item.name}} </view>
-      <view class="cost"> {{item.cost}} </view>
-      <view class="address"> {{item.address}} </view>
+  <scroll-view scroll-y style="height:100%;">
+    <view>
+      <navigator class="module" hover-class="navigator-hover" wx:for="{{modules}}" url="/pages/breakfastMenu/breakfastMemu?canId={{item.id}}">
+        <view class='eachitem' style="flex-direction:row;">
+          <image class="image" src='{{item.src}}'></image>
+          <view class="text">
+            <view class="name"> {{item.name}} </view>
+            <view class="cost"> {{item.cost}} 元起送| 配送￥{{item.delivery_fee}}元</view>
+            <view class="address"> {{item.address}} </view>
+          </view>
+        </view>
+      </navigator>
     </view>
-  </navigator>
-  <view class="bottom">
-    <view class="canteen">
-      <image class="image1" src ='5.png'></image>
-    </view>
-    <navigator class="order" hover-class="navigator-hover" url="/pages/order_list/order_list">
-      <image class="image2" src ='6.png'></image>
-    </navigator>
-  </view>
+  </scroll-view>
+
+
+
+
 </view>

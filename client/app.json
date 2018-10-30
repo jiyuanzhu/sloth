@@ -8,7 +8,10 @@
     "pages/order_remark/order_remark",
     "pages/order_list/order_list",
     "pages/breakfastTrolley/breakfastTrolley",
-    "pages/canteen_select/canteen_select"
+    "pages/canteen_select/canteen_select",
+    "pages/address_modify/address_modify",
+    "pages/address_alter/address_alter",
+    "pages/My/My"
   ],
   "window": {
     "backgroundColor": "#FD6460",
@@ -19,21 +22,25 @@
   },
   "tabBar": {
     "selectedColor": "#FD6460",
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "下单",
-      "iconPath": "./images/tabBar/set.png",
-      "selectedIconPath": "./images/tabBar/set_selected.png"
-    },{
-      "pagePath": "pages/home/home",
-      "text": "接单",
-      "iconPath": "./images/tabBar/get.png",
-      "selectedIconPath": "./images/tabBar/set_selected.png"
-    },{
-      "pagePath": "pages/home/home",
-      "text": "我的",
-      "iconPath": "./images/tabBar/profile.png",
-      "selectedIconPath": "./images/tabBar/profile_selected.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "下单",
+        "iconPath": "./images/tabBar/set.png",
+        "selectedIconPath": "./images/tabBar/set_selected.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "接单",
+        "iconPath": "./images/tabBar/get.png",
+        "selectedIconPath": "./images/tabBar/set_selected.png"
+      },
+      {
+        "pagePath": "pages/My/My",
+        "text": "我的",
+        "iconPath": "./images/tabBar/profile.png",
+        "selectedIconPath": "./images/tabBar/profile_selected.png"
+      }
+    ]
   }
 }

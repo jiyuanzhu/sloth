@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"appid": "wxd35157119a2c1668",
-	"projectname": "sloth",
+	"projectname": "uuuuii",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -64,7 +64,25 @@
 				{
 					"id": -1,
 					"name": "店铺选择",
-					"pathName": "pages/canteen_select/canteen_select"
+					"pathName": "pages/canteen_select/canteen_select",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择地址",
+					"pathName": "pages/address_select/address_select",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改地址",
+					"pathName": "pages/address_modify/address_modify",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/My/My"
 				}
 			]
 		}

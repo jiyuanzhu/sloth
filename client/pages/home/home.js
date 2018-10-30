@@ -11,42 +11,42 @@ Page({
                 "swiperId":"1"
             },
             {
-                "src":"../../images/swipers/sw2.jpg",
+              "src":"../../images/swipers/sw2.jpg",
                 "swiperId":"2"
             },
             {
-                "src":"../../images/swipers/sw3.jpg",
+              "src":"../../images/swipers/sw3.jpg",
                 "swiperId":"3"
             },
             {
-                "src":"../../images/swipers/sw4.jpg",
+              "src":"../../images/swipers/sw4.jpg",
                 "swiperId":"4"
             },
         ],
         modules:[
             {
                 "name":"代买早餐",
-                "src":"../../images/modules/1.jpg"
+                "src":"../../images/modules/1.png"
             },
             {
                 "name":"代拿快递",
-                "src":"../../images/modules/2.jpg"
+                "src":"../../images/modules/2.png"
             },
             {
                 "name":"跑腿",
-                "src":"../../images/modules/3.jpg"
+                "src":"../../images/modules/3.png"
             },
             {
-                "name":"替身",
-                "src": "../../images/modules/4.jpg"
+                "name":"代课",
+                "src": "../../images/modules/4.png"
             },
             {
-                "name":"传单兼职",
-                "src":"../../images/modules/5.jpg"
+                "name":"兼职",
+                "src":"../../images/modules/5.png"
             },
             {
-                "name":"校园大使",
-                "src":"../../images/modules/6.jpg"
+                "name":"其他下单",
+                "src":"../../images/modules/6.png"
             }
         ]
     }
