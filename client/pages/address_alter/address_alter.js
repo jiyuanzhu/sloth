@@ -2,18 +2,23 @@ Page({
   data: {
     height: 20,
     focus: false,
-    userId: 0,
     cartArr: [],
+    cust_id: 0,
+    cust_addr: [],
+    cust_name: [],
+    cust_phone: [],
   },
   onLoad: function (options) {
-    console.log("The userId is: ", options.userId);
+    console.log("The userId is: ", options.cust_id);
     var that = this;
     var flag = false;
     flag = options.flag;
-    that.userId = options.userId;
+    that.cust_id = options.cust_id;
     that.setData({
-      userId: options.userId,
-      cartArr: options.cartArr
+      cust_id: options.cust_id,
+      cust_addr: options.cust_addr,
+      cust_name: options.cust_name,
+      cust_phone: options.cust_phone,
     })
   },
 
@@ -41,12 +46,9 @@ Page({
         },
         method: "POST",
         data: {
-          userId: that.userId,
-          carArr: [{
             cust_name: e.detail.value.namearea,
             cust_phone: e.detail.value.phonearea,
             cust_addr: e.detail.value.addressarea
-          }]
         },
         success(res) {
           console.log(res.data)
