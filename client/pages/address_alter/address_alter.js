@@ -5,7 +5,6 @@ Page({
     userId: 0,
     cartArr: [],
   },
-
   onLoad: function (options) {
     console.log("The userId is: ", options.userId);
     var that = this;

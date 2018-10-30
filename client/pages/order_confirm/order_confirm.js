@@ -47,7 +47,7 @@ Page({
     key: 'list',
     success: function(res) {
       console.log(res);
-      this.setData({
+      that.setData({
         orders:res.data
       })
     },
@@ -55,12 +55,11 @@ Page({
   wx.getStorage({
     key: 'cost',
     success: function(res) {
-      this.setData({
+      that.setData({
         cost:res.data
       })
     },
   }); 
-  console.log(this.data.orders);
   },
 
   settleOrder:function(e){
