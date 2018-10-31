@@ -6,7 +6,7 @@
           <image class="image" src='{{item.src}}'></image>
           <view class="text">
             <view class="name"> {{item.name}} </view>
-            <view class="cost"> {{item.cost}} 元起送| 配送￥{{item.delivery_fee}}元</view>
+            <view class="cost"> 配送费￥{{item.delivery_fee}} | ￥{{item.cost}}起送</view>
             <view class="address"> {{item.address}} </view>
           </view>
         </view>

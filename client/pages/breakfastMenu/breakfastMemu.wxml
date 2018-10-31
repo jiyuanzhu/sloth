@@ -8,7 +8,7 @@
         <view class="fee_deliver">起送￥{{shop.deli}} | 配送费￥{{shop.delifee}}</view>
         <view class="shop_address">{{shop.addr}}</view>
         <view class="shop_notice">公告：{{shop.notice}}</view>
-        <view class="shop_sale">月销量：{{shop.sale}}单</view>
+        <view class="shop_sale">月销量：     单</view>
       </view>
     </view>
   </view>

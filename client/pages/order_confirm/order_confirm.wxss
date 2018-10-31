@@ -48,7 +48,7 @@
 
 .item_text {
   display: flex;
-  width: 68%;
+  width: 69%;
 }
 
 .item_name {
@@ -83,7 +83,7 @@
   display: flex;
   width: 100%;
   margin-top: 5rpx;
-  margin-left: 25rpx;
+  margin-left: 40rpx;
 }
 .text_left{
   font-size: 30rpx;
@@ -95,13 +95,16 @@
   margin-right: 50rpx;
 }
 .text_right1{
-  margin-left: 70%;
+  margin-left: 74%;
   font-size: 30rpx;
   margin-right: 50rpx;
 }
 .foods_info image {
   width: 100rpx;
   height: 100rpx;
+  margin-top: 10rpx;
+  border-radius: 3rpx;
+  margin-right: 15rpx;
 }
 
 .shop{
@@ -252,11 +255,11 @@
   box-shadow: 0px 1px 3px #888;
   margin-left: 1.5%;
   margin-right: 1.5%;
-  padding: 13rpx 0;
+  padding: 18rpx 0;
   display: flex;
 }
 .remark_detail{
-  margin-left: 23rpx;
+  margin-left: 40rpx;
   font-size: 30rpx;
 }
 .remark_suggest{
