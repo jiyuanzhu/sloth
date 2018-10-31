@@ -5,7 +5,7 @@ module.exports = async ctx => {
   var res = await mysql("catalog_good").where({ shop_id }).select("good_catalog").distinct()
   var num = res.length
   var shop = await mysql("shop").where({ shop_id })
-  var str = "{\"id\":" + shop_id + ",\"shop\":{\"src\":\"../../images/breakfastMenu/shop.png\",\"deli\":" + shop[0].shipping_fee + ",\"delifee\":" + shop[0].mini_delivery_fee + ",\"addr\":\"广州大学城华南理工大学\",\"notice\": \"每天凌晨三点前都可以下单亲\",\"sale\": 5427},"
+  var str = "{\"id\":" + shop_id + ",\"shop\":{\"src\":\"../../images/breakfastMenu/shop.png\",\"deli\":" + shop[0].mini_delivery_fee + ",\"delifee\":" + shop[0].shipping_fee + ",\"addr\":\"广州大学城华南理工大学\",\"notice\": \"每天凌晨三点前都可以下单亲\",\"sale\": 5427},"
   for(var i=0;i<num;i++){
     if(i==0)
       str += "\"menu\":[{"

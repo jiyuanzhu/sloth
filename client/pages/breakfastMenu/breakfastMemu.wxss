@@ -1,7 +1,7 @@
 /* pages/breakfastMenu/breakfastMemu.wxss */
 
 .container {
-  background: rgb(249, 249, 249);
+  background: rgb(244, 244, 244);
   position: absolute;
   width: 100%;
   height: 100%;
@@ -17,15 +17,6 @@
   border-bottom-right-radius: 2px;
 }
 
-.header image {
-  width: 150rpx;
-  height: 150rpx;
-  margin-left: 25rpx;
-  margin-bottom: 12rpx;
-  margin-right: 30rpx;
-  border-radius: 2px;
-}
-
 .each_item {
   width: 100%;
   display: flex;
@@ -36,12 +27,12 @@
 .text {
   display: flex;
   flex-direction: column;
-  max-width: 50%;
+  max-width: 70%;
   margin-left: 15rpx;
 }
 
 .fee_deliver {
-  font-size: 70%;
+  font-size: 80%;
   padding-top: 3rpx;
   margin-top: 5rpx;
   /* 控制变成省略号 */
@@ -51,7 +42,7 @@
 }
 
 .shop_address {
-  font-size: 62%;
+  font-size: 70%;
   margin-top: 10rpx;
   color: #707070;
   /* 控制变成省略号 */
@@ -59,6 +50,7 @@
   overflow: hidden;
   white-space: nowrap;
   line-height: 32rpx;
+  
 }
 
 .shop_notice {
@@ -69,6 +61,7 @@
   overflow: hidden;
   white-space: nowrap;
   line-height: 32rpx;
+  display: flex;
 }
 
 .shop_sale {
@@ -95,7 +88,7 @@
 .menu_sideBar .menu {
   padding-top: 20%;
   padding-bottom: 20%;
-  font-size: 70%;
+  font-size: 75%;
 }
 
 .menu_sideBar .selected {
@@ -105,47 +98,43 @@
 .item_list {
   background: white;
   width: 340%;
+  padding-top: 15rpx;
 }
 
 .item_list image {
   width: 150rpx;
   height: 150rpx;
   margin-left: 20rpx;
-  margin-top:5rpx;
   border-radius: 3rpx;
 }
 
 .item_info {
   display: inline-block;
   margin-left: 20rpx;
-  padding-bottom: 5rpx;
-  padding-top:5rpx;
 }
 
 .item_name {
-  font-size: 80%;
+  font-size: 95%;
   font-weight: 800;
 }
 
 .item_intr {
-  font-size: 65%;
-  margin: 4rpx;
+  font-size: 75%;
   color: #808080;
 }
 
 .item_gsale {
-  font-size: 65%;
-  margin: 4rpx;
+  font-size: 75%;
   color: #808080;
 }
 
 .item_info .item_price {
   color: red;
-  font-size: 80%;
+  font-size: 90%;
   font-weight: 600;
 }
 .item_price {
-  margin-bottom: 10rpx;
+  margin-bottom: 5rpx;
 }
 
 .item_numb {
@@ -165,10 +154,11 @@
 }
 
 .item_numb .items_num {
-  font-size: 28rpx;
+  font-size: 30rpx;
   margin-left: 5%;
   margin-right: 5%;
   line-height: 96rpx;
+  margin-top: 6rpx;
 }
 
 .trolley {
@@ -396,4 +386,23 @@
   width: 100%;
   height: 40%;
   margin-left: 0；
+}
+.notice_icon{
+  width: 32rpx;
+  height: 38rpx;
+}
+
+.shop_img{
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 25rpx;
+  margin-bottom: 12rpx;
+  margin-right: 30rpx;
+  border-radius: 2px;
+}
+.notice_text{
+  color: #50A4E1;
+  font-size: 120%;
+  font-weight: 600;
+  margin-top: 6rpx;
 }

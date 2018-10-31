@@ -3,12 +3,15 @@
 <view class="container" disable-scroll="true">
   <view class="header">
     <view class='each_item'>
-      <image src="{{shop.src}}"></image>
+      <image src="{{shop.src}}" class='shop_img'></image>
       <view class='text'>
         <view class="fee_deliver">起送￥{{shop.deli}} | 配送费￥{{shop.delifee}}</view>
         <view class="shop_address">{{shop.addr}}</view>
-        <view class="shop_notice">公告：{{shop.notice}}</view>
-        <view class="shop_sale">月销量：     单</view>
+        <view class="shop_sale">. </view>
+        <view class="shop_notice" style='flex-direction:row;'>
+          <image src='./speaker.png' class='notice_icon'></image>
+          <view class='notice_text'>【公告】{{shop.notice}}</view>
+        </view>
       </view>
     </view>
   </view>
@@ -49,9 +52,9 @@
       </view>
       <view class="total">￥{{cost}}</view>
     </view>
-     <!--这里想实现：如果没有登录的话，在“去结算”这个入口会提示登录...但是还没写出来55-->
+    <!--这里想实现：如果没有登录的话，在“去结算”这个入口会提示登录...但是还没写出来55-->
     <navigator url="../order_confirm/order_confirm" bind:tap="submit">
-      <view class='commit_btn' wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" >去结算</view>
+      <view class='commit_btn' wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">去结算</view>
       <view class='commit_btn' wx:else>去结算</view>
     </navigator>
   </view>

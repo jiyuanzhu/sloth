@@ -4,7 +4,7 @@ module.exports = async ctx => {
   var name = ctx.request.query.cust_name
   var phone = ctx.request.query.cust_phone
   var addr = ctx.request.query.cust_addr
-  var id = 1
+  var id = ctx.request.query.user_id
   var person = {
     user_id : id,
     user_name :  name,

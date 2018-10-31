@@ -10,7 +10,7 @@ Page({
   formSubmit: function (e) {
     console.log(e)
     wx.request({
-      url: config.service.addAddressUrl + "?cust_name=" + e.detail.value.namearea + "&cust_phone=" + e.detail.value.phonearea + "&cust_addr=" + e.detail.value.addressarea,
+      url: config.service.addAddressUrl + "?cust_name=" + e.detail.value.namearea + "&cust_phone=" + e.detail.value.phonearea + "&cust_addr=" + e.detail.value.addressarea +"&user_id=1",
       method: "GET",
       header: {
         "content-type": "application/x-wwww-form-urlencoded"

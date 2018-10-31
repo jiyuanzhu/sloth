@@ -64,7 +64,7 @@ Page({
       },
     });
     wx.request({
-      url: config.service.address_selectUrl + "?id=1",
+      url: config.service.address_selectUrl + "?user_id=1",
       method: "GET",
       header: {
         "content-type": "application/x-www-form-urlencoded"
@@ -84,7 +84,7 @@ Page({
     var that = this;
     console.log(that.data.orders);
     wx.request({
-      url: config.service.settleOrderUrl + "?orders=" + JSON.stringify(that.data.orders) + "&shop_id=" + that.data.shop_id + "&cost=" + that.data.cost,
+      url: config.service.settleOrderUrl + "?orders=" + JSON.stringify(that.data.orders) + "&shop_id=" + that.data.shop_id + "&cost=" + that.data.cost +"&user_id=1",
       method: "GET",
       header: {
         "content-type": "application/x-www-form-urlencoded"

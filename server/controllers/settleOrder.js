@@ -6,7 +6,7 @@ module.exports = async ctx => {
   var shop_id = ctx.request.query.shop_id
   var state = 1
 
-  var user_id = 1
+  var user_id = ctx.request.query.user_id
   var date = new Date()
   var year = date.getFullYear()
   var month = date.getMonth() + 1
