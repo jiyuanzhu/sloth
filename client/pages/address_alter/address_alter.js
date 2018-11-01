@@ -2,14 +2,13 @@ Page({
   data: {
     height: 20,
     focus: false,
-    cartArr: [],
     cust_id: 0,
     cust_addr: [],
     cust_name: [],
     cust_phone: [],
   },
   onLoad: function (options) {
-    console.log("The userId is: ", options.cust_id);
+    console.log("The cust_id is: ", options.cust_id);
     var that = this;
     var flag = false;
     flag = options.flag;
