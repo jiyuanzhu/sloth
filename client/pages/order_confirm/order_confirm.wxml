@@ -91,7 +91,7 @@
                     </view>
                     <view>
                       <navigator url='../address_alter/address_alter?cust_id={{item.cust_id}}&cust_addr={{item.cust_addr}}&cust_name={{item.cust_name}}&cust_phone={{item.cust_phone}}'>
-                        <image class='icon_change' src='./writing.png'></image>
+                        <image class='icon_change' src='./writing.png' data-id='{{index}}'></image>
                       </navigator>
                     </view>
                   </view>
