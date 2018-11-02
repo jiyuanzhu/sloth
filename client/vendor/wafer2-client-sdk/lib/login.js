@@ -93,6 +93,15 @@ function login (opts) {
                 // 成功地响应会话信息
                 Session.set(res)
                 opts.success(res.userinfo)
+                 wx.setStorage({
+                      key: 'userinfo',
+                      data:data.data.userinfo,
+                      success: function(res) {console.log("set ok")},
+                      fail: function(res) {},
+                      complete: function(res) {},
+                    })
+                console.log("会经过这里吗")
+                
             },
             fail (err) {
                 console.error('登录失败，可能是网络错误或者服务器发生异常')
@@ -134,8 +143,18 @@ function loginWithCode (opts) {
                 url: opts.loginUrl,
                 header: header,
                 method: opts.method,
+
                 success (result) {
                     const data = result.data;
+                    //console.log("这里是："+data.data.userinfo.openId);
+            
+                    wx.setStorage({
+                      key: 'userinfo',
+                      data:data.data.userinfo,
+                      success: function(res) {console.log("set ok")},
+                      fail: function(res) {},
+                      complete: function(res) {},
+                    })
     
                     if (!data || data.code !== 0 || !data.data || !data.data.skey) {
                         return opts.fail(new Error(`用户未登录过，请先使用 login() 登录`))

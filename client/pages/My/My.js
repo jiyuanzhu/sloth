@@ -84,8 +84,10 @@ Page({
       wx.request(options)
     }
   },
-  //退出还不能用
   logout: function () {
+    wx.clearStorage();
+    this.setData({userInfo:{},logged:false});
+    this.onLoad();
 
   },
 
@@ -93,24 +95,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    const session = qcloud.Session.get()
-
-    if (session) {
-      // 第二次登录
-      // 或者本地已经有登录态
-      // 可使用本函数更新登录态
-      qcloud.loginWithCode({
-        success: res => {
-          this.setData({ userInfo: res, logged: true })
-          // util.showSuccess('登录成功')
-        },
-        fail: err => {
-          console.error(err)
-         // util.showModel('登录错误', err.message)
-        }
-      })
-    } 
+    var that=this;
+    wx.getStorage({
+      key: 'userinfo',
+      success: function(res) {
+        that.setData({userInfo:res.data,logged:true})
+      },
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

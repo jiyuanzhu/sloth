@@ -224,11 +224,17 @@
   position: fixed;
   right: 0;
   background-color: #fd6460;
-  padding: 29rpx 45rpx;
+  padding-right: 40rpx;
+  padding-top:9rpx; 
   color: #404040;
-  font-size: 30rpx;
-  font-weight: 600;
+  text-align: center;
   height: 100%;
+  font-weight: 550;
+  width: 20%;
+}
+
+.commit_btn button::after{
+  border: none
 }
 
 .cart_detail, .cart_detail .mask {

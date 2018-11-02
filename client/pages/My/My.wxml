@@ -22,5 +22,5 @@
 </view>
 
 <view class="logout">
-  <button class="logout-btn" wx:if="{{logged}}" bindtap='logout'>退出登录(还未实现)</button>
+  <button class="logout-btn" wx:if="{{logged}}" bindtap='logout'>退出登录</button>
 </view>
