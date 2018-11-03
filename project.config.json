@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -76,7 +76,14 @@
 				{
 					"id": -1,
 					"name": "修改地址",
-					"pathName": "pages/address_modify/address_modify"
+					"pathName": "pages/address_modify/address_modify",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/My/My",
+					"query": ""
 				}
 			]
 		}

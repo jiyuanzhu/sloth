@@ -1,24 +1,25 @@
 <!--client/pages/logintest/logintest.wxml-->
 <view class="container">
+
   <view class="userinfo">
-    <image class="userinfo-avatar" src="{{logged ? userInfo.avatarUrl : './user-unlogin2.jpg'}}" background-size="cover"></image>
+    <view>
+      <image class="userinfo-avatar" src="{{logged ? userInfo.avatarUrl : './user-unlogin2.jpg'}}" background-size="cover"></image>
+    </view>
+
     <view>
       <button class="userinfo-nickname" wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">登录</button>
-      <text class="userinfo-nickname" wx:else>{{userInfo.nickName}}</text>
+      <view class="userinfo-nickname1" wx:else>{{userInfo.nickName}}</view>
     </view>
   </view>
-  
+
   <view class="order">
-    <view class='order-List' >我的订单</view>
+    <view class='my_order-List'>我的订单</view>
   </view>
 
-  <view class='address'>
-    <view class='address-List'>我的地址</view>
+  <view class='take_order'>
+    <view class='my_take_order-List'>我的接单</view>
   </view>
 
-  <view class='help'>
-    <view class='help-List'>帮助</view>
-  </view>
 </view>
 
 <view class="logout">

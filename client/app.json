@@ -11,7 +11,9 @@
     "pages/canteen_select/canteen_select",
     "pages/address_modify/address_modify",
     "pages/address_alter/address_alter",
-    "pages/My/My"
+    "pages/My/My",
+    "pages/take_order_home/take_order_home",
+    "pages/productList/productList"
   ],
   "window": {
     "backgroundColor": "#FD6460",
@@ -28,7 +30,7 @@
       "iconPath": "./images/tabBar/set.png",
       "selectedIconPath": "./images/tabBar/set_selected.png"
     },{
-      "pagePath": "pages/home/home",
+      "pagePath": "pages/take_order_home/take_order_home",
       "text": "接单",
       "iconPath": "./images/tabBar/get.png",
       "selectedIconPath": "./images/tabBar/set_selected.png"
