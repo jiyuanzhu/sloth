@@ -66,18 +66,24 @@
       </navigator> -->
     </view>
   </scroll-view> 
+
   <view class="bottom">
     <view class="bottom_sum">合计 ¥{{cost+shop.delifee}}</view>
     <navigator class="bottom_submit" bindtap='settleOrder'>提交订单</navigator>
   </view>
   <view class="addr" hidden="{{!ShowAddrList}}">
       <view class="mask" bindtap="HideAddrList"></view>
+
       <view class="addr_list">
+
         <view class="addr_head">选择送达地址</view>
+
         <scroll-view bind:scrolltolower="lower" scroll-y="{{true}}" class="addr_scroll">
             <view class="radio-group">
                 <view wx:for="{{customer}}">
+
                   <view class='each_row' style="flex-direction:row;">
+                  
                     <view  bindtap="addrchange" data-id="{{item.addr_id}}"  class="label" style="flex-direction:column;">
                       <view class="decom">{{item.cust_addr}}</view>
                       <view class="personal_info" style="flex-direction:row;">
@@ -94,6 +100,8 @@
                 </view>
               </view>
         </scroll-view>
+
+
         <view class="button_new_address">
             <navigator url='../address_add/address_add?userId={{userId}}'>新增地址</navigator>
         </view>

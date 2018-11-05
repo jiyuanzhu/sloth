@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20rpx;
-  width: 33.33%;
+  width: 50%;
   height: 80rpx;
   border-top: 1rpx solid #ddd;
   border-bottom: 1rpx solid #ddd;
@@ -66,7 +66,7 @@
 
 .chioce-list-show {
   top: 80rpx;
-  animation: slide 500ms;
+  animation: slide 50ms;
 }
 
 @keyframes slide {
@@ -86,7 +86,7 @@
 /*区域位置*/
 
 .district-list {
-  display: flex;
+  /* display: flex; */
 }
 
 .district-left {
