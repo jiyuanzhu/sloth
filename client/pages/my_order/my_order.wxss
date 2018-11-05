@@ -1,0 +1,52 @@
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tablist {
+  display: flex;
+  background: #FD6460;
+
+  padding: 10pt 60pt 10pt 60pt;
+}
+
+.tablist .item {
+  flex: auto;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    font-size: 9pt;
+    color: white;
+    background-color: #FD6460;
+   
+   
+}
+
+.tablist .item::after
+{
+  border: none;
+}
+
+.tablist .item.select {
+    background-color: white;
+    color: black;
+}
+
+.tablist .item.select::after {
+    content: "";
+    height: 3rpx;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background:white;
+}
+
+.content{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -100,7 +100,20 @@
 				{
 					"id": -1,
 					"name": "提交成功",
-					"pathName": "pages/order_list/order_list"
+					"pathName": "pages/order_list/order_list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的接单",
+					"pathName": "pages/my_take_order/my_take_order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的下单",
+					"pathName": "pages/my_order/my_order",
+					"query": ""
 				}
 			]
 		}

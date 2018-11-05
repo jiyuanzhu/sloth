@@ -1,0 +1,7 @@
+<view class='tablist'>
+  <button wx:for="{{tabList}}" class='item {{current==index?"select":""}}' data-pos='{{index}}' bindtap='tabItemClick'>
+    <text>{{item}}</text>
+  </button>
+</view>
+
+<view class='content'><text>这儿什么也没有~</text></view>

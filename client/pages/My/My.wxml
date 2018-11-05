@@ -13,11 +13,15 @@
   </view>
 
   <view class="order">
-    <view class='my_order-List'>我的订单</view>
+  <navigator url='../my_order/my_order'>
+    <view class='my_order-List'>我的下单</view>
+  </navigator>
   </view>
 
   <view class='take_order'>
+  <navigator url='../my_takeorder/my_takeorder'>
     <view class='my_take_order-List'>我的接单</view>
+  </navigator>
   </view>
 
 </view>

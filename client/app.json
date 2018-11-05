@@ -13,7 +13,9 @@
     "pages/address_alter/address_alter",
     "pages/My/My",
     "pages/take_order_home/take_order_home",
-    "pages/productList/productList"
+    "pages/productList/productList",
+    "pages/my_order/my_order",
+    "pages/my_take_order/my_take_order"
   ],
   "window": {
     "backgroundColor": "#FD6460",
@@ -24,21 +26,25 @@
   },
   "tabBar": {
     "selectedColor": "#FD6460",
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "下单",
-      "iconPath": "./images/tabBar/set.png",
-      "selectedIconPath": "./images/tabBar/set_selected.png"
-    },{
-      "pagePath": "pages/take_order_home/take_order_home",
-      "text": "接单",
-      "iconPath": "./images/tabBar/get.png",
-      "selectedIconPath": "./images/tabBar/set_selected.png"
-    },{
-      "pagePath": "pages/My/My",
-      "text": "我的",
-      "iconPath": "./images/tabBar/profile.png",
-      "selectedIconPath": "./images/tabBar/profile_selected.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "下单",
+        "iconPath": "./images/tabBar/set.png",
+        "selectedIconPath": "./images/tabBar/set_selected.png"
+      },
+      {
+        "pagePath": "pages/take_order_home/take_order_home",
+        "text": "接单",
+        "iconPath": "./images/tabBar/get.png",
+        "selectedIconPath": "./images/tabBar/set_selected.png"
+      },
+      {
+        "pagePath": "pages/My/My",
+        "text": "我的",
+        "iconPath": "./images/tabBar/profile.png",
+        "selectedIconPath": "./images/tabBar/profile_selected.png"
+      }
+    ]
   }
 }
