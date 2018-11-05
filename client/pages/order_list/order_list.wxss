@@ -60,3 +60,11 @@
   padding-top:10%;
   color: #C0C0C0;
 }
+
+.click_btn{
+  background-color: #000000;
+  color: white;
+  width: 250rpx;
+  text-align: center;
+  margin: 30rpx 250rpx;
+}

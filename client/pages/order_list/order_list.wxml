@@ -1,4 +1,4 @@
-<view class="container">
+<!-- <view class="container">
     <view class="body" wx:for="{{list}}">
     <view class="list">     
         <view>
@@ -28,4 +28,11 @@
     <view class="last">
         没有更多订单啦~
     </view>
-</view>
+</view> -->
+
+
+<view>订单提交成功</view>
+
+<navigator url='../canteen_select/canteen_select'>
+  <view class='click_btn'>点击返回首页</view>
+</navigator>

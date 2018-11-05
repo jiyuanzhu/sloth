@@ -22,14 +22,7 @@
     <view class="body">
       <view class="shop">
         <view class='each_item' style="flex-direction:row;">
-          <image src="{{shop.src}}"></image>
-          <view class='text' style="flex-direction:column;">
-              <view class="shop_name">{{shop.name}}</view>
-              <view class="fee_deliver">起送￥{{shop.deli}}10 | 配送费￥{{shop.delifee}}5</view>
-              <view class="shop_address">{{shop.addr}}</view>
-              <view class="shop_notice">公告: {{shop.notice}}</view>
-              <view class="shop_sale">月销量：{{shop.sale}}</view>
-          </view>
+            <view class="shop_name">华南理工大学第二食堂{{shop.name}}</view>
         </view>
       </view>
       <!-- <block wx:for="{{orders}}"> -->
@@ -64,13 +57,13 @@
           <view class='text_right1'>小计 ¥{{cost+shop.delifee}}</view>
         </view>
       </view>
-      <navigator url="../order_remark/order_remark"  class='remark' style="flex-direction:row;">
+      <!-- <navigator url="../order_remark/order_remark"  class='remark' style="flex-direction:row;">
         <view class="remark_detail">备注</view>
         <view class='remark_suggest' style="flex-direction:row;">
           <view class='remark_suggest_text'>{{remark}}</view>
           <image class='arrow_icon1' src='./right-arrow.png'></image>
         </view>
-      </navigator>
+      </navigator> -->
     </view>
   </scroll-view> 
   <view class="bottom">

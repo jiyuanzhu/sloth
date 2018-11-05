@@ -20,7 +20,7 @@ Page({
     cust_addr:'',
     cust_name:'',
     cust_phone:'',
-    remark : "口味偏好等要求",
+    // remark : "口味偏好等要求",
     ShowAddrList: false,
     i:0,
     j:0,
@@ -67,13 +67,13 @@ Page({
         console.log(res)
         that.setData({
           shop_id: res.data,
-          remark:options.remark
+          // remark:options.remark
         })
       },
     });
-    that.setData({
-      remark:options.remark,
-    });
+    // that.setData({
+    //   remark:options.remark,
+    // });
     wx.request({
       url: config.service.address_selectUrl + "?user_id=1",
       method: "GET",

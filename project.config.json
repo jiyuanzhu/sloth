@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -94,7 +94,13 @@
 				{
 					"id": -1,
 					"name": "接单-早餐",
-					"pathName": "pages/productList/productList"
+					"pathName": "pages/productList/productList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提交成功",
+					"pathName": "pages/order_list/order_list"
 				}
 			]
 		}
