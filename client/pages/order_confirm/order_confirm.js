@@ -15,7 +15,7 @@ Page({
     orders: [],
     cost: 0,
     cartArr: [],
-    userId: 0,
+    userId:0,
     shop_id: 0,
     cust_addr:'',
     cust_name:'',
@@ -42,6 +42,29 @@ Page({
         that.setData({
           shop: res.data
         })
+      },
+    });
+    wx.getStorage({
+      key: 'userinfo',
+      success: function (res) {
+        console.log("读入userinfo")
+        console.log(res)
+        that.setData({
+          userId: res.data.openId
+        }),
+        wx.request({
+          url: config.service.address_selectUrl + "?user_id=" + that.data.userId,
+          method: "GET",
+          header: {
+            "content-type": "application/x-www-form-urlencoded"
+          },
+          success: function (res) {
+            console.log(res);
+            that.setData({
+              customer: res.data.data
+            });
+          }
+        });
       },
     });
     wx.getStorage({
@@ -74,19 +97,6 @@ Page({
     // that.setData({
     //   remark:options.remark,
     // });
-    wx.request({
-      url: config.service.address_selectUrl + "?user_id=1",
-      method: "GET",
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        console.log(res);
-        that.setData({
-          customer: res.data.data
-        });
-      }
-    });
     for(var i=0;i<this.data.customer.length;i++){
       if(customer[i].default_id==1){
         that.setData({
@@ -96,26 +106,21 @@ Page({
     }
 
   },
-
+  
 
   settleOrder: function (e) {
     console.log("提交订单，向服务器上传订单")
     var that = this;
     console.log(that.data.orders);
     wx.request({
-      url: config.service.settleOrderUrl + "?orders=" + JSON.stringify(that.data.orders) + "&shop_id=" + that.data.shop_id + "&cost=" + that.data.cost +"&user_id=1",
+      url: config.service.settleOrderUrl + "?orders=" + JSON.stringify(that.data.orders) + "&shop_id=" + that.data.shop_id + "&cost=" + that.data.cost + "&user_id=" + that.data.userId,
       method: "GET",
       header: {
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
         console.log(res.data)
-      }/*
-      data:{
-        customer: that.data.customer,
-        orders: that.data.orders,
-        cost: that.data.cost
-      }*/
+      }
     })
     wx.showToast({
       title: '成功',
@@ -128,6 +133,7 @@ Page({
       })
     }, 2000)
   },
+
   ShowAddrList: function (e) {
     this.setData({
       ShowAddrList: !this.data.ShowAddrList

@@ -1,6 +1,9 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
 
 Page({
   data: {
@@ -40,43 +43,23 @@ Page({
         "url": "../canteen_select/canteen_select"
       }
     ],
-    order:[
-      {
-        "order_type":"早餐",
-        "order_shop_address":"华工二饭三楼肠粉",
-        "order_deli_fee":"1",
-        "order_total_item": "1",
-        "order_good_name": "瘦肉肠粉",
-        "order_good_num": "1",
-        "order_address": "C8",
-        "order_deli_time": "明早7:00-8:00送达",
-        "order_time": "2018.10.29",
-        "order_sum": "8"
+    order:[]
+  },
+  onLoad: function (options) {
+    var that = this;
+    wx.request({
+      url: config.service.take_order_homeUrl,
+      method: "GET",
+      header: {
+        "content-type": "application/json"
       },
-      {
-        "order_type": "早餐",
-        "order_shop_address": "华工二饭三楼肠粉",
-        "order_deli_fee": "1",
-        "order_total_item": "1",
-        "order_good_name": "瘦肉肠粉",
-        "order_good_num": "1",
-        "order_address": "C8",
-        "order_deli_time": "明早7:00-8:00送达",
-        "order_time": "2018.10.29",
-        "order_sum": "8"
-      },
-      {
-        "order_type": "早餐",
-        "order_shop_address": "华工二饭三楼肠粉",
-        "order_deli_fee": "1",
-        "order_total_item": "1",
-        "order_good_name": "瘦肉肠粉",
-        "order_good_num": "1",
-        "order_address": "C8",
-        "order_deli_time": "明早7:00-8:00送达",
-        "order_time": "2018.10.29",
-        "order_sum": "8"
+      success: function (res) {
+        that.setData({
+          order: res.data.data.data
+        });
+        console.log(res.data)
       }
-    ]
-  }
+    })
+  },
 })
+

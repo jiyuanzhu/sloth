@@ -36,7 +36,15 @@ var config = {
     address_selectUrl: `${host}/weapp/address_select`,
 
     //提交订单
-    settleOrderUrl: `${host}/weapp/settleOrder`
+    settleOrderUrl: `${host}/weapp/settleOrder`,
+    order_confirmUrl: `${host}/weapp/order_confirm`,
+
+    //修改地址信息
+    changeAddressUrl: `${host}/weapp/changeAddress`,
+
+    //接受订单
+    take_order_homeUrl: `${host}/weapp/take_order_home`
+
   }
 };
 

@@ -1,8 +1,11 @@
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
 Page({
   data: {
     height: 20,
     focus: false,
-    cust_id: 0,
+    cust_id: 0,    
     cust_addr: [],
     cust_name: [],
     cust_phone: [],
@@ -39,23 +42,30 @@ Page({
       flag = true
       //提交给mock
       wx.request({
-        url: 'https://www.easy-mock.com/mock/5bd1b21a5e38a677f659a8b9/example/newAddress',
+        url: config.service.changeAddressUrl + "?user_id=" + this.data.cust_id+"&prename=" + this.data.cust_name + "&prephone=" + this.data.cust_phone + "&preaddr=" + this.data.cust_addr + "&name=" + e.detail.value.namearea + "&phone=" + e.detail.value.phonearea + "&addr=" + e.detail.value.addressarea,
         header: {
           "content-type": "application/x-www-form-urlencoded"
         },
-        method: "POST",
+        method: "GET",/*
         data: {
             cust_name: e.detail.value.namearea,
             cust_phone: e.detail.value.phonearea,
             cust_addr: e.detail.value.addressarea
-        },
+        },*/
         success(res) {
-          console.log(res.data)
+          console.log("debug")
+          console.log(res)
+          wx.showToast({
+            title: '修改地址成功',
+            icon: 'success',
+            duration: 2000
+          })
+          setTimeout(function (e) {
+            wx.navigateTo({
+              url: '../order_confirm/order_confirm'
+            })
+          }, 2000)
         }
-      })
-
-      wx.redirectTo({
-        url: '../order_confirm/order_confirm'
       })
     }
 
