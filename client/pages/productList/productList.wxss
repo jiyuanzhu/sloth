@@ -219,113 +219,86 @@
 .order_recommand{
   background-color: white;
   width: 100%;
-  border-top-right-radius: 20rpx;
-  border-top-left-radius: 20rpx;
-  box-shadow: 0px 1px 3px #888;
   padding-bottom: 2%;
 }
-.order_recommand_header{
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  width: 66%;
-  padding-top: 20rpx;
-  padding-bottom: 5rpx;
-}
-.divLine{
-  background: #272B33;
-  height: 1pt;
-  width: 140rpx;
-  margin-top: 28rpx;
-}
-.order_recommand_header_icon{
-  height: 14pt;
-  width: 14pt;
-  margin-left: 4pt;
-  margin-top: 10rpx;
-}
-.order_recommand_header_text{
-  font-size: 14pt;
-  margin-left: 5rpx;
-  margin-right: 3pt;
-  margin-bottom: 1%;
-}
+
 
 .order_recommand_each_item{
   border-bottom: 1px solid #d6d6d6;
-  padding-bottom: 15rpx;
-  padding-top: 15rpx;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  padding-left: 10rpx;
   }
-
-  .row_1{
-    display: flex;
-}
 
 .row_1{
   display: flex;
   margin-left: 4%;
-  margin-bottom: 20rpx;
+  margin-bottom: 15rpx;
 }
 .order_type{
   color: #FFB203;
   border: 1px solid #FFB203;
   border-radius: 5rpx;
-  font-size: 12pt;
-  padding: 2.5rpx 10rpx;
+  font-size: 32rpx;
+  padding: 0 5rpx;
 }
 .shop_address{
-  font-size: 16pt;
+  font-size: 37rpx;
   margin-left: 20rpx;
-  width: 70%;
+  width: 72%;
+  font-weight: 600;
 }
 .deli_fee{
-  font-size: 16pt;
+  font-size: 37rpx;
   color: #FD645F;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .content_each_row{
   display: flex;
   margin-left: 5%;
-  margin-bottom: 10rpx;
+  margin-bottom: 5rpx;
+}
+.last_row{
+  display: flex;
+  width: 82%;
 }
 .content_icon{
   width: 13pt;
   height: 13.5pt;
-  margin-top: 12rpx;
+  margin-top: 5rpx;
   margin-left: 5rpx;
   margin-right: 5rpx;
+  padding: 0 5rpx;
 }
 .row_text_title{
-  font-size: 14pt;
+  font-size: 28rpx;
   color: #888888;
   margin-left: 10rpx;
 }
 .row_text_content{
-  font-size: 14pt;
+  font-size: 28rpx;
   color: #272A33;
 }
 
 .row_text_content2{
-  font-size: 12pt;
+  font-size: 25rpx;
   color: #888888;
   margin-left: 55rpx;
 }
 .row_text_content3{
-  font-size: 12pt;
+  font-size: 25rpx;
   color: #888888;
 }
 .row_text_content4{
-  font-size: 12pt;
+  font-size: 25rpx;
   color: #888888;
   margin-left: 25rpx; 
 }
 .take_order_btn{
   color: white;
   background-color: #FD6460;
-  font-size: 14pt;
-  margin-left:40rpx;
+  font-size: 32rpx;
   padding: 3rpx 12rpx;
   margin-top: -15rpx;
   border-radius: 5rpx;

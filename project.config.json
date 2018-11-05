@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -84,6 +84,17 @@
 					"name": "我的",
 					"pathName": "pages/My/My",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "接单home",
+					"pathName": "pages/take_order_home/take_order_home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "接单-早餐",
+					"pathName": "pages/productList/productList"
 				}
 			]
 		}

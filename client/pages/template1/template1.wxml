@@ -25,10 +25,13 @@
         <view class='row_text_content'> 明早7:00-8:00送达{{item.order_deli_time}}</view>
       </view>
       <view class='content_each_row' style="flex-direction:row;">
-        <view class='row_text_content2'>发布时间:</view>
-        <view class='row_text_content3'>2018.10.29{{item.order_time}}</view>
-        <view class='row_text_content4'>订单金额:</view>
-        <view class='row_text_content3'>￥8{{item.order_sum}}</view>
+        <view class='last_row'>
+          <view class='row_text_content2'>发布时间:</view>
+          <view class='row_text_content3'>2018.10.29{{item.order_time}}</view>
+          <view class='row_text_content4'>订单金额:</view>
+          <view class='row_text_content3'>￥8{{item.order_sum}}</view>
+        </view>
+
         <view class='take_order_btn'>接单</view>
       </view>
     </view>
