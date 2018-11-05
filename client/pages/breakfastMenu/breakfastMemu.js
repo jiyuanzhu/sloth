@@ -9,11 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    logged: false,
-    userInfo: {},
-    takeSession: false,
-    requestResult: '',
-
+    logged:false,
+    userInfo:{},
     shop: [],
     menu: [],
     selected: 0,
@@ -224,7 +221,6 @@ Page({
         success: res => {
           this.setData({ userInfo: res, logged: true })
           util.showSuccess('登录成功')
-          wx.navigateTo({ url: '../order_confirm/order_confirm' })
         },
         fail: err => {
           console.error(err)
@@ -237,46 +233,12 @@ Page({
         success: res => {
           this.setData({ userInfo: res, logged: true })
           util.showSuccess('登录成功')
-          wx.navigateTo({ url: '../order_confirm/order_confirm' })
         },
         fail: err => {
           console.error(err)
           util.showModel('登录错误', err.message)
         }
       })
-    } 
-  },
-
-  // 切换是否带有登录态
-  switchRequestMode: function (e) {
-    this.setData({
-      takeSession: e.detail.value
-    })
-    this.doRequest()
-  },
-
-  doRequest: function () {
-    util.showBusy('请求中...')
-    var that = this
-    var options = {
-      url: config.service.requestUrl,
-      login: true,
-      success(result) {
-        util.showSuccess('请求成功完成')
-        console.log('request success', result)
-        that.setData({
-          requestResult: JSON.stringify(result.data)
-        })
-      },
-      fail(error) {
-        util.showModel('请求失败', error);
-        console.log('request fail', error);
-      }
-    }
-    if (this.data.takeSession) {  // 使用 qcloud.request 带登录态登录
-      qcloud.request(options)
-    } else {    // 使用 wx.request 则不带登录态
-      wx.request(options)
     }
   },
 
@@ -285,14 +247,21 @@ Page({
    */
   onLoad: function (options) {
 
+    console.log(this.data.logged);
+
     var that = this;
-    wx.getStorage({
-      key: 'userinfo',
-      success: function (res) {
-        that.setData({ userInfo: res.data, logged: true })
-        //console.log(that.data.userInfo);
-      },
-    })
+    const session = qcloud.Session.get()
+    if (session) {
+      // 第二次登录
+      // 或者本地已经有登录态
+      // 可使用本函数更新登录态
+      qcloud.loginWithCode({
+        success: res => {
+          that.setData({ userInfo: res, logged: true })
+          console.log('是已经登录的');
+        }
+      })
+    }
 
     // 试着用easy-mock测试
     // 用店铺id去get数据

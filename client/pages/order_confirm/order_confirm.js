@@ -17,7 +17,14 @@ Page({
     cartArr: [],
     userId: 0,
     shop_id: 0,
-    ShowAddrList: false
+    cust_addr:'',
+    cust_name:'',
+    cust_phone:'',
+    remark : "口味偏好等要求",
+    ShowAddrList: false,
+    i:0,
+    j:0,
+    k:0,
   },
 
   /**
@@ -59,9 +66,13 @@ Page({
         console.log("读入shopid")
         console.log(res)
         that.setData({
-          shop_id: res.data
+          shop_id: res.data,
+          remark:options.remark
         })
       },
+    });
+    that.setData({
+      remark:options.remark,
     });
     wx.request({
       url: config.service.address_selectUrl + "?user_id=1",
@@ -76,8 +87,16 @@ Page({
         });
       }
     });
+    for(var i=0;i<this.data.customer.length;i++){
+      if(customer[i].default_id==1){
+        that.setData({
+          selected:i,
+        });
+      }
+    }
 
   },
+
 
   settleOrder: function (e) {
     console.log("提交订单，向服务器上传订单")
@@ -128,17 +147,27 @@ Page({
   },
 
   addrchange: function (e) {
+    var that = this;
+    for(var j=0;j<this.data.customer.length;j++){
+      if(this.data.customer[j].default_id==1){
+        this.setData({
+          /** 这里需要把原有的default=1的那个改为零*/
+        });
+      }
+    }
     this.setData({
       ShowAddrList: false,
-      selected: e.currentTarget.dataset.id
     });
+    for(var k=0;k<this.data.customer.length;k++){
+      if(this.data.customer[k].addr_id==e.currentTarget.dataset.id){
+        this.setData({
+          /** 这里需要把新选的default变为1*/
+          selected:k,
+        });
+      }
+    }
   },
 
-  addrModify: function (e) {
-    wx.navigateTo({
-      url: '../address_modify/address_modify'
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
