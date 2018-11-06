@@ -111,7 +111,7 @@
 .shop_address{
   font-size: 37rpx;
   margin-left: 20rpx;
-  width: 72%;
+  width: 68%;
   font-weight: 600;
 }
 .deli_fee{
@@ -150,7 +150,7 @@
 .row_text_content2{
   font-size: 25rpx;
   color: #888888;
-  margin-left: 55rpx;
+  margin-left: 25rpx;
 }
 .row_text_content3{
   font-size: 25rpx;

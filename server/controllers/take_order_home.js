@@ -24,7 +24,8 @@ module.exports = async ctx => {
     var user_id = res[i].user_id
     var res3 = await mysql("contactInfo").where({user_id})
     var order_address = res3[0].address
-    var order_time = res[i].food_order_time
+    var res5 = res[i].food_order_time
+    var order_time = res5.substr(5)
     var order_sum = res[i].total_cost
     str += "\"order_shop_address\":\"" + order_shop_address+"\","
     str += "\"order_deli_fee\": \"" + order_deli_fee+"\","

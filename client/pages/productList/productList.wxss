@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20rpx;
-  width: 33.33%;
+  width: 50%;
   height: 80rpx;
   border-top: 1rpx solid #ddd;
   border-bottom: 1rpx solid #ddd;
@@ -52,7 +52,7 @@
   background-color: #000;
   opacity: 0.5;
 }
-.district-list,.sorting-list,.filter-list {
+.district-list,.sorting-list {
   margin-top: 2rpx;
   position: absolute;
   top: 80rpx;
@@ -66,7 +66,7 @@
 
 .chioce-list-show {
   top: 80rpx;
-  animation: slide 500ms;
+  animation: slide 50ms;
 }
 
 @keyframes slide {
@@ -85,9 +85,6 @@
 
 /*区域位置*/
 
-.district-list {
-  display: flex;
-}
 
 .district-left {
   flex-grow: 1;
@@ -98,25 +95,6 @@
 }
 .scroll-district{
   height: 500rpx;
-}
-.district-parent {
-  height: 100rpx;
-  line-height: 100rpx;
-  padding: 0 40rpx;
-  border-bottom: 1rpx solid #ddd;
-  border-right: 1rpx solid #ddd;
-  background-color: #f0f0f0;
-}
-
-.district-parent-active {
-  background-color: #fff;
-}
-
-.district-children {
-  height: 100rpx;
-  line-height: 100rpx;
-  padding: 0 40rpx;
-  border-bottom: 1rpx solid #ddd;
 }
 
 /*综合排序*/
@@ -130,54 +108,15 @@
 
 /*筛选*/
 
-.filter-item {
-  height: 80rpx;
-  line-height: 80rpx;
-  padding: 0 40rpx;
-  border-bottom: 1rpx solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .icon-selected {
   height: 30rpx;
   width: 30rpx;
 }
 
-.filter-footer {
-  display: flex;
-  justify-content: space-between;
-}
 
-.filter-footer button {
-  margin: 20rpx 80rpx;
-  border-radius: 0 !important;
-}
-
-.button-reset {
-  border: 1rpx solid #ddd !important;
-  color: #666 !important;
-}
 
 /* pages/template/template.wxss */
-.container1{
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background: rgb(243, 243, 243);
-}
 
-.select_module{
-  width: 100%;
-  background-color: white;
-  padding-bottom: 5rpx;
-  padding-top: 15rpx;
-  border-bottom-right-radius: 20rpx;
-  border-bottom-left-radius: 20rpx;
-  box-shadow: 0px 1px 3px #888;
-  margin-bottom: 4%;
-}
 
 .select_module_header{
   display: flex;
@@ -219,9 +158,37 @@
 .order_recommand{
   background-color: white;
   width: 100%;
+
+  box-shadow: 0px 1px 3px #888;
   padding-bottom: 2%;
 }
-
+.order_recommand_header{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 66%;
+  padding-top: 20rpx;
+  padding-bottom: 5rpx;
+}
+.divLine{
+  background: #272B33;
+  height: 1pt;
+  width: 140rpx;
+  margin-top: 28rpx;
+}
+.order_recommand_header_icon{
+  height: 14pt;
+  width: 14pt;
+  margin-left: 4pt;
+  margin-top: 10rpx;
+}
+.order_recommand_header_text{
+  font-size: 14pt;
+  margin-left: 5rpx;
+  margin-right: 3pt;
+  margin-bottom: 1%;
+}
 
 .order_recommand_each_item{
   border-bottom: 1px solid #d6d6d6;
@@ -245,7 +212,7 @@
 .shop_address{
   font-size: 37rpx;
   margin-left: 20rpx;
-  width: 72%;
+  width: 68%;
   font-weight: 600;
 }
 .deli_fee{
@@ -284,7 +251,7 @@
 .row_text_content2{
   font-size: 25rpx;
   color: #888888;
-  margin-left: 55rpx;
+  margin-left: 25rpx;
 }
 .row_text_content3{
   font-size: 25rpx;

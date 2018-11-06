@@ -1,37 +1,68 @@
 var app = getApp();
+var config = require('../../config');
 Page({
   data: {
     typeID: 0,
     isLoading: true,
     loadOver: false,
-    districtList: [],
-    sortingList: [{ key: 1, value: "智能排序" }, {
-      key: 2, value: "价格最低"
+    order: [],
+    districtList: [{
+      key: 1,
+      value: "C1"
     }, {
-      key: 3, value: "价格最高"
+      key: 2,
+      value: "C2"
     }, {
-      key: 4, value: "服务最好"
+      key: 3,
+      value: "C3"
     }, {
-      key: 5, value: "环境最好"
+      key: 4,
+      value: "C4"
     }, {
-      key: 6, value: "预约最快"
+      key: 5,
+      value: "C5"
+    }, {
+      key: 6,
+      value: "C6"
+    }, {
+      key: 7,
+      value: "C7"
+    }, {
+      key: 8,
+      value: "C8"
+    }, {
+      key: 9,
+      value: "C9"
+    }, {
+      key: 10,
+      value: "C10"
+    }, {
+      key: 11,
+      value: "C11"
+    }, {
+      key: 12,
+      value: "C12"
     }],
-    filterList: [{ key: 1, value: "周日营业", selected: false }, {
-      key: 2, value: "11）", selected: false
+    sortingList: [{
+      key: 1,
+      value: "智能排序"
     }, {
-      key: 3, value: "22", selected: false
+      key: 2,
+      value: "价格最低"
     }, {
-      key: 4, value: "33", selected: false
+      key: 3,
+      value: "价格最高"
     }, {
-      key: 5, value: "44", selected: false
+      key: 4,
+      value: "销量最高"
     }],
     districtChioceIcon: "/images/icon-go-black.png",
     sortingChioceIcon: "/images/icon-go-black.png",
     chioceDistrict: false,
     chioceSorting: false,
-    chioceFilter: false,
     activeDistrictParentIndex: -1,
     activeDistrictChildrenIndex: -1,
+    activeDistrictIndex: -1,
     activeDistrictName: "区域位置",
     scrollTop: 0,
     scrollIntoView: 0,
@@ -39,9 +70,22 @@ Page({
     activeSortingName: "综合排序"
   },
   onLoad: function (options) {
-    
+    var that = this;
+    wx.request({
+      url: config.service.take_order_homeUrl,
+      method: "GET",
+      header: {
+        "content-type": "application/json"
+      },
+      success: function (res) {
+        that.setData({
+          order: res.data.data.data
+        });
+        console.log(res.data)
+      }
+    })
   },
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     this.setData({
       productList: [],
       pageIndex: 1,
@@ -51,7 +95,7 @@ Page({
     //this.getProductList();
     wx.stopPullDownRefresh()
   },
-  onReachBottom: function () {
+  onReachBottom: function() {
     if (!this.data.loadOver) {
       this.setData({
         pageIndex: this.data.pageIndex + 1,
@@ -62,7 +106,7 @@ Page({
     }
   },
   //条件选择
-  choiceItem: function (e) {
+  choiceItem: function(e) {
     switch (e.currentTarget.dataset.item) {
       case "1":
         if (this.data.chioceDistrict) {
@@ -73,8 +117,7 @@ Page({
             chioceSorting: false,
             chioceFilter: false,
           });
-        }
-        else {
+        } else {
           this.setData({
             districtChioceIcon: "/images/icon-down-black.png",
             sortingChioceIcon: "/images/icon-go-black.png",
@@ -93,8 +136,7 @@ Page({
             chioceSorting: false,
             chioceFilter: false,
           });
-        }
-        else {
+        } else {
           this.setData({
             districtChioceIcon: "/images/icon-go-black.png",
             sortingChioceIcon: "/images/icon-down-black.png",
@@ -104,29 +146,9 @@ Page({
           });
         }
         break;
-      case "3":
-        if (this.data.chioceFilter) {
-          this.setData({
-            districtChioceIcon: "/images/icon-go-black.png",
-            sortingChioceIcon: "/images/icon-go-black.png",
-            chioceDistrict: false,
-            chioceSorting: false,
-            chioceFilter: false,
-          });
-        }
-        else {
-          this.setData({
-            districtChioceIcon: "/images/icon-go-black.png",
-            sortingChioceIcon: "/images/icon-go-black.png",
-            chioceDistrict: false,
-            chioceSorting: false,
-            chioceFilter: true,
-          });
-        }
-        break;
     }
   },
-  hideAllChioce: function () {
+  hideAllChioce: function() {
     this.setData({
       districtChioceIcon: "/images/icon-go-black.png",
       sortingChioceIcon: "/images/icon-go-black.png",
@@ -136,7 +158,7 @@ Page({
     });
   },
   //区域位置
-  getDistrictList: function () {
+  getDistrictList: function() {
     var that = this;
     wx.request({
       url: app.globalData.hostUrl,
@@ -146,7 +168,7 @@ Page({
         token: md5.hex_md5(app.globalData.token),
         device_source: app.globalData.deviceSource
       },
-      success: function (resRequest) {
+      success: function(resRequest) {
         if (resRequest.data.error_code == 0) {
           that.setData({
             districtList: resRequest.data.district_list
@@ -155,31 +177,15 @@ Page({
       }
     })
   },
-  selectDistrictParent: function (e) {
-    this.setData({
-      activeDistrictParentIndex: e.currentTarget.dataset.index,
-      activeDistrictName: this.data.districtList[e.currentTarget.dataset.index].district_name,
-      activeDistrictChildrenIndex: 0,
-      scrollTop: 0,
-      scrollIntoView: 0
-    })
-  },
-  selectDistrictChildren: function (e) {
+
+
+  districtSorting: function(e) {
     var index = e.currentTarget.dataset.index;
-    var parentIndex = this.data.activeDistrictParentIndex == -1 ? 0 : this.data.activeDistrictParentIndex;
-    if (index == 0) {
-      this.setData({
-        activeDistrictName: this.data.districtList[parentIndex].district_name
-      })
-    } else {
-      this.setData({
-        activeDistrictName: this.data.districtList[parentIndex].district_children_list[index].district_name
-      })
-    }
     this.setData({
       districtChioceIcon: "/images/icon-go-black.png",
       chioceDistrict: false,
-      activeDistrictChildrenIndex: index,
+      activeDistrictIndex: index,
+      activeDistrictName: this.data.districtList[index].value,
       productList: [],
       pageIndex: 1,
       loadOver: false,
@@ -188,7 +194,7 @@ Page({
     //this.getProductList();
   },
   //综合排序
-  selectSorting: function (e) {
+  selectSorting: function(e) {
     var index = e.currentTarget.dataset.index;
     this.setData({
       sortingChioceIcon: "/images/icon-go-black.png",
@@ -202,35 +208,8 @@ Page({
     })
     //this.getProductList();
   },
-  //筛选
-  selectFilter: function (e) {
-    var index = e.currentTarget.dataset.index;
-    var _filterList = this.data.filterList;
-    _filterList[index].selected = !_filterList[index].selected;
-    this.setData({
-      filterList: _filterList
-    })
-  },
-  resetFilter: function () {
-    var _filterList = this.data.filterList;
-    _filterList.forEach(function (e) {
-      e.selected = false;
-    })
-    this.setData({
-      filterList: _filterList
-    })
-  },
-  filterButtonClick: function () {
-    this.setData({
-      chioceFilter: false,
-      productList: [],
-      pageIndex: 1,
-      loadOver: false,
-      isLoading: true
-    })
-    //this.getProductList();
-  },
-  onShareAppMessage: function () {
+
+  onShareAppMessage: function() {
 
   }
 })

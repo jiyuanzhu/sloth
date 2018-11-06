@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 15,
 			"list": [
 				{
 					"id": -1,
@@ -114,6 +114,17 @@
 					"name": "我的下单",
 					"pathName": "pages/my_order/my_order",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "早餐list",
+					"pathName": "pages/productList/productList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "早餐list",
+					"pathName": "pages/productList/productList"
 				}
 			]
 		}

@@ -68,7 +68,7 @@
   </scroll-view> 
   <view class="bottom">
     <view class="bottom_sum">合计 ¥{{cost+shop.delifee}}</view>
-    <navigator class="bottom_submit" bindtap='settleOrder'>提交订单</navigator>
+    <navigator class="bottom_submit" bindtap='settleOrder' url='../order_list/order_list'>提交订单</navigator>
   </view>
   <view class="addr" hidden="{{!ShowAddrList}}">
       <view class="mask" bindtap="HideAddrList"></view>

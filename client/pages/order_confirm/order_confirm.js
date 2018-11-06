@@ -170,6 +170,13 @@ Page({
           /** 这里需要把新选的default变为1*/
           selected:k,
         });
+        wx.setStorage({
+          key: "selected_addr",
+          data: k,
+          success: function (res) {
+            console.log("selected_addr setStorage success");
+          }
+        });
       }
     }
   },

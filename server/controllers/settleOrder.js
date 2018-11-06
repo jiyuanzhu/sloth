@@ -13,8 +13,7 @@ module.exports = async ctx => {
   var day = date.getDate()
   var hour = date.getHours()
   var minute = date.getMinutes()
-  var second = date.getSeconds()
-  var food_order_time = year + '年' + month + '月' + day + '日 ' + hour + ':' + minute + ':' + second
+  var food_order_time = year + '年' + month + '月' + day + '日 ' + hour + ':' + minute 
   //var food_order_time = ""+year+month+day
 
   var foodOrder = {
@@ -29,8 +28,7 @@ module.exports = async ctx => {
   var length = orders.length
   var ret = ""
   for (var i = 0; i < length; i++){
-    var goodid = orders[i].numb
-    var good_id = "s"+shop_id+"g"+goodid
+    var good_id = orders[i].foodid
     var foodOrderDetail = {
       food_order_id: res1[0].food_order_id,
       good_id: good_id,
