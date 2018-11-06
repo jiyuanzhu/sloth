@@ -1,0 +1,120 @@
+/* pages/order_info/order_info.wxss */
+.container{
+    background: #F3F3F3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.menu_info{
+  margin-top: 43rpx;
+  width: 86%;
+  height: 30%;
+  z-index: 1;
+}
+
+.customer_icon{
+    height: 120rpx;
+    width: 120rpx;
+    display: inline-block;
+    position: relative;
+    top: -57%;
+    right: 5%;
+}
+
+.customer_icon image{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.bubble{
+  background: white;
+  height: 300rpx;
+  display: inline-block;
+  border-radius: 5%;
+  width: 80%;
+  z-index: 2;
+  letter-spacing: 5rpx;
+}
+
+
+/* 试着用圆角气泡文本框23333 */
+.bubble::before{
+  content: "";
+  position: absolute;
+  left: 160rpx;
+  top: 80rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-style: solid;
+  border-width: 2rpx;
+  border-color: white;
+  border-radius: 6rpx;
+  /* 调试的时候把颜色调成red之类的比较显眼的颜色，wxml不显示before样式 */
+  background: white;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.item_info{
+    height: 77%;
+    margin-left: 30rpx;
+    width: 90%;
+    line-height: 1;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.line{
+  height: 3rpx;
+  background: #E9E9E9;
+  margin: 2% 2%;
+}
+
+.customer_info{
+  margin-top: 6%;
+  background: white;
+  border-radius: 3%;
+}
+
+.item_line{
+  margin:0 5%;
+}
+
+.item_line image{
+  margin-right: 2%;
+  margin-top: 3%;
+}
+
+.customer_info image{
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.customer_name text{
+  padding-left: 39rpx;
+}
+
+/* .order_active,.order_finished{
+    position: relative;
+    bottom: 1%;
+    width: 50%;
+    height: 50%;
+    border-radius: 3%;
+} */
+.order_active{
+  color: white;
+  background: #FD645F;
+  margin-top: 20%;
+  margin-bottom: 5%;
+  width: 300rpx;
+  border-radius: 4%;
+  line-height: 3;
+  text-align: center;
+}
