@@ -1,0 +1,51 @@
+<!--pages/order_info/order_info.wxml-->
+<view class='container'>
+  <view class='menu_info'>
+    <view class='customer_icon'>
+      <image src="{{customer.img}}"></image>
+    </view>
+    <!-- 气泡对话框 -->
+    <view class='bubble'>
+      <text style='font-size:33rpx;margin-left:30rpx;line-height:2'>我需要：</text>
+      <scroll-view class="item_info" scroll-y >
+        <view class='shop_name'>{{menu.name}}</view>
+        <view class='line'></view>
+        <block wx:for="{{menu.order}}">
+          <view class='breakfast_item'>
+            <text>{{item.name}}</text>
+            <text>x{{item.numb}}</text>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class='customer_info'>
+    <view class='item_line customer_name'>
+      <image src='customer.png'></image>
+      下单人：
+      <text>{{customer.name}} {{customer.phone}}</text>
+    </view>
+    <view class='line'></view>
+    <view class='item_line customer_address'>
+      <image src='address.png'></image>
+      配送楼栋：
+      <text>{{customer.address}}</text>
+    </view>
+    <view class='line'></view>
+    <view class='item_line customer_time'>
+      <image src='time.png'></image>
+      配送时间：
+      <text>{{customer.time}}</text>
+    </view>
+    <view class='line'></view>
+    <view class='item_line customer_remark'>
+      <image src='content.png'></image>
+      订单备注:
+      <view style='line-height:2;margin-left:70rpx;'>{{customer.remark}}</view>
+    </view>
+  </view>
+
+  <view class='order_active' wx:if="{{status==true}}"><text>进行中</text></view>
+  <view class='order_finished' wx:else><text>已完成</text></view>
+</view>
