@@ -1,6 +1,7 @@
 const { mysql } = require('../qcloud')
 
 module.exports = async ctx => {
+  var addr_id = ctx.request.query.addr_id
   var orders = JSON.parse(ctx.request.query.orders)
   var cost = ctx.request.query.cost
   var shop_id = ctx.request.query.shop_id
@@ -21,7 +22,8 @@ module.exports = async ctx => {
     food_order_time: food_order_time,
     user_id: user_id,
     total_cost: cost,
-    food_order_state: state
+    food_order_state: state,
+    address_id: addr_id
   }
   var res = await mysql("foodOrder").insert(foodOrder)
   var res1 = await mysql("foodOrder").select("food_order_id").where({ food_order_time, user_id })
@@ -36,7 +38,9 @@ module.exports = async ctx => {
     }
     ret+= await mysql("foodOrderDetail").insert(foodOrderDetail)
   }
-
+``//修改默认地址
+  var res1 = await mysql("contactInfo").where({user_id:user_id,default_address:1}).update({default_address:0})
+  var res2 = await mysql("contactInfo").where({user_id:user_id,address_id:addr_id}).update({default_address:1})
 
   ctx.state.data = ret
 }
