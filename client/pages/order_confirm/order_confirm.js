@@ -17,6 +17,7 @@ Page({
     cartArr: [],
     userId:0,
     shop_id: 0,
+    addr_id:0,
     cust_addr:'',
     cust_name:'',
     cust_phone:'',
@@ -41,6 +42,16 @@ Page({
         console.log(res)
         that.setData({
           shop: res.data
+        })
+      },
+    });
+    wx.getStorage({
+      key: 'selected_addr',
+      success: function (res) {
+        console.log("读入addr_id")
+        console.log(res)
+        that.setData({
+          addr_id: res.data
         })
       },
     });
@@ -113,7 +124,7 @@ Page({
     var that = this;
     console.log(that.data.orders);
     wx.request({
-      url: config.service.settleOrderUrl + "?orders=" + JSON.stringify(that.data.orders) + "&shop_id=" + that.data.shop_id + "&cost=" + that.data.cost + "&user_id=" + that.data.userId,
+      url: config.service.settleOrderUrl + "?orders=" + JSON.stringify(that.data.orders) + "&shop_id=" + that.data.shop_id + "&cost=" + that.data.cost + "&user_id=" + that.data.userId + "&addr_id=" + that.data.addr_id,
       method: "GET",
       header: {
         "content-type": "application/x-www-form-urlencoded"

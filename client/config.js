@@ -42,6 +42,9 @@ var config = {
     //修改地址信息
     changeAddressUrl: `${host}/weapp/changeAddress`,
 
+    //删除地址信息
+    delAddressUrl: `${host}/weapp/delAddress`,
+
     //接受订单
     take_order_homeUrl: `${host}/weapp/take_order_home`
 
