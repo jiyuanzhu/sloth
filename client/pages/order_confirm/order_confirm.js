@@ -45,6 +45,7 @@ Page({
         })
       },
     });
+
     wx.getStorage({
       key: 'selected_addr',
       success: function (res) {
@@ -69,8 +70,22 @@ Page({
           header: {
             "content-type": "application/x-www-form-urlencoded"
           },
+          // 读取用户信息
           success: function (res) {
             console.log(res);
+            console.log(res.data.data);
+            for (var j = 0; j < res.data.data.length; j++) {
+              if (res.data.data[j].default_id == 1) {
+                that.setData({
+                  selected: res.data.data[j].addr_id
+                });
+                console.log("default_addr_id")
+                console.log(res.data.data[j].addr_id)
+              }
+
+            }
+
+            
             that.setData({
               customer: res.data.data
             });
@@ -108,13 +123,6 @@ Page({
     // that.setData({
     //   remark:options.remark,
     // });
-    for(var i=0;i<this.data.customer.length;i++){
-      if(customer[i].default_id==1){
-        that.setData({
-          selected:i,
-        });
-      }
-    }
 
   },
   
@@ -165,25 +173,18 @@ Page({
 
   addrchange: function (e) {
     var that = this;
-    for(var j=0;j<this.data.customer.length;j++){
-      if(this.data.customer[j].default_id==1){
-        this.setData({
-          /** 这里需要把原有的default=1的那个改为零*/
-        });
-      }
-    }
     this.setData({
       ShowAddrList: false,
     });
+    //把selected变成刚才选的那个addr_id
     for(var k=0;k<this.data.customer.length;k++){
       if(this.data.customer[k].addr_id==e.currentTarget.dataset.id){
         this.setData({
-          /** 这里需要把新选的default变为1*/
-          selected:k,
+          selected: e.currentTarget.dataset.id,
         });
         wx.setStorage({
           key: "selected_addr",
-          data: k,
+          data: this.data.selected,
           success: function (res) {
             console.log("selected_addr setStorage success");
           }

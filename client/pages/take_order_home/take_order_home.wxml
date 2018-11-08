@@ -20,7 +20,7 @@
       <view class='order_recommand_header_text'>任务精选</view>
       <view class="divLine"></view>
     </view>
-
+<!-- <navigator class="module" hover-class="navigator-hover" wx:for="{{order}}" url="/pages/order_info/order_info?orderId={{item.food_oder_id}}"> -->
     <view class='order_recommand_each_item' wx:for="{{order}}">
       <view class='row_1' style="flex-direction:row;">
         <view class='order_type'>{{item.order_type}}</view>
@@ -51,10 +51,10 @@
           <view class='row_text_content4'>订单金额:</view>
           <view class='row_text_content3'>￥{{item.order_sum}}</view>
         </view>
-        <view class='take_order_btn'>接单</view>
+        <view class='take_order_btn' bindtap='submit_take'>接单</view>
       </view>
     </view>
-
+<!-- </navigator> -->
   </view>
 
 
