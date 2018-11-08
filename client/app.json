@@ -15,8 +15,7 @@
     "pages/take_order_home/take_order_home",
     "pages/productList/productList",
     "pages/my_order/my_order",
-    "pages/my_take_order/my_take_order",
-    "pages/order_info/order_info"
+    "pages/my_take_order/my_take_order"
   ],
   "window": {
     "backgroundColor": "#FD6460",

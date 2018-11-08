@@ -17,7 +17,7 @@
         <button formType='submit'>修改地址</button>
       </view>
       <view class='button_new_address'>
-        <button formType='submit' class='del_btn' bindtap='delSubmit'>删除地址</button>
+        <button formType='submit' class='del_btn'>删除地址</button>
       </view>
     </form>
   </view>

@@ -6,7 +6,7 @@ module.exports = async ctx => {
   var addr = ctx.request.query.cust_addr
   var user_id = ctx.request.query.user_id
   var ret = await mysql("contactInfo").where({user_id})
-  var addr_id = parseInt(ret[ret.length-1].address_id)+1
+  var addr_id = ret.length
   var person = {
     user_id : user_id,
     user_name :  name,

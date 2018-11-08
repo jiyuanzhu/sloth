@@ -11,7 +11,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    modules: [{
+    modules: [
+      {
         "name": "代买早餐",
         "src": "../../images/1.png",
         "url": "../productList/productList"
@@ -42,9 +43,9 @@ Page({
         "url": "../canteen_select/canteen_select"
       }
     ],
-    order: []
+    order:[]
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     var that = this;
     wx.request({
       url: config.service.take_order_homeUrl,
@@ -52,7 +53,7 @@ Page({
       header: {
         "content-type": "application/json"
       },
-      success: function(res) {
+      success: function (res) {
         that.setData({
           order: res.data.data.data
         });
@@ -60,19 +61,5 @@ Page({
       }
     })
   },
-  submit_take: function(e) {
-    var that = this;
-    wx.showModal({
-      title: '确认订单',
-      content: '点击确定接受订单',
-      success: function(res) {
-        if (res.confirm) { //这里是点击了确定以后
-          console.log('用户点击确定')
-        } else { //这里是点击了取消以后
-          console.log('用户点击取消')
-        }
-      }
-
-    })
-  }
 })
+

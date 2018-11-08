@@ -75,35 +75,5 @@ Page({
         content: warn
       })
     }
-  },
-
-    delSubmit: function (e) {
-    var that = this;
-      wx.request({
-        url: config.service.delAddressUrl + "?user_id=" + this.data.cust_id + "&prename=" + this.data.cust_name + "&prephone=" + this.data.cust_phone + "&preaddr=" + this.data.cust_addr,
-        header: {
-          "content-type": "application/x-www-form-urlencoded"
-        },
-        method: "GET",/*
-        data: {
-            cust_name: e.detail.value.namearea,
-            cust_phone: e.detail.value.phonearea,
-            cust_addr: e.detail.value.addressarea
-        },*/
-        success(res) {
-          console.log("debug")
-          console.log(res)
-          wx.showToast({
-            title: '删除地址成功',
-            icon: 'success',
-            duration: 2000
-          })
-          setTimeout(function (e) {
-            wx.navigateTo({
-              url: '../order_confirm/order_confirm'
-            })
-          }, 2000)
-        }
-      })
-    }
+  }
 })
