@@ -25,7 +25,8 @@
   <view bindtap="hideAllChioce" class="mask" hidden="{{!chioceDistrict&&!chioceSorting}}">
   </view>
   <view class='order_recommand'>
-    <view class='order_recommand_each_item' wx:for="{{order}}">
+  <!-- 因为会有动态的效果，所以需要绑定wx:key -->
+    <view class='order_recommand_each_item' wx:for="{{order}}" wx:key="food_oder_id">
       <view class='row_1' style="flex-direction:row;">
         <view class='order_type'>{{item.order_type}}</view>
         <view class='shop_address'>{{item.order_shop_address}}</view>
@@ -55,7 +56,7 @@
           <view class='row_text_content4'>订单金额:</view>
           <view class='row_text_content3'>￥{{item.order_sum}}</view>
         </view>
-        <view class='take_order_btn'>接单</view>
+        <button class='take_order_btn' bindtap="takeOrder" data-index="{{index}}">接单</button>
       </view>
     </view>
   </view>

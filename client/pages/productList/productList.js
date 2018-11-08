@@ -209,7 +209,21 @@ Page({
     //this.getProductList();
   },
 
-  onShareAppMessage: function() {
+  // 接单的按钮
+  takeOrder: function(e){
+    var that = this;
+    // 从order中删除这个item
+    var index = e.currentTarget.dataset.index;
+    var item = that.data.order.splice(index,1);
+    var data = that.data.order;
+    that.setData({
+      order:data
+    })
+    // 跳转到详情页面
+    wx.navigateTo({
+      url:"../order_info/order_info?food_oder_id="+item[0].food_oder_id
+    });
+  },
 
-  }
+
 })
