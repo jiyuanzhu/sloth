@@ -16,13 +16,13 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5bbeefa27b8b103aa6c7dd32/example/menu'+"?order_id="+options.order_id,
+      url: 'https://www.easy-mock.com/mock/5bbeefa27b8b103aa6c7dd32/example/menu'+"?food_oder_id="+options.food_oder_id,
       method:"GET",
       header: {
         "content-type": "application/json"
       },
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         that.setData({
           menu: res.data.menu,
           customer: res.data.customer,

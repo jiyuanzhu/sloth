@@ -81,7 +81,7 @@ Page({
         that.setData({
           order: res.data.data.data
         });
-        console.log(res.data)
+        // console.log(res.data)
       }
     })
   },
@@ -208,8 +208,27 @@ Page({
     })
     //this.getProductList();
   },
-
-  onShareAppMessage: function() {
-
+  submit_take: function(e) {
+    var that = this;
+    wx.showModal({
+      title: '确认订单',
+      content: '点击确定接受订单',
+      success: function(res) {
+        if (res.confirm) { //这里是点击了确定以后
+          console.log('用户点击确定');
+          var item = that.data.order.splice(e.currentTarget.dataset.index,1);
+          var data = that.data.order;
+          that.setData({
+            order: data
+          });
+          wx.navigateTo({
+            url:"../order_info/order_info?food_oder_id="+item[0].food_oder_id
+          })
+        } else { //这里是点击了取消以后
+          console.log('用户点击取消')
+        }
+      }
+    })
   }
+
 })

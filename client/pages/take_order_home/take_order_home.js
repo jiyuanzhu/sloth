@@ -68,8 +68,17 @@ Page({
       success: function(res) {
         if (res.confirm) { //这里是点击了确定以后
           console.log('用户点击确定')
+          var item = that.data.order.splice(e.currentTarget.dataset.index,1);
+          var data = that.data.order;
+          that.setData({
+            order: data
+          });
+          wx.navigateTo({
+            url:"../order_info/order_info?food_oder_id="+item[0].food_oder_id
+          })
         } else { //这里是点击了取消以后
           console.log('用户点击取消')
+          
         }
       }
 
