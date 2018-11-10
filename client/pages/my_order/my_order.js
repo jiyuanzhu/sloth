@@ -3,6 +3,8 @@ var config = require('../../config');
 
 Page({
   data: {
+    userId:0,
+
     tabList: ['进行中', '已完成'],
     current: 0,//当前选中的Tab项
 
@@ -84,17 +86,30 @@ Page({
 
   onLoad: function (options) {
     var that = this;
-    wx.request({
-      url: config.service.take_order_homeUrl,
-      method: "GET",
-      header: {
-        "content-type": "application/json"
-      },
+    //读入USERID
+    wx.getStorage({
+      key: 'userinfo',
       success: function (res) {
+        console.log("读入userinfo")
+        console.log(res)
         that.setData({
-          order: res.data.data.data
-        });
-        // console.log(res.data)
+          userId: res.data.openId
+        })
+
+        wx.request({
+          url: config.service.my_orderUrl + "?user_id=" + that.data.userId,
+          method: "GET",
+          header: {
+            "content-type": "application/x-www-form-urlencoded"
+          },
+          success: function (res) {
+            that.setData({
+              order: res.data.data.data
+            });
+            console.log(res.data)
+          }
+        })
+
       }
     })
   },
@@ -215,5 +230,4 @@ Page({
     })
     //this.getProductList();
   }
-
 })

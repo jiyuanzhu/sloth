@@ -27,7 +27,6 @@
 
 <view class='content'>
   <!-- 菜单列表 -->
-
   <view bindtap="hideAllChioce" class="mask" hidden="{{!chioceDistrict&&!chioceSorting}}">
   </view>
   <view class='order_recommand'>

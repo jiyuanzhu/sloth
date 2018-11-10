@@ -46,4 +46,7 @@ router.get('/order_confirm', controllers.order_confirm)
 router.get('/changeAddress', controllers.changeAddress)
 router.get('/delAddress', controllers.delAddress)
 router.get('/take_order_home', controllers.take_order_home)
+router.get('/my_order',controllers.my_order)
+router.get('/my_take_order',controllers.my_take_order)
+
 module.exports = router

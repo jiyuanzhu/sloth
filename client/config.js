@@ -46,7 +46,13 @@ var config = {
     delAddressUrl: `${host}/weapp/delAddress`,
 
     //接受订单
-    take_order_homeUrl: `${host}/weapp/take_order_home`
+    take_order_homeUrl: `${host}/weapp/take_order_home`,
+
+    //我的下单
+    my_orderUrl: `${host}/weapp/my_order`,
+
+    //我的接单
+    my_take_orderUrl: `${host}/weapp/my_take_order`
 
   }
 };
