@@ -19,7 +19,7 @@
   </view>
 
   <view class='take_order'>
-  <navigator url='../my_takeorder/my_takeorder'>
+  <navigator url='../my_take_order/my_take_order'>
     <view class='my_take_order-List'>我的接单</view>
   </navigator>
   </view>
