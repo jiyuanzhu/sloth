@@ -25,6 +25,7 @@ module.exports = async ctx => {
       continue
     var shop_id = good_id.substr(1,1)
     var res2 = await mysql("shop").where({ shop_id })
+    
     var order_shop_address
     if (res2.length != 0)
       order_shop_address = res2[0].shop_intro
@@ -74,5 +75,5 @@ module.exports = async ctx => {
     str += "}"
   }
   str += "]}"
-ctx.state.data = JSON.parse(str)
+  ctx.state.data = JSON.parse(str)
 }
