@@ -309,3 +309,10 @@ page {
   margin-top: -15rpx;
   border-radius: 5rpx;
 }
+
+.default-content {
+   height: 100%;  
+   text-align: center;
+   align-items: center;
+   justify-content: center;
+}

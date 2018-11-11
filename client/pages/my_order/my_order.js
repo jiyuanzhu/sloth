@@ -7,11 +7,13 @@ Page({
 
     tabList: ['进行中', '已完成'],
     current: 0,//当前选中的Tab项
+    currentorder:[],
+    runningorder: [],
+    finishedorder:[],
 
     typeID: 0,
     isLoading: true,
     loadOver: false,
-    order: [],
     districtList: [{
       key: 1,
       value: "C1"
@@ -82,6 +84,16 @@ Page({
     this.setData({
       current: e.currentTarget.dataset.pos
     })
+    
+    if(this.data.current==0){
+      this.setData({
+        currentorder:this.data.runningorder
+      })
+    }else{
+      this.setData({
+        currentorder: this.data.finishedorder
+      })
+    }
   },
 
   onLoad: function (options) {
@@ -104,7 +116,8 @@ Page({
           },
           success: function (res) {
             that.setData({
-              order: res.data.data.data
+              runningorder: res.data.data.data,
+              currentorder: res.data.data.data
             });
             console.log(res.data)
           }
