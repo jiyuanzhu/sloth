@@ -56,16 +56,19 @@ Page({
     }],
     sortingList: [{
       key: 1,
-      value: "智能排序"
+      value: "华工二饭三楼肠粉"
     }, {
       key: 2,
-      value: "价格最低"
+      value: "华工二饭三楼包子"
     }, {
       key: 3,
-      value: "价格最高"
+      value: "华工二饭三楼酸辣粉"
     }, {
       key: 4,
-      value: "销量最高"
+      value: "华工一饭一楼"
+    },{
+      key:5,
+      value: "全部"
     }],
     chioceDistrict: false,
     chioceSorting: false,

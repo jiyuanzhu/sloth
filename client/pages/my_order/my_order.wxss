@@ -78,7 +78,7 @@ page {
   justify-content: center;
   margin-top: 2rpx;
   position: absolute;
-  top: 80rpx;
+  top: 110rpx;
   left: 0;
   width: 100%;
   background-color: #fff;
@@ -89,16 +89,16 @@ page {
 
 .chioce-list-show {
   top: 110rpx;
-  animation: slide 50ms;
+  animation: slide 1000ms;
 }
 
 @keyframes slide {
   0% {
-    top: -500rpx;
+    top: 110rpx;
   }
 
   100% {
-    top: 80rpx;
+    top: 110rpx;
   }
 }
 
