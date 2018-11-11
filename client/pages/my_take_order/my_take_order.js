@@ -93,8 +93,8 @@ Page({
       success: function (res) {
         that.setData({
           order: res.data.data.data
+          // order: res.data.data
         });
-        // console.log(res.data)
       }
     })
   },
@@ -214,6 +214,17 @@ Page({
       isLoading: true
     })
     //this.getProductList();
+  },
+  check_order: function(e){
+    var that = this;
+    var item = that.data.order.splice(e.currentTarget.dataset.index,1);
+    var data = that.data.order;
+    that.setData({
+      order: data
+    });
+    wx.navigateTo({
+      url:"../order_info/order_info?food_oder_id="+item[0].food_oder_id
+    })
   }
 
 })

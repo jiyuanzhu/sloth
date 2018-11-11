@@ -229,5 +229,8 @@ Page({
       isLoading: true
     })
     //this.getProductList();
+  },
+  check_order: function(e){
+    // console.log(e);
   }
 })
