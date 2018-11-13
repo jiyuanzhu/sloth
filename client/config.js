@@ -52,7 +52,10 @@ var config = {
     my_orderUrl: `${host}/weapp/my_order`,
 
     //我的接单
-    my_take_orderUrl: `${host}/weapp/my_take_order`
+    my_take_orderUrl: `${host}/weapp/my_take_order`,
+
+    //接单
+    take_orderUrl: `${host}/weapp/take_order`,
 
   }
 };

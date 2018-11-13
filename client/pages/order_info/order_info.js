@@ -7,7 +7,8 @@ Page({
   data: {
     status:true,
     customer:{},
-    menu:{}
+    menu:{},
+    userId:0
   },
 
   /**
@@ -15,6 +16,17 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    // 从缓存中得到订单信息
+    wx.getStorage({
+      key: 'userinfo',
+      success: function (res) {
+        console.log("读入userinfo")
+        console.log(res)
+        that.setData({
+          userId: res.data.openId
+        })
+      },
+    });
     wx.request({
       url: 'https://www.easy-mock.com/mock/5bbeefa27b8b103aa6c7dd32/example/menu'+"?food_oder_id="+options.food_oder_id,
       method:"GET",

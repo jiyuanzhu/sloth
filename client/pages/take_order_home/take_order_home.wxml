@@ -21,7 +21,7 @@
       <view class="divLine"></view>
     </view>
 <!-- <navigator class="module" hover-class="navigator-hover" wx:for="{{order}}" url="/pages/order_info/order_info?orderId={{item.food_oder_id}}"> -->
-    <view class='order_recommand_each_item' wx:for="{{order}}" wx:key="food_oder_id">
+    <view class='order_recommand_each_item' wx:for="{{order}}" wx:key="food_order_id">
       <view class='row_1' style="flex-direction:row;">
         <view class='order_type'>{{item.order_type}}</view>
         <view class='shop_address'>{{item.order_shop_address}}</view>

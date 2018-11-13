@@ -9,6 +9,8 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    userId:0,
+    food_order_id:0,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     modules: [{
@@ -42,7 +44,8 @@ Page({
         "url": "../canteen_select/canteen_select"
       }
     ],
-    order: []
+    order: [],
+    item: []
   },
   onLoad: function(options) {
     var that = this;
@@ -58,7 +61,17 @@ Page({
         });
         console.log(res.data)
       }
-    })
+    }),
+      wx.getStorage({
+        key: 'userinfo',
+        success: function (res) {
+          console.log("读入userinfo")
+          console.log(res)
+          that.setData({
+            userId: res.data.openId
+          })
+        },
+      });
   },
   submit_take: function(e) {
     var that = this;
@@ -68,14 +81,33 @@ Page({
       success: function(res) {
         if (res.confirm) { //这里是点击了确定以后
           console.log('用户点击确定')
-          var item = that.data.order.splice(e.currentTarget.dataset.index,1);
+          var item = that.data.order.splice(e.currentTarget.dataset.index, 1);
           var data = that.data.order;
+          console.log("item")
+          console.log(item)
           that.setData({
-            order: data
-          });
-          wx.navigateTo({
-            url:"../order_info/order_info?food_oder_id="+item[0].food_oder_id
+            order: data,
+            item: item
+          }),
+          wx.request({
+            url: config.service.take_orderUrl + "?food_order_id="+that.data.item[0].food_order_id+"&user_id="+that.data.userId,
+            method: "GET",
+            header: {
+              "content-type": "application/json"
+            },
+            success: function (res) {
+              console.log(res)
+              var item = that.data.order.splice(e.currentTarget.dataset.index, 1);
+              var data = that.data.order;
+              that.setData({
+                order: data
+              });
+              wx.navigateTo({
+                url: "../order_info/order_info?food_oder_id=" + item[0].food_oder_id
+              })
+            }
           })
+          
         } else { //这里是点击了取消以后
           console.log('用户点击取消')
           
