@@ -220,13 +220,9 @@ Page({
   },
   check_order: function(e){
     var that = this;
-    var item = that.data.order.splice(e.currentTarget.dataset.index,1);
-    var data = that.data.order;
-    that.setData({
-      order: data
-    });
+    var item = that.data.order[e.currentTarget.dataset.index,1];
     wx.navigateTo({
-      url:"../order_info/order_info?food_oder_id="+item[0].food_oder_id
+      url:"../order_info/order_info?food_oder_id="+item.food_oder_id
     })
   }
 

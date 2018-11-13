@@ -51,7 +51,7 @@
           <view class='row_text_content4'>订单金额:</view>
           <view class='row_text_content3'>￥{{item.order_sum}}</view>
         </view>
-        <view class='take_order_btn' bindtap='submit_take' data-index="{{food_oder_id}}">接单</view>
+        <view class='take_order_btn' bindtap='submit_take' data-index="{{index}}">接单</view>
       </view>
     </view>
 <!-- </navigator> -->

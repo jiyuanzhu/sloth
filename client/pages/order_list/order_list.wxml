@@ -33,6 +33,6 @@
 
 <view>订单提交成功</view>
 
-<navigator url='../canteen_select/canteen_select'>
+<navigator open-type='switchTab' url='../home/home'>
   <view class='click_btn'>点击返回首页</view>
 </navigator>

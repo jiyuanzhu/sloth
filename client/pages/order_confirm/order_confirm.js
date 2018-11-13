@@ -147,9 +147,9 @@ Page({
       duration: 2000
     })
     setTimeout(function (e) {
-      wx.navigateTo({
-        url: '../order_list/order_list'
-      })
+      // wx.navigateTo({
+      //   url: '../order_list/order_list'
+      // })
     }, 2000)
   },
 

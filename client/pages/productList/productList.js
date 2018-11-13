@@ -6,7 +6,6 @@ Page({
     isLoading: true,
     loadOver: false,
     order: [],
-    item: [],
     districtList: [{
       key: 1,
       value: "C1"
@@ -75,8 +74,8 @@ Page({
     wx.getStorage({
       key: 'userinfo',
       success: function (res) {
-        console.log("读入userinfo")
-        console.log(res)
+        // console.log("读入userinfo")
+        // console.log(res)
         that.setData({
           userId: res.data.openId
         })
@@ -226,29 +225,24 @@ Page({
       content: '点击确定接受订单',
       success: function (res) {
         if (res.confirm) { //这里是点击了确定以后
-          console.log('用户点击确定')
+          // console.log('用户点击确定')
+          // console.log(e.currentTarget.dataset.index)
           var item = that.data.order.splice(e.currentTarget.dataset.index, 1);
           var data = that.data.order;
-          console.log("item")
-          console.log(item)
+          // console.log("item")
+          // console.log(item)
           that.setData({
-            order: data,
-            item: item
+            order: data
           }),
             wx.request({
-              url: config.service.take_orderUrl + "?food_order_id=" + that.data.item[0].food_order_id + "&user_id=" + that.data.userId,
+              url: config.service.take_orderUrl + "?food_order_id=" + item[0].food_order_id + "&user_id=" + that.data.userId,
               method: "GET",
               header: {
                 "content-type": "application/json"
               },
               success: function (res) {
-                var item = that.data.order.splice(e.currentTarget.dataset.index, 1);
-                var data = that.data.order;
-                that.setData({
-                  order: data
-                });
                 wx.navigateTo({
-                  url: "../order_info/order_info?food_oder_id=" + that.data.item[0].food_order_id
+                  url: "../order_info/order_info?food_oder_id=" + item[0].food_order_id
                 })
               }
             })
