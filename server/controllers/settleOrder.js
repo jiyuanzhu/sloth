@@ -32,7 +32,7 @@ module.exports = async ctx => {
   for (var i = 0; i < length; i++){
     var good_id = orders[i].foodid
     var foodOrderDetail = {
-      food_order_id: res1[0].food_order_id,
+      food_order_id: res1[res1.length-1].food_order_id,
       good_id: good_id,
       good_order_num: orders[i].numb
     }

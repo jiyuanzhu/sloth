@@ -73,12 +73,12 @@ Page({
         },
       });
   },
-  submit_take: function(e) {
+  submit_take: function (e) {
     var that = this;
     wx.showModal({
       title: '确认订单',
       content: '点击确定接受订单',
-      success: function(res) {
+      success: function (res) {
         if (res.confirm) { //这里是点击了确定以后
           console.log('用户点击确定')
           var item = that.data.order.splice(e.currentTarget.dataset.index, 1);
@@ -89,31 +89,31 @@ Page({
             order: data,
             item: item
           }),
-          wx.request({
-            url: config.service.take_orderUrl + "?food_order_id="+that.data.item[0].food_order_id+"&user_id="+that.data.userId,
-            method: "GET",
-            header: {
-              "content-type": "application/json"
-            },
-            success: function (res) {
-              console.log(res)
-              var item = that.data.order.splice(e.currentTarget.dataset.index, 1);
-              var data = that.data.order;
-              that.setData({
-                order: data
-              });
-              wx.navigateTo({
-                url: "../order_info/order_info?food_oder_id=" + item[0].food_oder_id
-              })
-            }
-          })
-          
+            wx.request({
+              url: config.service.take_orderUrl + "?food_order_id=" + that.data.item[0].food_order_id + "&user_id=" + that.data.userId,
+              method: "GET",
+              header: {
+                "content-type": "application/json"
+              },
+              success: function (res) {
+                console.log("food_order_id")
+                console.log(that.data.item[0].food_order_id)
+                var item = that.data.order.splice(e.currentTarget.dataset.index, 1);
+                var data = that.data.order;
+                that.setData({
+                  order: data
+                });
+                wx.navigateTo({
+                  url: "../order_info/order_info?food_oder_id=" + that.data.item[0].food_order_id
+                })
+              }
+            })
+
         } else { //这里是点击了取消以后
           console.log('用户点击取消')
-          
+
         }
       }
-
     })
   }
 })
