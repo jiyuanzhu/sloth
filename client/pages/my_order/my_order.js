@@ -162,7 +162,6 @@ Page({
           });
         } else {
           this.setData({
-
             chioceDistrict: true,
             chioceSorting: false,
             chioceFilter: false,

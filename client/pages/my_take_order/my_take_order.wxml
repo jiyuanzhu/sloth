@@ -25,7 +25,13 @@
   </view>
 </view>
 
-<view class='content'>
+<view calss='default-content' wx:if='{{!currentorder.length}}'>
+  <text>
+这儿什么也没有~
+  </text>
+</view>
+
+<view wx:else class='content'>
   <!-- 菜单列表 -->
   <view bindtap="hideAllChioce" class="mask" hidden="{{!chioceDistrict&&!chioceSorting}}">
   </view>

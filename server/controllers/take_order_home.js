@@ -17,7 +17,7 @@ module.exports = async ctx => {
     if (res1.length != 0)
       good_id = res1[0].good_id
     else
-    continue
+      continue
     var res4 = await mysql("catalog_good").where({ good_id })
     var order_good_name
     if (res4.length != 0)

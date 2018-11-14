@@ -3,13 +3,17 @@ var config = require('../../config');
 
 Page({
   data: {
+    userId: 0,
+
     tabList: ['进行中', '已完成'],
     current: 0,//当前选中的Tab项
+    currentorder: [],
+    runningorder: [],
+    finishedorder: [],
 
     typeID: 0,
     isLoading: true,
     loadOver: false,
-    order: [],
     districtList: [{
       key: 1,
       value: "C1"
@@ -46,9 +50,9 @@ Page({
     }, {
       key: 12,
       value: "C12"
-    },{
-      key:13,
-      value:"全部"
+    }, {
+      key: 13,
+      value: "全部"
     }],
     sortingList: [{
       key: 1,
@@ -83,21 +87,45 @@ Page({
     this.setData({
       current: e.currentTarget.dataset.pos
     })
+
+    if (this.data.current == 0) {
+      this.setData({
+        currentorder: this.data.runningorder
+      })
+    } else {
+      this.setData({
+        currentorder: this.data.finishedorder
+      })
+    }
   },
 
   onLoad: function (options) {
     var that = this;
-    wx.request({
-      url: config.service.take_order_homeUrl,
-      method: "GET",
-      header: {
-        "content-type": "application/json"
-      },
+    //读入USERID
+    wx.getStorage({
+      key: 'userinfo',
       success: function (res) {
+        console.log("读入userinfo")
+        console.log(res)
         that.setData({
-          order: res.data.data.data
-          // order: res.data.data
-        });
+          userId: res.data.openId
+        })
+
+        wx.request({
+          url: config.service.my_take_orderUrl + "?user_id=" + that.data.userId,
+          method: "GET",
+          header: {
+            "content-type": "application/x-www-form-urlencoded"
+          },
+          success: function (res) {
+            that.setData({
+              runningorder: res.data.data.data,
+              currentorder: res.data.data.data
+            });
+            console.log(res.data)
+          }
+        })
+
       }
     })
   },
@@ -127,14 +155,13 @@ Page({
       case "1":
         if (this.data.chioceDistrict) {
           this.setData({
-            
+
             chioceDistrict: false,
             chioceSorting: false,
             chioceFilter: false,
           });
         } else {
           this.setData({
-            
             chioceDistrict: true,
             chioceSorting: false,
             chioceFilter: false,
@@ -144,7 +171,7 @@ Page({
       case "2":
         if (this.data.chioceSorting) {
           this.setData({
-            
+
             chioceDistrict: false,
             chioceSorting: false,
             chioceFilter: false,
@@ -161,7 +188,7 @@ Page({
   },
   hideAllChioce: function () {
     this.setData({
-     
+
       chioceDistrict: false,
       chioceSorting: false,
       chioceFilter: false,
@@ -192,7 +219,7 @@ Page({
   districtSorting: function (e) {
     var index = e.currentTarget.dataset.index;
     this.setData({
-    
+
       chioceDistrict: false,
       activeDistrictIndex: index,
       activeDistrictName: this.data.districtList[index].value,
@@ -207,7 +234,7 @@ Page({
   selectSorting: function (e) {
     var index = e.currentTarget.dataset.index;
     this.setData({
-     
+
       chioceSorting: false,
       activeSortingIndex: index,
       activeSortingName: this.data.sortingList[index].value,
@@ -218,12 +245,7 @@ Page({
     })
     //this.getProductList();
   },
-  check_order: function(e){
-    var that = this;
-    var item = that.data.order[e.currentTarget.dataset.index,1];
-    wx.navigateTo({
-      url:"../order_info/order_info?food_oder_id="+item.food_oder_id
-    })
+  check_order: function (e) {
+    // console.log(e);
   }
-
 })

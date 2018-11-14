@@ -2,8 +2,8 @@ const { mysql } = require('../qcloud')
 
 module.exports = async ctx => {
   var user_id = ctx.request.query.user_id
-  console.log(user_id);
-  var res = await mysql("foodOrder").where({ user_id })
+  var res = await mysql("orderinfo").where({ user_id })
+  //ctx.state.data=res
   var num = res.length
   var str = "{\"data\":["
   for (var i = 0; i < num; i++) {
@@ -24,31 +24,34 @@ module.exports = async ctx => {
     if (res4.length != 0)
       order_good_name = res4[0].good_name
     else
-      continue
+      order_good_name = "不知道吃什么"
     var shop_id = good_id.substr(1, 1)
     var res2 = await mysql("shop").where({ shop_id })
+
     var order_shop_address
     if (res2.length != 0)
       order_shop_address = res2[0].shop_intro
     else
-      continue
+      order_shop_address = "不知道哪里的店"
     var order_deli_fee = res2[0].shipping_fee
 
     var order_good_num = res1[0].good_order_num
-    var user_id = res[i].user_id
     var res3 = await mysql("contactInfo").where({ user_id })
+    //ctx.state.data=res3
     var order_address
     if (res3.length != 0)
       order_address = res3[0].address
     else
-      continue
+      order_address = "不知道送到哪里"
     var res5
-    if (res[i].food_order_time != undefined)
+    var order_tiem
+    if (res[i].food_order_time != undefined) {
       res5 = res[i].food_order_time
+      order_time = res5.substr(5)
+    }
     else
-      continue
+      order_time = "不知道什么时候送到"
 
-    var order_time = res5.substr(5)
     var order_sum
     if (res[i].total_cost != undefined)
       order_sum = res[i].total_cost
@@ -77,4 +80,5 @@ module.exports = async ctx => {
   }
   str += "]}"
   ctx.state.data = JSON.parse(str)
+
 }
