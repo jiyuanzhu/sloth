@@ -36,7 +36,7 @@
   <view bindtap="hideAllChioce" class="mask" hidden="{{!chioceDistrict&&!chioceSorting}}">
   </view>
   <view class='order_recommand'>
-    <view class='order_recommand_each_item' wx:for="{{order}}" wx:key="food_oder_id" data-index="{{index}}" bind:tap="check_order">
+    <view class='order_recommand_each_item' wx:for="{{currentorder}}" wx:key="food_oder_id" data-index="{{index}}" bind:tap="check_order">
       <view class='row_1' style="flex-direction:row;">
         <view class='order_type'>{{item.order_type}}</view>
         <view class='shop_address'>{{item.order_shop_address}}</view>
