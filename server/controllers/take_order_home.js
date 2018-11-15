@@ -57,9 +57,6 @@ module.exports = async ctx => {
     var res6 = await mysql("orderinfo").where({ food_order_id })
     if(res6.length>0)
       continue
-    var checkUser_id = res[i].user_id
-    if(checkUser_id==user_id)
-      continue
   
     if (count == 0)
       str += "{"
