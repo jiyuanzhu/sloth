@@ -57,6 +57,8 @@ var config = {
     //接单
     take_orderUrl: `${host}/weapp/take_order`,
 
+    //订单详情
+    order_infoUrl: `${host}/weapp/order_info`,
   }
 };
 

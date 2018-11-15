@@ -1,3 +1,7 @@
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
+
 // pages/order_info/order_info.js
 Page({
 
@@ -28,17 +32,18 @@ Page({
       },
     });
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5bbeefa27b8b103aa6c7dd32/example/menu'+"?food_oder_id="+options.food_oder_id,
+      url: config.service.order_infoUrl+"?food_order_id="+options.food_order_id,
       method:"GET",
       header: {
         "content-type": "application/json"
       },
       success: function (res) {
-        // console.log(res)
+        console.log(options.food_order_id)
+        console.log(res)
         that.setData({
-          menu: res.data.menu,
-          customer: res.data.customer,
-          status: res.data.status
+          menu: res.data.data.menu,
+          customer: res.data.data.customer,
+          status: res.data.data.status
         });
       }
     })

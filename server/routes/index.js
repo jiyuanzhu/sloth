@@ -49,5 +49,6 @@ router.get('/take_order_home', controllers.take_order_home)
 router.get('/my_order',controllers.my_order)
 router.get('/my_take_order',controllers.my_take_order)
 router.get('/take_order', controllers.take_order)
+router.get('/order_info', controllers.order_info)
 
 module.exports = router
