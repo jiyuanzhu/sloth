@@ -4,6 +4,7 @@ module.exports = async ctx => {
   var user_id = ctx.request.query.user_id
   var res = await mysql("orderinfo").where({ user_id })
   //ctx.state.data=res
+  var count = 0
   var num = res.length
   var str = "{\"data\":["
   for (var i = 0; i < num; i++) {
@@ -45,20 +46,22 @@ module.exports = async ctx => {
       order_address = "不知道送到哪里"
     var res5
     var order_tiem
-    if (res[i].food_order_time != undefined) {
-      res5 = res[i].food_order_time
+    var res6 = await mysql("foodOrder").where({ food_order_id })
+    if (res6[0].length !=0 ) {
+      res5 = res6[0].food_order_time
       order_time = res5.substr(5)
     }
     else
       order_time = "不知道什么时候送到"
 
     var order_sum
-    if (res[i].total_cost != undefined)
-      order_sum = res[i].total_cost
+    if (res6[0].length != 0)
+      order_sum = res6[0].total_cost
     else
-      continue
+      order_sum = "不知道多少钱"
+    var order_state = res[i].state
 
-    if (i == 0)
+    if (count == 0)
       str += "{"
     else
       str += ",{"
@@ -75,8 +78,10 @@ module.exports = async ctx => {
     str += "\"order_address\": \"" + order_address + "\","
     str += "\"order_deli_time\": \"明早7: 00 - 8: 00送达\","
     str += "\"order_time\": \"" + order_time + "\","
+    str += "\"order_state\": \"" + order_state + "\","
     str += "\"order_sum\": \"" + order_sum + "\""
     str += "}"
+    count+=1
   }
   str += "]}"
   ctx.state.data = JSON.parse(str)

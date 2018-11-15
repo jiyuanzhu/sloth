@@ -5,6 +5,7 @@ module.exports = async ctx => {
   var res = await mysql("foodOrder").where({ user_id })
   //ctx.state.data=res
   var num = res.length
+  var count = 0
   var str = "{\"data\":["
   for (var i = 0; i < num; i++) {
     var food_order_id
@@ -57,8 +58,14 @@ module.exports = async ctx => {
       order_sum = res[i].total_cost
     else
       continue
+    var res6 = await mysql("orderinfo").where({ food_order_id })
+    var order_state 
+    if( res6.length != 0)
+      order_state = res[i].state
+    else
+      order_state = -1
 
-    if (i == 0)
+    if (count == 0)
       str += "{"
     else
       str += ",{"
@@ -75,8 +82,10 @@ module.exports = async ctx => {
     str += "\"order_address\": \"" + order_address + "\","
     str += "\"order_deli_time\": \"明早7: 00 - 8: 00送达\","
     str += "\"order_time\": \"" + order_time + "\","
+    str += "\"order_state\": \"" + order_state + "\","
     str += "\"order_sum\": \"" + order_sum + "\""
     str += "}"
+    count+=1
   }
   str += "]}"
   ctx.state.data = JSON.parse(str)
