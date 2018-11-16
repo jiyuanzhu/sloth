@@ -16,6 +16,7 @@ module.exports = async ctx => {
     state: 1,
     take_order_time: take_order_time
   }
+  await mysql("foodOrder").update({ food_order_state: 1 }).where({ food_order_id })
   var res = await mysql("orderinfo").insert(orderinfo)
   ctx.state.data = res
 }

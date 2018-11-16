@@ -42,32 +42,34 @@ Page({
     }, {
       key: 12,
       value: "C12"
+    }, {
+      key: 13,
+      value: "全部"
     }],
     sortingList: [{
       key: 1,
-      value: "智能排序"
+      value: "华工二饭三楼肠粉"
     }, {
       key: 2,
-      value: "价格最低"
+      value: "华工二饭三楼包子"
     }, {
       key: 3,
-      value: "价格最高"
+      value: "华工二饭三楼酸辣粉"
     }, {
       key: 4,
-      value: "销量最高"
+      value: "华工一饭一楼"
+    }, {
+      key: 5,
+      value: "全部"
     }],
-    districtChioceIcon: "/images/icon-go-black.png",
-    sortingChioceIcon: "/images/icon-go-black.png",
     chioceDistrict: false,
     chioceSorting: false,
-    activeDistrictParentIndex: -1,
-    activeDistrictChildrenIndex: -1,
     activeDistrictIndex: -1,
-    activeDistrictName: "区域位置",
+    activeDistrictName: "楼栋",
     scrollTop: 0,
     scrollIntoView: 0,
     activeSortingIndex: -1,
-    activeSortingName: "综合排序"
+    activeSortingName: "购买店铺"
   },
   onLoad: function (options) {
     var that = this;
@@ -121,16 +123,13 @@ Page({
       case "1":
         if (this.data.chioceDistrict) {
           this.setData({
-            districtChioceIcon: "/images/icon-go-black.png",
-            sortingChioceIcon: "/images/icon-go-black.png",
             chioceDistrict: false,
             chioceSorting: false,
             chioceFilter: false,
           });
         } else {
           this.setData({
-            districtChioceIcon: "/images/icon-down-black.png",
-            sortingChioceIcon: "/images/icon-go-black.png",
+           
             chioceDistrict: true,
             chioceSorting: false,
             chioceFilter: false,
@@ -140,16 +139,14 @@ Page({
       case "2":
         if (this.data.chioceSorting) {
           this.setData({
-            districtChioceIcon: "/images/icon-go-black.png",
-            sortingChioceIcon: "/images/icon-go-black.png",
+            
             chioceDistrict: false,
             chioceSorting: false,
             chioceFilter: false,
           });
         } else {
           this.setData({
-            districtChioceIcon: "/images/icon-go-black.png",
-            sortingChioceIcon: "/images/icon-down-black.png",
+           
             chioceDistrict: false,
             chioceSorting: true,
             chioceFilter: false,
@@ -160,8 +157,7 @@ Page({
   },
   hideAllChioce: function() {
     this.setData({
-      districtChioceIcon: "/images/icon-go-black.png",
-      sortingChioceIcon: "/images/icon-go-black.png",
+     
       chioceDistrict: false,
       chioceSorting: false,
       chioceFilter: false,
@@ -192,7 +188,7 @@ Page({
   districtSorting: function(e) {
     var index = e.currentTarget.dataset.index;
     this.setData({
-      districtChioceIcon: "/images/icon-go-black.png",
+      
       chioceDistrict: false,
       activeDistrictIndex: index,
       activeDistrictName: this.data.districtList[index].value,
@@ -207,7 +203,6 @@ Page({
   selectSorting: function(e) {
     var index = e.currentTarget.dataset.index;
     this.setData({
-      sortingChioceIcon: "/images/icon-go-black.png",
       chioceSorting: false,
       activeSortingIndex: index,
       activeSortingName: this.data.sortingList[index].value,

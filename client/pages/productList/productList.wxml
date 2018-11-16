@@ -3,11 +3,11 @@
   <view class="choice-bar">
     <!-- 配送地址选择 -->
     <view bindtap="choiceItem" data-item="1" class="chioce-item chioce-item-first" hover-class="click-once-opaque">{{activeDistrictName}}
-      <image class="icon-chioce" src="{{districtChioceIcon}}"></image>
+      <view class="icon {{chioceDistrict==true?'active' : ''}}"></view>
     </view>
     <!-- 排序方式选择 -->
     <view bindtap="choiceItem" data-item="2" class="chioce-item" hover-class="click-once-opaque">{{activeSortingName}}
-      <image class="icon-chioce" src="{{sortingChioceIcon}}"></image>
+      <view class="icon {{chioceSorting==true?'active' : ''}}"></view>
     </view>
 
     <!-- 配送地址下拉框 -->
