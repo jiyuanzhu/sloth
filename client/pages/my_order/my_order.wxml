@@ -66,7 +66,7 @@
           <view class='row_text_content4'>订单金额:</view>
           <view class='row_text_content3'>￥{{item.order_sum}}</view>
         </view>
-        <view class='order-state' data-index="{{index}}">进行中</view>
+        <view class='order-state' data-index="{{index}}" bindtap='arrive_confirm'>{{item.order_state==2?'已送达':'确认送达'}}</view>
       </view>
     </view>
   </view>

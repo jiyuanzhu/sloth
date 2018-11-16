@@ -303,9 +303,11 @@ page {
 
 .order-state {
   color: white;
+  width: 44pt;
   background-color: #fd6460;
-  font-size: 32rpx;
-  padding: 3rpx 12rpx;
+  font-size: 10pt;
+  padding: 4pt;
+  margin-right: 5pt;
   margin-top: -15rpx;
   border-radius: 5rpx;
 }

@@ -194,7 +194,7 @@ Page({
       chioceFilter: false,
     });
   },
-  //区域位置
+  //楼栋
   getDistrictList: function () {
     var that = this;
     wx.request({
@@ -230,7 +230,7 @@ Page({
     })
     //this.getProductList();
   },
-  //综合排序
+  //购买店铺
   selectSorting: function (e) {
     var index = e.currentTarget.dataset.index;
     this.setData({
@@ -249,3 +249,5 @@ Page({
     // console.log(e);
   }
 })
+
+
