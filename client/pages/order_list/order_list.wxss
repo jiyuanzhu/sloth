@@ -1,70 +1,105 @@
-.container{
+.container1 {
   height: 100%;
   width: 100%;
   position: absolute;
   background-color: #f3f3f3;
 }
 
-.body{
-  width:100%;
+.body {
+  width: 100%;
 }
 
-.state{
-  float:right;
-  padding-right:10%;
-  color: #C0C0C0;
+.state {
+  float: right;
+  padding-right: 10%;
+  color: #c0c0c0;
   font-size: 70%;
 }
 
-.list{
+.list {
   width: 100%;
   padding: 5%;
-  background-color: #ffffff;
+  background-color: #fff;
   margin-top: 3%;
 }
 
-.restaurant{
-  color: #C0C0C0;
+.restaurant {
+  color: #c0c0c0;
   font-size: 70%;
 }
 
-.goods{
-  margin-top:3%;
+.goods {
+  margin-top: 3%;
 }
 
-.food{
-  color: #C0C0C0;
+.food {
+  color: #c0c0c0;
   font-size: 70%;
 }
 
-.amount{
-  color: #C0C0C0;
+.amount {
+  color: #c0c0c0;
   font-size: 70%;
-  float:right;
-  padding-right:15%;
+  float: right;
+  padding-right: 15%;
 }
 
-.total{
-  padding-top:3%;
-  width:35%;
-  padding-left:60%;
-  color: #C0C0C0;
+.total {
+  padding-top: 3%;
+  width: 35%;
+  padding-left: 60%;
+  color: #c0c0c0;
   font-size: 70%;
 }
 
-.text{
-    color: #000000;
+.text {
+  color: #000;
 }
 
-.last{
-  padding-top:10%;
-  color: #C0C0C0;
+.last {
+  padding-top: 10%;
+  color: #d18b8b;
 }
 
-.click_btn{
-  background-color: #000000;
-  color: white;
-  width: 250rpx;
+.header_part {
   text-align: center;
-  margin: 30rpx 250rpx;
+  background-color: white;
+  margin: 0 5rpx;
+  padding-top: 50rpx;
+  padding-bottom: 60rpx;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-bottom-left-radius: 5rpx;
+  border-bottom-right-radius: 5rpx;
+}
+
+.title_row1{
+  padding-top: 15rpx;
+  font-size: 45rpx;
+}
+
+.two_btn {
+  display: flex;
+  text-align: center;
+  justify-content: space-between; 
+  margin-left: 110rpx;
+  margin-right: 110rpx;
+  margin-top: 15px;
+}
+
+.click_btn1 {
+  border: 1px solid #c0c0c0;
+  display: unset;
+  padding: 10rpx 30rpx;
+  
+}
+
+.click_btn2 {
+  background-color: #fd6460;
+  border: 1px solid #fd6460;
+  color: white;
+  display: unset;
+  padding: 10rpx 30rpx;
+
 }

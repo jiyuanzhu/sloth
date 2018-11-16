@@ -30,7 +30,7 @@ Page({
       {
         "name": "代拿快递",
         "src": "../../images/modules/2.png",
-        "url": "../canteen_select/canteen_select"
+        "url": "../order_package/order_package"
       },
       {
         "name": "跑腿",
@@ -40,7 +40,7 @@ Page({
       {
         "name": "代课",
         "src": "../../images/modules/4.png",
-        "url": "../canteen_select/canteen_select"
+        "url": "../substitute_class/substitute_class"
       },
       {
         "name": "兼职",

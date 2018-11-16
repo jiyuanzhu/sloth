@@ -16,7 +16,9 @@
     "pages/productList/productList",
     "pages/my_order/my_order",
     "pages/my_take_order/my_take_order",
-    "pages/order_info/order_info"
+    "pages/order_info/order_info",
+    "pages/substitute_class/substitute_class",
+    "pages/order_package/order_package"
   ],
   "window": {
     "backgroundColor": "#FD6460",
