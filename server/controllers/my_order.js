@@ -61,7 +61,7 @@ module.exports = async ctx => {
     var res6 = await mysql("orderinfo").where({ food_order_id })
     var order_state 
     if( res6.length != 0)
-      order_state = res[i].state
+      order_state = res6[0].state
     else
       order_state = -1
 

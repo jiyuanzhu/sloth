@@ -59,6 +59,9 @@ var config = {
 
     //订单详情
     order_infoUrl: `${host}/weapp/order_info`,
+
+    //更改订单状态
+    state_changeUrl: `${host}/weapp/state_change`
   }
 };
 

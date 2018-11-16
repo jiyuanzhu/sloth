@@ -301,9 +301,18 @@ page {
   margin-left: 25rpx;
 }
 
-.order-state {
+.order-state1 {
   color: white;
   background-color: #fd6460;
+  font-size: 32rpx;
+  padding: 3rpx 12rpx;
+  margin-top: -15rpx;
+  border-radius: 5rpx;
+}
+
+.order-state2 {
+  color: white;
+  background-color:gray;
   font-size: 32rpx;
   padding: 3rpx 12rpx;
   margin-top: -15rpx;

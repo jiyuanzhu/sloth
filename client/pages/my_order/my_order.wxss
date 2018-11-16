@@ -301,7 +301,7 @@ page {
   margin-left: 25rpx;
 }
 
-.order-state {
+.order-state1 {
   color: white;
   width: 44pt;
   background-color: #fd6460;
@@ -311,6 +311,18 @@ page {
   margin-top: -15rpx;
   border-radius: 5rpx;
 }
+
+.order-state2 {
+  color: white;
+  width: 44pt;
+  background-color:gray;
+  font-size: 10pt;
+  padding: 4pt;
+  margin-right: 5pt;
+  margin-top: -15rpx;
+  border-radius: 5rpx;
+}
+
 
 .default-content {
    height: 100%;  

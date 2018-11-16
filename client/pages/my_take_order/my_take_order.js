@@ -119,10 +119,25 @@ Page({
           },
           success: function (res) {
             that.setData({
-              runningorder: res.data.data.data,
               currentorder: res.data.data.data
             });
-            console.log(res.data)
+            console.log(res.data.data)
+            var tmp_run = [], tmp_fis = []
+            var item
+            for (item in res.data.data.data) {
+              // console.log(item)
+              if (that.data.currentorder[item].order_state == 2) {
+                tmp_fis.push(that.data.currentorder[item])
+              } else {
+                tmp_run.push(that.data.currentorder[item])
+              }
+            }
+            that.setData({
+              runningorder: tmp_run,
+              finishedorder: tmp_fis,
+              currentorder: tmp_run
+            })
+
           }
         })
 

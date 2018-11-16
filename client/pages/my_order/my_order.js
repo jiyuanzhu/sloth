@@ -99,6 +99,29 @@ Page({
     }
   },
 
+  arrive_confirm:function(e)
+  {
+    var index=e.currentTarget.dataset.index
+    //console.log(this.data.currentorder[index])
+    var food_order_id=this.data.currentorder[index].food_oder_id
+    //console.log(food_order_id)
+    if(this.data.currentorder[index].order_state==1){
+      wx.request({
+        url: config.service.state_changeUrl+'?food_order_id='+food_order_id,
+        method:'GET',
+        header: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        success:function(res){
+          console.log("已完成")
+          this.onLoad()
+          
+        }
+      })
+    }
+
+  },
+
   onLoad: function (options) {
     var that = this;
     //读入USERID
@@ -119,10 +142,25 @@ Page({
           },
           success: function (res) {
             that.setData({
-              runningorder: res.data.data.data,
               currentorder: res.data.data.data
             });
-            console.log(res.data)
+            console.log(res.data.data)
+            var tmp_run=[],tmp_fis=[]
+            var item
+            for(item in res.data.data.data){
+             // console.log(item)
+              if(that.data.currentorder[item].order_state==2){
+                tmp_fis.push(that.data.currentorder[item])
+              }else{
+                tmp_run.push(that.data.currentorder[item])
+              }
+            }
+            that.setData({
+              runningorder:tmp_run,
+              finishedorder:tmp_fis,
+              currentorder:tmp_run
+            })
+
           }
         })
 
