@@ -18,7 +18,9 @@
     "pages/my_take_order/my_take_order",
     "pages/order_info/order_info",
     "pages/substitute_class/substitute_class",
-    "pages/order_package/order_package"
+    "pages/order_package/order_package",
+    "pages/pt_info/pt_info",
+    "pages/otherOrder/otherOrder"
   ],
   "window": {
     "backgroundColor": "#FD6460",
