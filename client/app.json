@@ -20,7 +20,9 @@
     "pages/substitute_class/substitute_class",
     "pages/order_package/order_package",
     "pages/pt_info/pt_info",
-    "pages/otherOrder/otherOrder"
+    "pages/otherOrder/otherOrder",
+    "pages/legwork/legwork",
+    "pages/ptDetail/ptDetail"
   ],
   "window": {
     "backgroundColor": "#FD6460",

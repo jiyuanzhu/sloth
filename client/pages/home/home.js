@@ -35,7 +35,7 @@ Page({
       {
         "name": "跑腿",
         "src": "../../images/modules/3.png",
-        "url": "../canteen_select/canteen_select"
+        "url": "../legwork/legwork"
       },
       {
         "name": "代课",
