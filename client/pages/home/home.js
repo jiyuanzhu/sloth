@@ -45,12 +45,12 @@ Page({
       {
         "name": "兼职",
         "src": "../../images/modules/5.png",
-        "url": "../canteen_select/canteen_select"
+        "url": "../pt_info/pt_info"
       },
       {
         "name": "其他下单",
         "src": "../../images/modules/6.png",
-        "url": "../canteen_select/canteen_select"
+        "url": "../otherOrder/otherOrder"
       }
     ]
   }
