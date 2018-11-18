@@ -13,19 +13,25 @@
   </view>
 
   <view class="order">
-  <navigator url='../my_order/my_order'>
-    <view class='my_order-List'>我的下单</view>
-  </navigator>
+    <navigator url='../my_order/my_order'>
+      <view class='my_order-List'>我的下单</view>
+    </navigator>
   </view>
 
   <view class='take_order'>
-  <navigator url='../my_take_order/my_take_order'>
-    <view class='my_take_order-List'>我的接单</view>
-  </navigator>
+    <navigator url='../my_take_order/my_take_order'>
+      <view class='my_take_order-List'>我的接单</view>
+    </navigator>
   </view>
 
-</view>
+  <view class='info' >
+    <navigator url='../myInfo/myInfo' wx:if="{{logged}}">
+      <view class='my_info-List' >我的信息</view>
+    </navigator>
+  </view>
 
-<view class="logout">
-  <button class="logout-btn" wx:if="{{logged}}" bindtap='logout'>退出登录</button>
+  <view class="logout">
+    <view class="logout-btn" wx:if="{{logged}}" bindtap='logout'>退出登录</view>
+  </view>
+
 </view>

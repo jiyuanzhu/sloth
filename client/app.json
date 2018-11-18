@@ -22,7 +22,8 @@
     "pages/pt_info/pt_info",
     "pages/otherOrder/otherOrder",
     "pages/legwork/legwork",
-    "pages/ptDetail/ptDetail"
+    "pages/ptDetail/ptDetail",
+    "pages/myInfo/myInfo"
   ],
   "window": {
     "backgroundColor": "#FD6460",
