@@ -9,9 +9,10 @@ Page({
     cust_addr: [],
     cust_name: [],
     cust_phone: [],
+    addr_index:0//用于修改订单确定页面的数据
   },
   onLoad: function (options) {
-    console.log("The cust_id is: ", options.cust_id);
+    console.log("The cust_id is: ", options);
     var that = this;
     var flag = false;
     flag = options.flag;
@@ -21,6 +22,7 @@ Page({
       cust_addr: options.cust_addr,
       cust_name: options.cust_name,
       cust_phone: options.cust_phone,
+      addr_index:options.addr_index,
     })
   },
 
@@ -42,7 +44,7 @@ Page({
       flag = true
       //提交给mock
       wx.request({
-        url: config.service.changeAddressUrl + "?user_id=" + this.data.cust_id+"&prename=" + this.data.cust_name + "&prephone=" + this.data.cust_phone + "&preaddr=" + this.data.cust_addr + "&name=" + e.detail.value.namearea + "&phone=" + e.detail.value.phonearea + "&addr=" + e.detail.value.addressarea,
+        url: config.service.changeAddressUrl + "?user_id=" + that.data.cust_id+"&prename=" + that.data.cust_name + "&prephone=" + that.data.cust_phone + "&preaddr=" + that.data.cust_addr + "&name=" + e.detail.value.namearea + "&phone=" + e.detail.value.phonearea + "&addr=" + e.detail.value.addressarea,
         header: {
           "content-type": "application/x-www-form-urlencoded"
         },
@@ -55,14 +57,25 @@ Page({
         success(res) {
           console.log("debug")
           console.log(res)
+          // 因为路由部分修改成navigatorBack，为了地址页面实时更新，用getCurrentPages实现
+          var pages = getCurrentPages();
+          var prevPage = pages[pages.length-2];
+          // console.log(prevPage);
+          var customer = prevPage.data.customer;
+          customer[that.data.addr_index].cust_addr = e.detail.value.addressarea;
+          customer[that.data.addr_index].cust_name = e.detail.value.namearea;
+          customer[that.data.addr_index].cust_phone = e.detail.value.phonearea;
+          prevPage.setData({
+            customer:customer
+          });
           wx.showToast({
             title: '修改地址成功',
             icon: 'success',
             duration: 2000
           })
           setTimeout(function (e) {
-            wx.navigateTo({
-              url: '../order_confirm/order_confirm'
+            wx.navigateBack({
+              delta:1
             })
           }, 2000)
         }
@@ -80,7 +93,7 @@ Page({
     delSubmit: function (e) {
     var that = this;
       wx.request({
-        url: config.service.delAddressUrl + "?user_id=" + this.data.cust_id + "&prename=" + this.data.cust_name + "&prephone=" + this.data.cust_phone + "&preaddr=" + this.data.cust_addr,
+        url: config.service.delAddressUrl + "?user_id=" + that.data.cust_id + "&prename=" + that.data.cust_name + "&prephone=" + that.data.cust_phone + "&preaddr=" + that.data.cust_addr,
         header: {
           "content-type": "application/x-www-form-urlencoded"
         },
@@ -93,14 +106,24 @@ Page({
         success(res) {
           console.log("debug")
           console.log(res)
+          // 因为路由部分修改成navigatorBack，为了地址页面实时更新，用getCurrentPages实现
+          var pages = getCurrentPages();
+          var prevPage = pages[pages.length-2];
+          // console.log(prevPage);
+          var customer = prevPage.data.customer;
+          customer.splice(that.data.addr_index,1);
+          prevPage.setData({
+            customer:customer
+          });
           wx.showToast({
             title: '删除地址成功',
             icon: 'success',
             duration: 2000
           })
           setTimeout(function (e) {
-            wx.navigateTo({
-              url: '../order_confirm/order_confirm'
+            console.log(getCurrentPages());
+            wx.navigateBack({
+              delta:1
             })
           }, 2000)
         }

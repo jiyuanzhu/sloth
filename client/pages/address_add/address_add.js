@@ -23,6 +23,7 @@ Page({
     });
   },
   formSubmit: function (e) {
+    var that = this;
     console.log(e)
     wx.request({
       url: config.service.addAddressUrl + "?cust_name=" + e.detail.value.namearea + "&cust_phone=" + e.detail.value.phonearea + "&cust_addr=" + e.detail.value.addressarea +"&user_id="+this.data.userId,
@@ -32,18 +33,35 @@ Page({
       },
       success: function (res) {
         console.log("用户id：")
+        // 因为路由部分修改成navigatorBack，为了地址页面实时更新，用getCurrentPages实现
+        var address = {
+          cust_id: that.data.userId,
+          cust_name: e.detail.value.namearea,
+          cust_phone: e.detail.value.phonearea,
+          cust_addr: e.detail.value.addressarea,
+          default_id:0,
+          addr_id:0//稍后修改
+        };
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length-2];
+        address.addr_id = prevPage.data.customer.length;
+        var customer = prevPage.data.customer;
+        customer.push(address);
+        prevPage.setData({
+          customer:customer
+        });
         wx.showToast({
           title: '新增地址成功',
           icon: 'success',
           duration: 2000
         })
         setTimeout(function (e) {
-          wx.navigateTo({
-            url: '../order_confirm/order_confirm'
+          // 成功后返回上一页
+          wx.navigateBack({
+            delta:1
           })
         }, 2000)
       }
-
       /*data:{
         cust_name:e.detail.value.namearea,
         cust_phone:e.detail.value.phonearea,

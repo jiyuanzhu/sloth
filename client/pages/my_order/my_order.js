@@ -285,6 +285,21 @@ Page({
   },
   check_order: function(e){
     // console.log(e);
+    var that = this;
+    var item = that.data.currentorder[e.currentTarget.dataset.index];
+    wx.request({
+      // 春阳注意一下，这里的数据属性名还是food_oder_id
+      url: config.service.take_orderUrl+"?food_order_id="+item.food_oder_id+"&user_id="+that.data.userId,
+      method: "GET",
+      header:{
+        "content-type":"application/json"
+      },
+      success:function(res){
+        wx.navigateTo({
+          url:"../order_info/order_info?food_order_id="+item.food_oder_id
+        })
+      }
+    })
   }
 })
 

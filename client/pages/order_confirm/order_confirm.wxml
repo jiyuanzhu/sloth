@@ -76,7 +76,7 @@
         <view class="addr_head">选择送达地址</view>
         <scroll-view bind:scrolltolower="lower" scroll-y="{{true}}" class="addr_scroll">
             <view class="radio-group">
-                <view wx:for="{{customer}}">
+                <view wx:for="{{customer}}" wx:key="addr_id">
                   <view class='each_row' style="flex-direction:row;">
                     <view  bindtap="addrchange" data-id="{{item.addr_id}}"  class="label" style="flex-direction:column;">
                       <view class="decom">{{item.cust_addr}}</view>
@@ -86,7 +86,7 @@
                       </view>
                     </view>
                     <view>
-                      <navigator url='../address_alter/address_alter?cust_id={{item.cust_id}}&cust_addr={{item.cust_addr}}&cust_name={{item.cust_name}}&cust_phone={{item.cust_phone}}'>
+                      <navigator url='../address_alter/address_alter?cust_id={{item.cust_id}}&cust_addr={{item.cust_addr}}&cust_name={{item.cust_name}}&cust_phone={{item.cust_phone}}&addr_index={{index}}'>
                         <image class='icon_change' src='./writing.png'></image>
                       </navigator>
                     </view>
