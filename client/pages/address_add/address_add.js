@@ -7,6 +7,26 @@ Page({
     height: 20,
     focus: false,
     userId:0,
+    // dormitory:保存picker中的下拉信息
+    dormitory:[
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9",
+      "吸食",
+      "c11",
+      "c12",
+      "c13",
+      "c14",
+      "c15",
+    ],
+    // dormitory_index：标志选中的下标
+    dormitory_index:0
   },
   onLoad: function (options) {
     // 试着用easy-mock测试
@@ -26,7 +46,7 @@ Page({
     var that = this;
     console.log(e)
     wx.request({
-      url: config.service.addAddressUrl + "?cust_name=" + e.detail.value.namearea + "&cust_phone=" + e.detail.value.phonearea + "&cust_addr=" + e.detail.value.addressarea +"&user_id="+this.data.userId,
+      url: config.service.addAddressUrl + "?cust_name=" + e.detail.value.namearea + "&cust_wechat="+e.detail.value.wechatarea+"&cust_phone=" + e.detail.value.phonearea + "&cust_addr_room=" + e.detail.value.addressarea +"&user_id="+that.data.userId+ "&cust_addr_building="+that.data.dormitory[that.data.dormitory_index],
       method: "GET",
       header: {
         "content-type": "application/x-wwww-form-urlencoded"
@@ -68,5 +88,12 @@ Page({
         cust_addr:e.detail.value.addressarea
       }*/
     })
+  },
+  dormitory_change: function(e){
+    // console.log(e.detail.value);
+    var that = this;
+    that.setData({
+      dormitory_index:e.detail.value
+    });
   }
 })
