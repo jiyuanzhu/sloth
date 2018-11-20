@@ -64,7 +64,13 @@ var config = {
     state_changeUrl: `${host}/weapp/state_change`,
 
     //代拿快递下单
-    order_packageUrl: `${host}/weapp/order_package`
+    order_packageUrl: `${host}/weapp/order_package`,
+
+    //跑腿下单
+    legsworkOrderUrl: `${host}/weapp/legsworkOrder`,
+
+    //代课下单
+    substituteOrderUrl: `${host}/weapp/substituteOrder`
   }
 };
 

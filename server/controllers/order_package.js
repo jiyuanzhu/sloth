@@ -68,6 +68,6 @@ module.exports = async ctx => {
     order_state: -1,
     order_time: order_time
   }
-  var res3 = await mysql("packageOrder").insert(packageOrder)
-  ctx.state.data = res3
+  var res2 = await mysql("packageOrder").insert(packageOrder)
+  ctx.state.data = res2
 }

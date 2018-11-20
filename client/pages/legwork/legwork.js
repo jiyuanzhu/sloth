@@ -1,4 +1,7 @@
 const app = getApp()
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
 
 Page({
   data: {
@@ -6,6 +9,7 @@ Page({
     index1: 0,
     index2: 0,
     index3: 0,
+    userId: 0,
     date: '2018-11-17',
     sex: ['男', '女'],
     type1: ['校内跑腿','代购'],
@@ -16,6 +20,21 @@ Page({
       ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
     ],
     multiIndex: [0, 0, 0],
+  },
+  onLoad: function (options) {
+    // 试着用easy-mock测试
+    var that = this;
+    // 从缓存中得到订单信息
+    wx.getStorage({
+      key: 'userinfo',
+      success: function (res) {
+        console.log("读入userinfo")
+        console.log(res)
+        that.setData({
+          userId: res.data.openId
+        })
+      },
+    });
   },
 
   bindPickerChange: function (e) {
@@ -50,7 +69,24 @@ Page({
   },
 
   formSubmit: function (e) {
+    var that = this
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    wx.request({
+      url: config.service.legsworkOrderUrl + "?order_info=" + JSON.stringify(e.detail.value) + "&user_id=" + that.data.userId,
+      method: "GET",
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log(e.detail.value)
+        console.log(res)
+      }
+    }),
+      wx.showToast({
+        title: '下单成功',
+        icon: 'success',
+        duration: 2000
+      })
   },
 
 })
