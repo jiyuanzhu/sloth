@@ -1,16 +1,16 @@
 const { mysql } = require('../qcloud')
 
 module.exports = async ctx => {
-  var res = await mysql("packageOrder")
+  var res = await mysql("legsworkOrder")
   var num = res.length
   var str = "{\"data\":["
   var count = 0
   for (var i = 0; i < num; i++) {
     var order_id = res[i].order_id
-    var get_pack_addr = res[i].get_pack_addr
+    var legorder_type = res[i].legswork_type
     var profit = res[i].profit
-    var sex_require = res[i].sex_require
-    var shipping_address = res[i].shipping_address
+    var start_point = res[i].start_point
+    var destination = res[i].destination
     var complete_time = res[i].complete_time
     var order_time = res[i].order_time
 
@@ -24,11 +24,11 @@ module.exports = async ctx => {
       str += ",{"
     str += "\"order_type\":\"3\","
     str += "\"order_id\":\"" + order_id + "\","
-    str += "\"get_pack_addr\":\"" + get_pack_addr + "\","
+    str += "\"legorder_type\":\"" + legorder_type + "\","
     str += "\"profit\": \"" + profit + "\","
-    str += "\"sex_require\": \"" + sex_require + "\","
-    str += "\"shipping_address\": \"" + shipping_address + "\","
     str += "\"complete_time\": \"" + complete_time + "\","
+    str += "\"start_point\": \"" + start_point + "\","
+    str += "\"destination\": \"" + destination + "\","
     str += "\"order_time\": \"" + order_time + "\""
     str += "}"
     count += 1

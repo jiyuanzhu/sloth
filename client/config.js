@@ -80,6 +80,12 @@ var config = {
 
     //快递接单列表
     take_order_home_packageUrl: `${host}/weapp/take_order_home_package`,
+
+    //跑腿接单列表
+    take_order_home_legsworkUrl: `${host}/weapp/take_order_home_legswork`,
+
+    //代课接单列表
+    take_order_home_substitueteUrl: `${host}/weapp/take_order_home_substituete`,
   }
 };
 

@@ -51,14 +51,14 @@ Page({
       },
     });
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5bcacf2773057966af1d630b/takeSubClassOrder',
+      url: config.service.take_order_home_substitueteUrl,
       method: "GET",
       header: {
         "content-type": "application/json"
       },
       success: function (res) {
         that.setData({
-          order: res.data.data
+          order: res.data.data.data
         });
          console.log(res.data)
       }
@@ -197,7 +197,7 @@ Page({
             order: data
           }),
             wx.request({
-              url: config.service.take_order_packageUrl + "?order_id=" + item[0].order_id + "&user_id=" + that.data.userId,
+            url: config.service.take_orderUrl + "?order_id=" + item[0].order_id + "&user_id=" + that.data.userId + "&order_type=4",
               method: "GET",
               header: {
                 "content-type": "application/json"

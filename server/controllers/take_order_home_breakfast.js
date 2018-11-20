@@ -62,7 +62,7 @@ module.exports = async ctx => {
       str += "{"
     else
       str += ",{"
-    str += "\"order_type\":\"早餐\","
+    str += "\"order_type\":\"1\","
     str += "\"order_id\":\"" + order_id + "\","
     str += "\"order_shop_address\":\"" + order_shop_address + "\","
     str += "\"order_deli_fee\": \"" + order_deli_fee + "\","

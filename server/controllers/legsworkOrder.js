@@ -8,7 +8,7 @@ module.exports = async ctx => {
   var order_type_arr = ['校内跑腿', '代购']
   var good_type_arr = ['文件', '钥匙', '充电宝', '手机', '鲜花', '其他',]
 
-  var legswork_type = order_type_arr[order_info.order_type]
+  var legswork_type = order_type_arr[order_info.legorder_type]
   var complete_time = order_info.complete_time
   var good_type = good_type_arr[order_info.good_type]
   var start_point = order_info.start_point

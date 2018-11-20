@@ -28,6 +28,12 @@ module.exports = async ctx => {
   else 
   if (order_type == 2)
     await mysql("packageOrder").update({ order_state: 1 }).where({ order_id })
+  else
+  if (order_type == 3)
+    await mysql("legsworkOrder").update({ order_state: 1 }).where({ order_id })
+  else
+  if (order_type == 4)
+    await mysql("substituteOrder").update({ order_state: 1 }).where({ order_id })
   await mysql("orderList").update({ order_state: 1 }).where({ order_id })
   var res = await mysql("orderinfo").insert(orderinfo)
   ctx.state.data = order_type
