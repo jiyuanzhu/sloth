@@ -7,9 +7,7 @@ module.exports = async ctx => {
   var order_type_
   var order_type
   var order_id, order_shop_address, order_deli_fee, order_total_item, order_good_name, order_good_num, order_address, order_time, order_state, order_sum, order_deli_time
-  var res = await mysql("orderinfo").where({
-    open_id
-  })
+  var res = await mysql("orderinfo").where({ open_id })
   //ctx.state.data=res
   var count = 0
   var num = res.length
@@ -95,12 +93,44 @@ module.exports = async ctx => {
         order_time=res11[0].order_time
         order_state=res11[0].order_state
         order_sum=0
+      }else{
+        if(order_type_==3){
+          order_type='跑腿'
+          var res12=await mysql('legsworkOrder').where({ order_id })
+          order_shop_address=res12[0].start_point
+          order_deli_fee = res12[0].profit
+          order_total_item = 1
+          order_good_num = 1
+          order_good_name = res12[0].good_type
+          order_address = res12[0].destination
+          order_deli_time = res11[0].complete_time
+          order_time = res12[0].order_time
+          order_state = res12[0].order_state
+          order_sum = 0
+        }else{
+          if(order_type_==4){
+            order_type='代课'
+            var res13=await mysql('substituteOrder').where({ order_id })
+            order_shop_address = res13[0].class_address
+            order_deli_fee = res13[0].profit
+            order_total_item = 1
+            order_good_num = 1
+            order_good_name = res13[0].class_name
+            order_address = res13[0].other_require
+            order_deli_time = res13[0].class_time
+            order_time = res13[0].order_time
+            order_state = res13[0].order_state
+            order_sum = 0
+
+          }
+        }
       }
     }
     if (count == 0)
       str += "{"
     else
       str += ",{"
+    str += "\"order_type_\":\"" + order_type_ + "\","
     str += "\"order_type\":\""+order_type+"\","
     str += "\"order_id\":\"" + order_id + "\","
     str += "\"order_shop_address\":\"" + order_shop_address + "\","
