@@ -52,20 +52,20 @@ Page({
   onLoad: function(options) {
     var that = this;
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5bcacf2773057966af1d630b/recommand',
+      url: config.service.take_order_homeUrl,
       method: "GET",
       header: {
         "content-type": "application/json"
       },
       success: function(res) {
+        console.log(res)
         that.setData({
-          order1: res.data.data1,
-          order2: res.data.data2,
-          order3: res.data.data3,
-          order4: res.data.data4
+          order1: res.data.data.data1,
+          order2: res.data.data.data3,
+          order3: res.data.data.data2,
+          order4: res.data.data.data4
 
         });
-        // console.log(res.data)
       }
     }),
       wx.getStorage({
