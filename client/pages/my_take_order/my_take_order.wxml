@@ -36,7 +36,7 @@
   <view bindtap="hideAllChioce" class="mask" hidden="{{!chioceDistrict&&!chioceSorting}}">
   </view>
   <view class='order_recommand'>
-    <view class='order_recommand_each_item' wx:for="{{currentorder}}" wx:key="food_oder_id" data-index="{{index}}" bind:tap="check_order">
+    <view class='order_recommand_each_item' wx:for="{{currentorder}}" wx:key="order_id" data-index="{{index}}" bind:tap="check_order">
       <view class='row_1' style="flex-direction:row;">
         <view class='order_type'>{{item.order_type}}</view>
         <view class='shop_address'>{{item.order_shop_address}}</view>
@@ -44,27 +44,29 @@
       </view>
       <view class='content_each_row' style="flex-direction:row;">
         <image class='content_icon' src='content.png'></image>
-        <view class='row_text_title'>配送内容:</view>
+        <view class='row_text_title'>内容:</view>
         <view class='row_text_content'>（共{{item.order_total_item}}项）</view>
         <view class='row_text_content'>{{item.order_good_name}}</view>
         <view class='row_text_content'>X{{item.order_good_num}}</view>
       </view>
       <view class='content_each_row' style="flex-direction:row;">
         <image class='content_icon' src='address.png'></image>
-        <view class='row_text_title'>配送至：</view>
+        <view class='row_text_title' wx:if="{{item.order_type_==4}}">特殊要求</view>
+        <view class='row_text_title' wx:else>送至：</view>
         <view class='row_text_content'> {{item.order_address}}</view>
       </view>
       <view class='content_each_row' style="flex-direction:row;">
         <image class='content_icon' src='time.png'></image>
-        <view class='row_text_title'>配送时间：</view>
+        <view class='row_text_title' wx:if="{{item.order_type_==4}}">上课时间</view>
+        <view class='row_text_title' wx:else>送达时间：</view>
         <view class='row_text_content'> {{item.order_deli_time}}</view>
       </view>
       <view class='content_each_row' style="flex-direction:row;">
         <view class='last_row' style='flex-direction:row'>
           <view class='row_text_content2'>发布时间:</view>
           <view class='row_text_content3'>{{item.order_time}}</view>
-          <view class='row_text_content4'>订单金额:</view>
-          <view class='row_text_content3'>￥{{item.order_sum}}</view>
+          <view class='row_text_content4' wx:if="{{item.order_type_==1}}">订单金额:</view>
+          <view class='row_text_content3' wx:if="{{item.order_type_==1}}" >￥{{item.order_sum}}</view>
         </view>
         <view class='order-state1' wx:if='{{current==0}}'>进行中</view>
         <view class='order-state2' wx:else>订单完成</view>

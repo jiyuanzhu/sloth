@@ -75,8 +75,20 @@ var config = {
     //早餐接单列表
     take_order_home_breakfastUrl: `${host}/weapp/take_order_home_breakfast`,
 
-    //早餐接单
-    take_order_breakfastUrl: `${host}/weapp/take_order_breakfast`
+    //接单
+    take_orderUrl: `${host}/weapp/take_order`,
+
+    //快递接单列表
+    take_order_home_packageUrl: `${host}/weapp/take_order_home_package`,
+
+    //跑腿接单列表
+    take_order_home_legsworkUrl: `${host}/weapp/take_order_home_legswork`,
+
+    //代课接单列表
+    take_order_home_substitueteUrl: `${host}/weapp/take_order_home_substituete`,
+
+    //获取兼职列表
+    take_ptjobUrl: `${host}/weapp/take_ptjob`,
   }
 };
 

@@ -103,11 +103,12 @@ Page({
   {
     var index=e.currentTarget.dataset.index
     //console.log(this.data.currentorder[index])
-    var food_order_id=this.data.currentorder[index].food_oder_id
-    //console.log(food_order_id)
+    var order_id=this.data.currentorder[index].order_id
+    var order_type=this.data.currentorder[index].order_type_
+    //console.log(order_id)
     if(this.data.currentorder[index].order_state==1){
       wx.request({
-        url: config.service.state_changeUrl+'?food_order_id='+food_order_id,
+        url: config.service.state_changeUrl+'?order_id='+order_id+'&order_type='+order_type,
         method:'GET',
         header: {
           "content-type": "application/x-www-form-urlencoded"
@@ -289,14 +290,14 @@ Page({
     var item = that.data.currentorder[e.currentTarget.dataset.index];
     wx.request({
       // 春阳注意一下，这里的数据属性名还是food_oder_id
-      url: config.service.take_orderUrl+"?food_order_id="+item.food_oder_id+"&user_id="+that.data.userId,
+      url: config.service.take_orderUrl+"?food_order_id="+item.food_order_id+"&user_id="+that.data.userId,
       method: "GET",
       header:{
         "content-type":"application/json"
       },
       success:function(res){
         wx.navigateTo({
-          url:"../order_info/order_info?food_order_id="+item.food_oder_id
+          url:"../order_info/order_info?food_order_id="+item.food_order_id
         })
       }
     })

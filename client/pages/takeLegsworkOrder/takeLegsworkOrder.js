@@ -8,68 +8,26 @@ Page({
     order: [],
     districtList: [{
       key: 1,
-      value: "C1"
+      value: "南校"
     }, {
       key: 2,
-      value: "C2"
-    }, {
-      key: 3,
-      value: "C3"
-    }, {
-      key: 4,
-      value: "C4"
-    }, {
-      key: 5,
-      value: "C5"
-    }, {
-      key: 6,
-      value: "C6"
-    }, {
-      key: 7,
-      value: "C7"
-    }, {
-      key: 8,
-      value: "C8"
-    }, {
-      key: 9,
-      value: "C9"
-    }, {
-      key: 10,
-      value: "C10"
-    }, {
-      key: 11,
-      value: "C11"
-    }, {
-      key: 12,
-      value: "C12"
-    }, {
-      key: 13,
-      value: "全部"
+      value: "北校"
     }],
     sortingList: [{
       key: 1,
-      value: "华工二饭三楼肠粉"
+      value: "南校"
     }, {
       key: 2,
-      value: "华工二饭三楼包子"
-    }, {
-      key: 3,
-      value: "华工二饭三楼酸辣粉"
-    }, {
-      key: 4,
-      value: "华工一饭一楼"
-    }, {
-      key: 5,
-      value: "全部"
+      value: "北校"
     }],
     chioceDistrict: false,
     chioceSorting: false,
     activeDistrictIndex: -1,
-    activeDistrictName: "楼栋",
+    activeDistrictName: "起点",
     scrollTop: 0,
     scrollIntoView: 0,
     activeSortingIndex: -1,
-    activeSortingName: "购买店铺"
+    activeSortingName: "目的地"
   },
   onLoad: function (options) {
     var that = this;
@@ -84,7 +42,7 @@ Page({
       },
     });
     wx.request({
-      url: config.service.take_order_home_breakfastUrl,
+      url: config.service.take_order_home_legsworkUrl,
       method: "GET",
       header: {
         "content-type": "application/json"
@@ -230,15 +188,14 @@ Page({
             order: data
           }),
             wx.request({
-              url: config.service.take_orderUrl + "?order_id=" + item[0].order_id + "&user_id=" + that.data.userId + "&order_type=1",
+            url: config.service.take_orderUrl + "?order_id=" + item[0].order_id + "&user_id=" + that.data.userId + "&order_type=3",
               method: "GET",
               header: {
                 "content-type": "application/json"
               },
               success: function (res) {
-                console.log(res)
                 wx.navigateTo({
-                  url: "../order_info/order_info?food_order_id=" + item[0].order_id
+                  url: "../order_info/order_info?food_order_id=" + item[0].food_order_id
                 })
               }
             })

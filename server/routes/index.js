@@ -55,6 +55,10 @@ router.get('/order_package', controllers.order_package)
 router.get('/legsworkOrder', controllers.legsworkOrder)
 router.get('/substituteOrder', controllers.substituteOrder)
 router.get('/take_order_home_breakfast', controllers.take_order_home_breakfast)
-router.get('/take_order_breakfast', controllers.take_order_breakfast)
+router.get('/take_order', controllers.take_order)
+router.get('/take_order_home_package', controllers.take_order_home_package)
+router.get('/take_order_home_legswork', controllers.take_order_home_legswork)
+router.get('/take_order_home_substituete', controllers.take_order_home_substituete)
+router.get('/take_ptjob', controllers.take_ptjob)
 
 module.exports = router

@@ -30,19 +30,19 @@ Page({
     }],
     sortingList: [{
       key: 1,
-      value: "华工二饭三楼肠粉"
+      value: "C1"
     }, {
       key: 2,
-      value: "华工二饭三楼包子"
+        value: "C2"
     }, {
       key: 3,
-      value: "华工二饭三楼酸辣粉"
+        value: "C3"
     }, {
       key: 4,
-      value: "华工一饭一楼"
+        value: "C4"
     }, {
       key: 5,
-      value: "全部"
+      value: "C1"
     }],
     chioceDistrict: false,
     chioceSorting: false,
@@ -66,14 +66,14 @@ Page({
       },
     });
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5bcacf2773057966af1d630b/getPackageOrder',
+      url: config.service.take_order_home_packageUrl,
       method: "GET",
       header: {
         "content-type": "application/json"
       },
       success: function (res) {
         that.setData({
-          order: res.data.data
+          order: res.data.data.data
         });
          console.log(res.data)
       }
@@ -212,14 +212,15 @@ Page({
             order: data
           }),
             wx.request({
-              url: config.service.take_order_breakfastUrl + "?food_order_id=" + item[0].food_order_id + "&user_id=" + that.data.userId,
+            url: config.service.take_orderUrl + "?order_id=" + item[0].order_id + "&user_id=" + that.data.userId + "&order_type=2",
               method: "GET",
               header: {
                 "content-type": "application/json"
               },
               success: function (res) {
+                console.log(res)
                 wx.navigateTo({
-                  url: "../order_info/order_info?food_order_id=" + item[0].food_order_id
+                  url: "../order_info/order_info?food_order_id=" + item[0].order_id
                 })
               }
             })
