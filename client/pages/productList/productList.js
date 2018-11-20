@@ -84,7 +84,7 @@ Page({
       },
     });
     wx.request({
-      url: config.service.take_order_homeUrl,
+      url: config.service.take_order_home_breakfastUrl,
       method: "GET",
       header: {
         "content-type": "application/json"
@@ -93,7 +93,7 @@ Page({
         that.setData({
           order: res.data.data.data
         });
-         //console.log(res.data)
+         console.log(res.data)
       }
     })
   },
@@ -230,7 +230,7 @@ Page({
             order: data
           }),
             wx.request({
-              url: config.service.take_orderUrl + "?food_order_id=" + item[0].food_order_id + "&user_id=" + that.data.userId,
+              url: config.service.take_order_breakfastUrl + "?food_order_id=" + item[0].food_order_id + "&user_id=" + that.data.userId,
               method: "GET",
               header: {
                 "content-type": "application/json"

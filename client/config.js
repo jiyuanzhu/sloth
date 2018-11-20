@@ -70,7 +70,13 @@ var config = {
     legsworkOrderUrl: `${host}/weapp/legsworkOrder`,
 
     //代课下单
-    substituteOrderUrl: `${host}/weapp/substituteOrder`
+    substituteOrderUrl: `${host}/weapp/substituteOrder`,
+
+    //早餐接单列表
+    take_order_home_breakfastUrl: `${host}/weapp/take_order_home_breakfast`,
+
+    //早餐接单
+    take_order_breakfastUrl: `${host}/weapp/take_order_breakfast`
   }
 };
 
