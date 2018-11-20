@@ -61,7 +61,10 @@ var config = {
     order_infoUrl: `${host}/weapp/order_info`,
 
     //更改订单状态
-    state_changeUrl: `${host}/weapp/state_change`
+    state_changeUrl: `${host}/weapp/state_change`,
+
+    //代拿快递下单
+    order_packageUrl: `${host}/weapp/order_package`
   }
 };
 

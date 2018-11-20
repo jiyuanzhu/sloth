@@ -32,7 +32,7 @@ Page({
         "content-type": "application/x-wwww-form-urlencoded"
       },
       success: function (res) {
-        console.log("用户id：")
+        console.log(res)
         // 因为路由部分修改成navigatorBack，为了地址页面实时更新，用getCurrentPages实现
         var address = {
           cust_id: that.data.userId,

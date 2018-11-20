@@ -45,17 +45,6 @@ Page({
         })
       },
     });
-
-    wx.getStorage({
-      key: 'selected_addr',
-      success: function (res) {
-        console.log("读入addr_id")
-        console.log(res)
-        that.setData({
-          addr_id: res.data
-        })
-      },
-    });
     wx.getStorage({
       key: 'userinfo',
       success: function (res) {
@@ -131,16 +120,27 @@ Page({
     console.log("提交订单，向服务器上传订单")
     var that = this;
     console.log(that.data.orders);
-    wx.request({
-      url: config.service.settleOrderUrl + "?orders=" + JSON.stringify(that.data.orders) + "&shop_id=" + that.data.shop_id + "&cost=" + that.data.cost + "&user_id=" + that.data.userId + "&addr_id=" + that.data.addr_id,
-      method: "GET",
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
+    wx.getStorage({
+      key: 'selected_addr',
       success: function (res) {
-        console.log(res.data)
-      }
-    })
+        console.log("读入addr_id")
+        console.log(res)
+        that.setData({
+          addr_id: res.data
+        })
+        wx.request({
+          url: config.service.settleOrderUrl + "?orders=" + JSON.stringify(that.data.orders) + "&shop_id=" + that.data.shop_id + "&cost=" + that.data.cost + "&user_id=" + that.data.userId + "&addr_id=" + that.data.addr_id,
+          method: "GET",
+          header: {
+            "content-type": "application/x-www-form-urlencoded"
+          },
+          success: function (res) {
+            console.log(that.data.addr_id)
+            console.log(res.data)
+          }
+        })
+      },
+    });
     wx.showToast({
       title: '成功',
       icon: 'success',

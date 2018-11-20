@@ -1,4 +1,7 @@
 const app = getApp()
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
 
 Page({
   data: {
@@ -6,6 +9,8 @@ Page({
     index1: 0,
     index2: 0,
     index3: 0,
+    userId: 0,
+    info:[],
     array: ['京东', '邮局', '一饭', '二饭', '一饭蜂巢', '二饭蜂巢'],
     money: ['1', '2', '3', '4', '5', '6'],
     order_weight: ['<1KG', '1-2KG', '2-3KG', '3-5KG', '5KG以上'],
@@ -22,6 +27,21 @@ Page({
     multiIndex: [0, 0, 0],
     multiIndex1: [0, 0, 0],
 
+  },
+  onLoad: function (options) {
+    // 试着用easy-mock测试
+    var that = this;
+    // 从缓存中得到订单信息
+    wx.getStorage({
+      key: 'userinfo',
+      success: function (res) {
+        console.log("读入userinfo")
+        console.log(res)
+        that.setData({
+          userId: res.data.openId
+        })
+      },
+    });
   },
 
   bindPickerChange: function (e) {
@@ -79,7 +99,24 @@ Page({
     this.setData(data);
   },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var that = this;
+    console.log('form发生了submit事件，携带数据为：', JSON.stringify(that.data.info))
+    wx.request({
+      url: config.service.order_packageUrl + "?order_info=" + JSON.stringify(e.detail.value) + "&user_id=" + that.data.userId,
+      method: "GET",
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log(e.detail.value)
+        console.log(res)
+      }
+    }),
+    wx.showToast({
+      title: '下单成功',
+      icon: 'success',
+      duration: 2000
+    })
   },
 
 })
