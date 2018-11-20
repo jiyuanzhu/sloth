@@ -21,7 +21,7 @@ Page({
       {
         "name": "代拿快递",
         "src": "../../images/2.png",
-        "url": "../canteen_select/canteen_select"
+        "url": "../takePackageOrder/takePackageOrder"
       },
       {
         "name": "跑腿",

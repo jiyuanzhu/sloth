@@ -23,7 +23,10 @@
     "pages/otherOrder/otherOrder",
     "pages/legwork/legwork",
     "pages/ptDetail/ptDetail",
+    "pages/takePackageOrder/takePackageOrder",
     "pages/myInfo/myInfo"
+
+    
   ],
   "window": {
     "backgroundColor": "#FD6460",
