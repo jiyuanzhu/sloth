@@ -46,7 +46,8 @@ Page({
     var that = this;
     console.log(e)
     wx.request({
-      url: config.service.addAddressUrl + "?cust_name=" + e.detail.value.namearea + "&cust_wechat="+e.detail.value.wechatarea+"&cust_phone=" + e.detail.value.phonearea + "&cust_addr_room=" + e.detail.value.addressarea +"&user_id="+that.data.userId+ "&cust_addr_building="+that.data.dormitory[that.data.dormitory_index],
+      // building信息保存的是下标
+      url: config.service.addAddressUrl + "?cust_name=" + e.detail.value.namearea + "&cust_wechat="+e.detail.value.wechatarea+"&cust_phone=" + e.detail.value.phonearea + "&cust_addr_room=" + e.detail.value.addressarea +"&user_id="+that.data.userId+ "&cust_addr_building="+that.data.dormitory_index,
       method: "GET",
       header: {
         "content-type": "application/x-wwww-form-urlencoded"

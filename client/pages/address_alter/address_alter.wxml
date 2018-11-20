@@ -7,11 +7,18 @@
       </view>
       <view class="text_each_row">
         <view class="text">手机号</view>
-        <input name="phonearea" placeholder="可以联系到你的号码" class="phoneinput" type="number" value="{{cust_phone}}" />
+        <input name="phonearea" placeholder="可以联系到你的号码" class="phoneinput" maxlength="11" type="number" value="{{cust_phone}}" />
       </view>
       <view class="text_each_row" style="border-bottom: 1px solid #f3f3f3;">
         <view class="text">地址</view>
-        <input name="addressarea" placeholder="学校/校区/宿舍号" class="addrinput" type="text" value="{{cust_addr}}" />
+        <picker style="margin-top:29rpx;" mode="selector" range="{{dormitory}}" value="{{dormitory_index}}" bindchange="dormitory_change">
+          <view class="dorm_picker">{{dormitory[dormitory_index]}}</view>
+        </picker>
+        <input name="addressarea" placeholder="学校/校区/宿舍号" class="addrinput" maxlength="3" type="number" value="{{cust_addr_room}}" />
+      </view>
+      <view class="text_each_row" style="border-bottom: 1px solid #f3f3f3;">
+        <view class="text">微信号</view>
+        <input name="wechatarea" placeholder="微信号" class="addrinput" value="{{cust_wechat}}" />
       </view>
       <view class='button_new_address'>
         <button formType='submit'>修改地址</button>
