@@ -230,14 +230,15 @@ Page({
             order: data
           }),
             wx.request({
-              url: config.service.take_order_breakfastUrl + "?food_order_id=" + item[0].food_order_id + "&user_id=" + that.data.userId,
+              url: config.service.take_orderUrl + "?order_id=" + item[0].order_id + "&user_id=" + that.data.userId + "&order_type=1",
               method: "GET",
               header: {
                 "content-type": "application/json"
               },
               success: function (res) {
+                console.log(res)
                 wx.navigateTo({
-                  url: "../order_info/order_info?food_order_id=" + item[0].food_order_id
+                  url: "../order_info/order_info?food_order_id=" + item[0].order_id
                 })
               }
             })
