@@ -1,4 +1,7 @@
 var app = getApp();
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
 
 Page({
   data: {
@@ -25,7 +28,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5bcacf2773057966af1d630b/ptInfo',
+      url: config.service.take_ptjobUrl,
       header: {
         "content-type": "application/x-www-form-urlencoded"
       },
@@ -35,7 +38,7 @@ Page({
       },
       success: function (res) {
         that.setData({
-          pt_info: res.data.pt_info
+          pt_info: res.data.data.data
         })
       }
     })

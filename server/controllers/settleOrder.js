@@ -54,5 +54,5 @@ module.exports = async ctx => {
   var res4 = await mysql("foodContactInfo").where({ open_id: open_id,default_address:1}).update({default_address:0})
   var res5 = await mysql("foodContactInfo").where({ open_id: open_id,address_id:addr_id}).update({default_address:1})
 
-  ctx.state.data = ret
+  ctx.state.data = res
 }

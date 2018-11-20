@@ -86,6 +86,9 @@ var config = {
 
     //代课接单列表
     take_order_home_substitueteUrl: `${host}/weapp/take_order_home_substituete`,
+
+    //获取兼职列表
+    take_ptjobUrl: `${host}/weapp/take_ptjob`,
   }
 };
 
