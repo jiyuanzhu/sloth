@@ -26,7 +26,7 @@ Page({
       {
         "name": "跑腿",
         "src": "../../images/3.png",
-        "url": "../canteen_select/canteen_select"
+        "url": "../takeLegsworkOrder/takeLegsworkOrder"
       },
       {
         "name": "代课",

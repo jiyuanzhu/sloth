@@ -24,9 +24,9 @@
     "pages/legwork/legwork",
     "pages/ptDetail/ptDetail",
     "pages/takePackageOrder/takePackageOrder",
+    "pages/takeLegsworkOrder/takeLegsworkOrder",
     "pages/myInfo/myInfo"
 
-    
   ],
   "window": {
     "backgroundColor": "#FD6460",
