@@ -13,7 +13,6 @@
     "pages/address_alter/address_alter",
     "pages/My/My",
     "pages/take_order_home/take_order_home",
-    "pages/productList/productList",
     "pages/my_order/my_order",
     "pages/my_take_order/my_take_order",
     "pages/order_info/order_info",
@@ -26,6 +25,7 @@
     "pages/takePackageOrder/takePackageOrder",
     "pages/takeLegsworkOrder/takeLegsworkOrder",
     "pages/takeSubstituteClassOrder/takeSubstituteClassOrder",
+    "pages/takeBreakfastOrder/takeBreakfastOrder",
     "pages/myInfo/myInfo"
   ],
   "window": {

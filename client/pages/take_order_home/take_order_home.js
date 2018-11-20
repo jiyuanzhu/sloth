@@ -16,7 +16,7 @@ Page({
     modules: [{
         "name": "代买早餐",
         "src": "../../images/1.png",
-        "url": "../productList/productList"
+      "url": "../takeBreakfastOrder/takeBreakfastOrder"
       },
       {
         "name": "代拿快递",
@@ -44,19 +44,26 @@ Page({
         "url": "../otherOrder/otherOrder"
       }
     ],
-    order: []
+    order1: [],
+    order2: [],
+    order3: [],
+    order4: []
   },
   onLoad: function(options) {
     var that = this;
     wx.request({
-      url: config.service.take_order_homeUrl,
+      url: 'https://www.easy-mock.com/mock/5bcacf2773057966af1d630b/recommand',
       method: "GET",
       header: {
         "content-type": "application/json"
       },
       success: function(res) {
         that.setData({
-          order: res.data.data.data
+          order1: res.data.data1,
+          order2: res.data.data2,
+          order3: res.data.data3,
+          order4: res.data.data4
+
         });
         // console.log(res.data)
       }

@@ -20,7 +20,7 @@
       <view wx:for="{{sortingList}}" catchtap="selectSorting" data-index="{{index}}" class="sorting-item" hover-class="click-once">{{item.value}}</view>
     </view>
 
-  <!-- 菜单列表 -->
+    <!-- 菜单列表 -->
   </view>
   <view bindtap="hideAllChioce" class="mask" hidden="{{!chioceDistrict&&!chioceSorting}}">
   </view>

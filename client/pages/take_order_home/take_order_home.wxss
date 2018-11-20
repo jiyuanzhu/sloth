@@ -4,6 +4,17 @@
   position: absolute;
   background: rgb(243, 243, 243);
 }
+.shop_address {
+  font-size: 37rpx;
+  margin-left: 20rpx;
+  width: 68%;
+  font-weight: 600;
+}
+.profit {
+  font-size: 37rpx;
+  color: #fd645f;
+  font-weight: 700;
+}
 
 .select_module{
   width: 100%;
