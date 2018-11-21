@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "懒人帮帮"
+  "navigationBarTitleText": "懒人帮帮",
+  "enablePullDownRefresh": true
 }

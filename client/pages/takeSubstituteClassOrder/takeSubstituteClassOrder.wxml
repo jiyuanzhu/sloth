@@ -28,7 +28,7 @@
     <view class='order_recommand_each_item' wx:for="{{order}}" wx:key="order_id">
       <view class='row_1' style="flex-direction:row;">
         <view class='order_type'>{{item.order_type}}</view>
-        <view class='get_pack_addr'>{{item.class_time}}</view>
+        <view class='get_pack_addr'>{{item.class_time}}节课</view>
         <view class='profit'>￥{{item.profit}}</view>
       </view>
       <view class='content_each_row' style="flex-direction:row;">

@@ -114,8 +114,14 @@ Page({
     wx.showToast({
       title: '下单成功',
       icon: 'success',
-      duration: 2000
-    })
+      duration: 1000
+    }),
+      setTimeout(function () {
+      wx.switchTab({
+        url: '../home/home',
+      })
+      }, 1200)
+ 
   },
 
 })

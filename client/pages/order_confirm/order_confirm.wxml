@@ -5,7 +5,8 @@
         <image class='addr_icon' src='./maps-and-flags.png'></image>
         <view class='contact_info' style="flex-direction:column;">
           <view class="cust_addr">
-            {{customer[selected].cust_addr}}
+            {{customer[selected].cust_addr_building}}
+            {{customer[selected].cust_addr_room}}
           </view>
           <view class="cust_name_tel">
             {{customer[selected].cust_name}}  {{customer[selected].cust_phone}}
@@ -79,7 +80,7 @@
                 <view wx:for="{{customer}}" wx:key="addr_id">
                   <view class='each_row' style="flex-direction:row;">
                     <view  bindtap="addrchange" data-id="{{item.addr_id}}"  class="label" style="flex-direction:column;">
-                      <view class="decom">{{item.cust_addr}}</view>
+                      <view class="decom">{{item.cust_addr_building}}  {{item.cust_addr_room}}</view>
                       <view class="personal_info" style="flex-direction:row;">
                         <view class="name">{{item.cust_name}} </view>
                         <view class="phone"> {{item.cust_phone}}</view>

@@ -103,8 +103,8 @@ Page({
               },
               success: function (res) {
                 console.log(item[0].food_order_id)
-                wx.navigateTo({
-                  url: "../order_info/order_info?food_oder_id=" + item[0].food_order_id
+                wx.reLaunch({
+                  url: '../home/home',
                 })
               }
             })

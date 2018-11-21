@@ -37,11 +37,14 @@ module.exports = async ctx => {
     var order_good_num = res1[0].good_order_num
     var open_id = res[i].open_id
     var res3 = await mysql("foodContactInfo").where({ open_id })
-    var order_address
-    if (res3.length != 0)
-      order_address = res3[0].user_address
+    var order_address_building, order_address_room
+    if (res3.length != 0){
+      order_address_building = res3[0].user_address_building
+      order_address_room = res3[0].user_address_room
+    }
     else
       continue
+    var order_address = order_address_building + " " + order_address_room
     var res5
     if (res[i].order_time != undefined)
       res5 = res[i].order_time

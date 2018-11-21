@@ -1,9 +1,28 @@
 const { mysql } = require('../qcloud')
 
 module.exports = async ctx => {
+  var building_arr= [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "c11",
+    "c12",
+    "c13",
+    "c14",
+    "c15"]
   var name = ctx.request.query.cust_name
   var phone = ctx.request.query.cust_phone
-  var addr = ctx.request.query.cust_addr
+  var cust_wechat = ctx.request.query.cust_wechat
+  var cust_addr_building = building_arr[ctx.request.query.cust_addr_building]
+  var cust_addr_room = ctx.request.query.cust_addr_room
+  
   var open_id = ctx.request.query.user_id
   var ret = await mysql("foodContactInfo").where({ open_id})
   var addr_id = (ret.length==0?0:parseInt(ret[ret.length-1].address_id)+1)
@@ -11,7 +30,9 @@ module.exports = async ctx => {
     open_id: open_id,
     user_name :  name,
     user_tel : phone,
-    user_address : addr,
+    user_address_building: cust_addr_building,
+    user_address_room: cust_addr_room,    
+    user_wechat: cust_wechat,
     address_id: addr_id,
     default_address : 0
   }

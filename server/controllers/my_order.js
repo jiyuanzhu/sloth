@@ -54,11 +54,14 @@ module.exports = async ctx => {
         open_id
       })
       //ctx.state.data=res3
-      order_address
-      if (res3.length != 0)
-        order_address = res3[0].user_address
+      var order_address_building, order_address_room
+      if (res3.length != 0) {
+        order_address_building = res3[0].user_address_building
+        order_address_room = res3[0].user_address_room
+      }
       else
-        order_address = "不知道送到哪里"
+        continue
+      var order_address = order_address_building + " " + order_address_room
       var res5
       var res6 = await mysql("foodOrder").where({
         order_id
