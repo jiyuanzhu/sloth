@@ -229,7 +229,7 @@
   position: fixed;
   right: 0;
   background-color: #fd6460;
-  padding: 29rpx 45rpx;
+  padding-top:10rpx;
   color: #404040;
   font-size: 30rpx;
   font-weight: 600;

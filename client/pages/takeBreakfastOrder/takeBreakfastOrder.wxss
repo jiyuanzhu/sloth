@@ -281,7 +281,6 @@
   color: white;
   background-color: #fd6460;
   font-size: 32rpx;
-  padding: 3rpx 12rpx;
-  margin-top: -15rpx;
-  border-radius: 5rpx;
+  margin-left:-20rpx;
+  margin-right: 20rpx;
 }

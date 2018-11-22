@@ -207,7 +207,9 @@ Page({
   },
 
   bindGetUserInfo: function () {
-    if (this.data.logged) return
+    console.log("hi")
+    //if (this.data.logged) return
+    
 
     util.showBusy('正在登录')
 
@@ -246,24 +248,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    console.log(this.data.logged);
-
+    
     var that = this;
-    const session = qcloud.Session.get()
-    if (session) {
-      // 第二次登录
-      // 或者本地已经有登录态
-      // 可使用本函数更新登录态
-      qcloud.loginWithCode({
-        success: res => {
-          that.setData({ userInfo: res, logged: true })
-          console.log('是已经登录的');
-        }
-      })
-    }
 
-    // 试着用easy-mock测试
+    wx.getStorage({
+      key: 'userinfo',
+      success: function(res) {
+        console.log("是已经登陆的")
+        that.setData({
+          logged: true,
+          userInfo: res.data
+        })
+      },
+      fail:function(res){
+        console.log("还没有登陆")
+      }
+    })
+
     // 用店铺id去get数据
     wx.request({
       url: config.service.breakfastMemuUrl + "?id=" + options.canId,

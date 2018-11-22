@@ -5,6 +5,8 @@ var util = require('../../utils/util.js')
 
 Page({
   data: {
+    logged:false,
+    userinfo:[],
     index: 0,
     index1: 0,
     index2: 0,
@@ -22,7 +24,7 @@ Page({
     multiIndex: [0, 0, 0],
   },
   onLoad: function (options) {
-    // 试着用easy-mock测试
+    
     var that = this;
     // 从缓存中得到订单信息
     wx.getStorage({
@@ -31,9 +33,14 @@ Page({
         console.log("读入userinfo")
         console.log(res)
         that.setData({
+          logged:true,
+          userinfo:res.data,
           userId: res.data.openId
         })
       },
+      fail:function(res){
+        console.log("是没有登录的")
+      }
     });
   },
 
@@ -93,6 +100,40 @@ Page({
         })
       }, 1200)
 
+  },
+  bindGetUserInfo: function () {
+    if (this.data.logged) return
+    util.showBusy('正在登录')
+
+    const session = qcloud.Session.get()
+
+    if (session) {
+      // 第二次登录
+      // 或者本地已经有登录态
+      // 可使用本函数更新登录态
+      qcloud.loginWithCode({
+        success: res => {
+          this.setData({ userInfo: res, logged: true })
+          util.showSuccess('登录成功')
+        },
+        fail: err => {
+          console.error(err)
+          util.showModel('登录错误', err.message)
+        }
+      })
+    } else {
+      // 首次登录
+      qcloud.login({
+        success: res => {
+          this.setData({ userInfo: res, logged: true })
+          util.showSuccess('登录成功')
+        },
+        fail: err => {
+          console.error(err)
+          util.showModel('登录错误', err.message)
+        }
+      })
+    }
   },
 
 })

@@ -53,5 +53,5 @@ Page({
         "url": "../otherOrder/otherOrder"
       }
     ]
-  }
+  },
 })

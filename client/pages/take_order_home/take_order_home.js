@@ -7,16 +7,18 @@ var util = require('../../utils/util.js')
 
 Page({
   data: {
+    logged: false,
+    userinfo: [],
     motto: 'Hello World',
     userInfo: {},
-    userId:0,
-    food_order_id:0,
+    userId: 0,
+    food_order_id: 0,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     modules: [{
         "name": "代买早餐",
         "src": "../../images/1.png",
-      "url": "../takeBreakfastOrder/takeBreakfastOrder"
+        "url": "../takeBreakfastOrder/takeBreakfastOrder"
       },
       {
         "name": "代拿快递",
@@ -52,68 +54,94 @@ Page({
   onLoad: function(options) {
     var that = this;
     wx.request({
-      url: config.service.take_order_homeUrl,
-      method: "GET",
-      header: {
-        "content-type": "application/json"
-      },
-      success: function(res) {
-        console.log(res)
-        that.setData({
-          order1: res.data.data.data1,
-          order2: res.data.data.data3,
-          order3: res.data.data.data2,
-          order4: res.data.data.data4
+        url: config.service.take_order_homeUrl,
+        method: "GET",
+        header: {
+          "content-type": "application/json"
+        },
+        success: function(res) {
+          console.log(res)
+          that.setData({
+            order1: res.data.data.data1,
+            order2: res.data.data.data3,
+            order3: res.data.data.data2,
+            order4: res.data.data.data4
 
-        });
-      }
-    }),
+          });
+        }
+      }),
       wx.getStorage({
         key: 'userinfo',
-        success: function (res) {
+        success: function(res) {
           // console.log("读入userinfo")
           // console.log(res)
           that.setData({
+            logged: true,
+            userinfo: res.data,
             userId: res.data.openId
           })
         },
+        fail: function(res) {
+          console.log("还没有登录")
+        }
       });
   },
-  submit_take: function (e) {
-    var that = this;
-    wx.showModal({
-      title: '确认订单',
-      content: '点击确定接受订单',
-      success: function (res) {
-        if (res.confirm) { //这里是点击了确定以后
-          console.log('用户点击确定')
-          console.log(e.currentTarget.dataset.index);
-          var item = that.data.order.splice(e.currentTarget.dataset.index, 1);
-          var data = that.data.order;
-          console.log("item")
-          console.log(item)
-          that.setData({
-            order: data
-          }),
-            wx.request({
-              url: config.service.take_orderUrl + "?food_order_id=" + item[0].food_order_id + "&user_id=" + that.data.userId,
-              method: "GET",
-              header: {
-                "content-type": "application/json"
-              },
-              success: function (res) {
-                console.log(item[0].food_order_id)
-                wx.reLaunch({
-                  url: '../home/home',
-                })
-              }
-            })
 
-        } else { //这里是点击了取消以后
-          console.log('用户点击取消')
+
+  submit_take: function(e) {
+    var that = this;
+    if (!that.data.logged) {
+      wx.showModal({
+        title: '您未登录！',
+        content: '登录体验更多功能',
+        confirmText: '去登录',
+        success: function(res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '../My/My',
+            })
+          }
 
         }
-      }
-    })
+      })
+
+    } else {
+      wx.showModal({
+        title: '确认订单',
+        content: '点击确定接受订单',
+        success: function(res) {
+          if (res.confirm) { //这里是点击了确定以后
+            console.log('用户点击确定')
+            console.log(e.currentTarget.dataset.index);
+            var item = that.data.order.splice(e.currentTarget.dataset.index, 1);
+            var data = that.data.order;
+            console.log("item")
+            console.log(item)
+            that.setData({
+                order: data
+              }),
+              wx.request({
+                url: config.service.take_orderUrl + "?food_order_id=" + item[0].food_order_id + "&user_id=" + that.data.userId,
+                method: "GET",
+                header: {
+                  "content-type": "application/json"
+                },
+                success: function(res) {
+                  console.log(item[0].food_order_id)
+                  wx.reLaunch({
+                    url: '../home/home',
+                  })
+                }
+              })
+
+          } else { //这里是点击了取消以后
+            console.log('用户点击取消')
+
+          }
+        }
+      })
+
+    }
+
   }
 })
