@@ -57,9 +57,6 @@ var config = {
     //接单
     take_orderUrl: `${host}/weapp/take_order`,
 
-    //订单详情
-    order_infoUrl: `${host}/weapp/order_info`,
-
     //更改订单状态
     state_changeUrl: `${host}/weapp/state_change`,
 
@@ -89,6 +86,19 @@ var config = {
 
     //获取兼职列表
     take_ptjobUrl: `${host}/weapp/take_ptjob`,
+
+    //早餐订单详情
+    order_info_breakfastUrl: `${host}/weapp/order_info_breakfast`,
+
+    //快递订单详情
+    order_info_packageUrl: `${host}/weapp/order_info_package`,
+
+    //跑腿订单详情
+    order_info_legworkUrl: `${host}/weapp/order_info_legwork`,
+
+    //代课订单详情
+    order_info_substituteUrl: `${host}/weapp/order_info_substitute`,
+
   }
 };
 

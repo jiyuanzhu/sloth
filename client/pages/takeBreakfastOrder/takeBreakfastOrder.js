@@ -1,4 +1,4 @@
-var app = getApp();
+const app = getApp();
 var config = require('../../config');
 var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var util = require('../../utils/util.js')
@@ -53,20 +53,50 @@ Page({
     }],
     sortingList: [{
       key: 1,
-      value: "华工二饭三楼肠粉"
+      value: "穗石村小早餐饮"
     }, {
       key: 2,
-      value: "华工二饭三楼包子"
+      value: "二饭一楼各类特色餐点"
     }, {
       key: 3,
-      value: "华工二饭三楼酸辣粉"
+      value: "二饭特色炒粉和和包点"
     }, {
       key: 4,
-      value: "华工一饭一楼"
+      value: "二饭三楼重庆小面各类汤粉"
     }, {
       key: 5,
+      value: "广式拉肠"
+    }, {
+      key: 6,
+      value: "各类鲜肉云吞面"
+    }, {
+      key: 7,
+      value: "粤式早点应有尽有"
+    }, {
+      key: 8,
+      value: "煎饼"
+    }, {
+      key: 9,
       value: "全部"
     }],
+    // 楼栋的映射
+    dormitory:[
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9",
+      "C10",
+      "c11",
+      "c12",
+      "c13",
+      "c14",
+      "c15",
+    ],
     chioceDistrict: false,
     chioceSorting: false,
     activeDistrictIndex: -1,
@@ -74,7 +104,9 @@ Page({
     scrollTop: 0,
     scrollIntoView: 0,
     activeSortingIndex: -1,
-    activeSortingName: "购买店铺"
+    activeSortingName: "购买店铺",
+    district_all:false,
+    sorting_all:false
   },
   onLoad: function (options) {
     var that = this;
@@ -202,11 +234,19 @@ Page({
       chioceDistrict: false,
       activeDistrictIndex: index,
       activeDistrictName: this.data.districtList[index].value,
+      district_all:(this.data.districtList[index].value != '全部'),
       productList: [],
       pageIndex: 1,
       loadOver: false,
-      isLoading: true
+      isLoading: true,
+      
     })
+    console.log( this.data.district_all);
+    console.log(this.data.activeDistrictName);
+    console.log(this.data.activeDistrictName != '全部');
+    console.log(this.data.order);
+    console.log(this.data.activeDistrictIndex);
+    console.log()
     //this.getProductList();
   },
   //综合排序
@@ -216,6 +256,7 @@ Page({
       chioceSorting: false,
       activeSortingIndex: index,
       activeSortingName: this.data.sortingList[index].value,
+      sorting_all:( this.data.sortingList[index].value != '全部'),
       productList: [],
       pageIndex: 1,
       loadOver: false,
@@ -229,9 +270,7 @@ Page({
       title: '确认订单',
       content: '点击确定接受订单',
       success: function (res) {
-        if (res.confirm) { //这里是点击了确定以后
-          // console.log('用户点击确定')
-          // console.log(e.currentTarget.dataset.index)
+        if (res.confirm) { 
           var item = that.data.order.splice(e.currentTarget.dataset.index, 1);
           var data = that.data.order;
           // console.log("item")
@@ -248,7 +287,7 @@ Page({
               success: function (res) {
                 console.log(res)
                 wx.navigateTo({
-                  url: "../order_info/order_info?food_order_id=" + item[0].order_id
+                  url: "../InfoBreakfast/InfoBreakfast?order_id=" + item[0].order_id
                 })
               }
             })

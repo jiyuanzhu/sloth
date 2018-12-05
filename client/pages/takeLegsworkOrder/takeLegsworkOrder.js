@@ -4,49 +4,69 @@ var config = require('../../config')
 var util = require('../../utils/util.js')
 Page({
   data: {
-    logged:false,
-    userinfo:[],
+    logged: false,
+    userinfo: [],
     typeID: 0,
     isLoading: true,
     loadOver: false,
     order: [],
     districtList: [{
       key: 1,
-      value: "南校"
+      value: "校内跑腿"
     }, {
       key: 2,
-      value: "北校"
-    }],
+      value: "代购"
+    }, {
+      key: 3,
+      value: "全部"
+    }, ],
     sortingList: [{
       key: 1,
-      value: "南校"
+      value: "文件"
     }, {
       key: 2,
-      value: "北校"
-    }],
+      value: "钥匙"
+    }, {
+      key: 3,
+      value: "充电宝"
+    }, {
+      key: 4,
+      value: "手机"
+    }, {
+      key: 5,
+      value: "鲜花"
+    }, {
+      key: 6,
+      value: "其他"
+    }, {
+      key: 7,
+      value: "全部"
+    }, ],
     chioceDistrict: false,
     chioceSorting: false,
     activeDistrictIndex: -1,
-    activeDistrictName: "起点",
+    activeDistrictName: "跑腿类型",
     scrollTop: 0,
     scrollIntoView: 0,
     activeSortingIndex: -1,
-    activeSortingName: "目的地"
+    activeSortingName: "物品类型",
+    district_all: false,
+    sorting_all: false
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this;
     wx.getStorage({
       key: 'userinfo',
-      success: function (res) {
+      success: function(res) {
         // console.log("读入userinfo")
         // console.log(res)
         that.setData({
-          logged:false,
-          userinfo:res.data,
+          logged: false,
+          userinfo: res.data,
           userId: res.data.openId
         })
       },
-      fail:function(res){
+      fail: function(res) {
         console.log("还没有登录")
       }
     });
@@ -56,11 +76,11 @@ Page({
       header: {
         "content-type": "application/json"
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
           order: res.data.data.data
         });
-         console.log(res.data)
+        console.log(res.data)
       }
     })
   },
@@ -96,7 +116,7 @@ Page({
           });
         } else {
           this.setData({
-           
+
             chioceDistrict: true,
             chioceSorting: false,
             chioceFilter: false,
@@ -106,14 +126,14 @@ Page({
       case "2":
         if (this.data.chioceSorting) {
           this.setData({
-            
+
             chioceDistrict: false,
             chioceSorting: false,
             chioceFilter: false,
           });
         } else {
           this.setData({
-           
+
             chioceDistrict: false,
             chioceSorting: true,
             chioceFilter: false,
@@ -124,7 +144,7 @@ Page({
   },
   hideAllChioce: function() {
     this.setData({
-     
+
       chioceDistrict: false,
       chioceSorting: false,
       chioceFilter: false,
@@ -155,10 +175,11 @@ Page({
   districtSorting: function(e) {
     var index = e.currentTarget.dataset.index;
     this.setData({
-      
+
       chioceDistrict: false,
       activeDistrictIndex: index,
       activeDistrictName: this.data.districtList[index].value,
+      district_all: (this.data.districtList[index].value != '全部'),
       productList: [],
       pageIndex: 1,
       loadOver: false,
@@ -173,11 +194,18 @@ Page({
       chioceSorting: false,
       activeSortingIndex: index,
       activeSortingName: this.data.sortingList[index].value,
+      sorting_all: (this.data.sortingList[index].value != '全部'),
       productList: [],
       pageIndex: 1,
       loadOver: false,
       isLoading: true
     })
+    console.log(this.data.sorting_all);
+    console.log(this.data.activeSortingName);
+    console.log(this.data.activeSortingName != '全部');
+    console.log(this.data.order);
+    console.log(this.data.activeSortingName);
+    console.log()
     //this.getProductList();
   },
   submit_take: function (e) {
@@ -197,14 +225,14 @@ Page({
             order: data
           }),
             wx.request({
-            url: config.service.take_orderUrl + "?order_id=" + item[0].order_id + "&user_id=" + that.data.userId + "&order_type=3",
+              url: config.service.take_orderUrl + "?order_id=" + item[0].order_id + "&user_id=" + that.data.userId + "&order_type=4",
               method: "GET",
               header: {
                 "content-type": "application/json"
               },
               success: function (res) {
                 wx.navigateTo({
-                  url: "../order_info/order_info?food_order_id=" + item[0].food_order_id
+                  url: "../InfoSubstitute/InfoSubstitute?order_id=" + item[0].order_id
                 })
               }
             })
@@ -250,5 +278,4 @@ Page({
       })
     }
   }
-
 })
